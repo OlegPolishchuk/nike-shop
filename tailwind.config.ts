@@ -21,6 +21,11 @@ const config: Config = {
         light: '#fff',
         'pr-hover': '#757575',
       },
+
+      fontFamily: {
+        helvetica: ['Helvetica', 'sans-serif'],
+        nike: ['Nike', 'sans-serif'],
+      },
     },
   },
   plugins: [],

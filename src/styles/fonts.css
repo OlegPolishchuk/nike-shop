@@ -1,23 +1,43 @@
 @font-face {
-  font-family: 'Nike Futura';
-  src: url("../../public/fonts/Nike_Futura/Futura Std Book.ttf") format('ttf');
+  font-display: swap;
+  font-family: 'Nike';
+  src: url("../../public/fonts/Nike_Futura/Futura Std Book.ttf") format('truetype');
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'Nike Futura';
-  src: url("../../public/fonts/Nike_Futura/Futura Bold.ttf") format('ttf');
+  font-display: swap;
+  font-family: 'Nike';
+  src: url("../../public/fonts/Nike_Futura/Futura Bold.ttf") format('truetype');
   font-weight: bold;
 }
 
 @font-face {
-  font-family: 'Nike Futura';
-  src: url("../../public/fonts/Nike_Futura/Futura Light.ttf") format('ttf');
+  font-display: swap;
+  font-family: 'Nike';
+  src: url("../../public/fonts/Nike_Futura/Futura Light.ttf") format('truetype');
   font-weight: 300;
 }
 
 @font-face {
-  font-family: 'Nike Futura';
-  src: url("../../public/fonts/Nike_Futura/Futura Heavy.ttf") format('ttf');
+  font-display: swap;
+  font-family: 'Nike';
+  src: url("../../public/fonts/Nike_Futura/Futura Heavy.ttf") format('truetype');
   font-weight: 900;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../public/fonts/helvetica/helvetica-roman.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Helvetica';
+  src: url('../../public/fonts/helvetica/helvetica-bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
 }
