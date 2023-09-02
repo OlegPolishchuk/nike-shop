@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Nike Futura';
+  src: url("../../public/fonts/Nike_Futura/Futura Std Book.ttf") format('ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Nike Futura';
+  src: url("../../public/fonts/Nike_Futura/Futura Bold.ttf") format('ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Nike Futura';
+  src: url("../../public/fonts/Nike_Futura/Futura Light.ttf") format('ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Nike Futura';
+  src: url("../../public/fonts/Nike_Futura/Futura Heavy.ttf") format('ttf');
+  font-weight: 900;
+}

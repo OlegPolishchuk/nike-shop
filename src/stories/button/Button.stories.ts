@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button, ButtonProps } from '@/common/ui';
+import { Button } from '@/common/ui';
 
 const meta = {
   title: 'Ui/button',
@@ -23,6 +23,7 @@ export const Contained: Story = {
   args: {
     children: 'Button',
     variant: 'contained',
+    size: 'md',
   },
 };
 
@@ -30,5 +31,6 @@ export const Outlined: Story = {
   args: {
     children: 'Button',
     variant: 'outlined',
+    size: 'md',
   },
 };
