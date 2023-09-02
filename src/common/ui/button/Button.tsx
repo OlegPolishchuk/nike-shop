@@ -23,7 +23,8 @@ export const Button = ({
   size = 'sm',
   ...props
 }: ButtonProps) => {
-  const className = 'content-center w-full rounded-full align-middle text-sm border-[1.5px]';
+  const className =
+    'flex justify-center items-center gap-2 content-center w-full rounded-full align-middle text-sm border-[1.5px]';
   const containedClassName =
     'border-primary bg-primary text-light font-semibold hover:bg-pr-hover border-pr-hover';
   const outlinedClassName = 'border-secondary bg-light text-primary hover:border-primary bg-light';

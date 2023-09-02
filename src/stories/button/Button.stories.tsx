@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '@/common/ui';
+import { Button, LikeIcon } from '@/common/ui';
 
 const meta = {
   title: 'Ui/button',
@@ -12,7 +12,7 @@ const meta = {
 
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {},
+  args: { size: 'sm' },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -31,6 +31,21 @@ export const Outlined: Story = {
   args: {
     children: 'Button',
     variant: 'outlined',
-    size: 'md',
+  },
+};
+
+export const ButtonWithStartIcon: Story = {
+  args: {
+    children: 'Start Icon',
+    variant: 'outlined',
+    startIcon: <LikeIcon className={'max-h-[16px]'} />,
+  },
+};
+
+export const ButtonWithEndIcon: Story = {
+  args: {
+    children: 'Button',
+    variant: 'outlined',
+    endIcon: <LikeIcon className={'max-h-[16px]'} />,
   },
 };

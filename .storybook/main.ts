@@ -24,7 +24,9 @@ const config: StorybookConfig = {
       config.resolve.alias = {
         ...config.resolve.alias,
         '@/*' : path.resolve(__dirname, '../src/*'),
-        '@/common/ui': path.resolve(__dirname, '../src/common/ui')
+        '@/common/ui': path.resolve(__dirname, '../src/common/ui'),
+        '@/public/images': path.resolve(__dirname, '../public/images/*'),
+        '@/components/layouts': path.resolve(__dirname, '../src/components/layouts'),
       }
     }
 
