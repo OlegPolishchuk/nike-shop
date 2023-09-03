@@ -23,7 +23,7 @@ export const NavList = () => {
               href={route.href}
               className={'mx-[8px] flex h-[34px] items-center hover:text-gray-300'}
             >
-              <Typography tag={'span'} variant={'body-2'}>
+              <Typography tag={'span'} variant={'body-3'}>
                 {route.title}
               </Typography>
             </Link>

@@ -10,7 +10,7 @@ export const NikeIcon = (props: ComponentPropsWithRef<'svg'>) => {
       role='img'
       width='24px'
       height='24px'
-      fill='none'
+      fill='#111'
       {...props}
     >
       <path

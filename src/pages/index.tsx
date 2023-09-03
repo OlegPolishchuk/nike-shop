@@ -1,5 +1,10 @@
-import { PreHeader } from '@/components';
+import { PreHeader, Header } from '@/components';
 
 export default function Home() {
-  return <PreHeader />;
+  return (
+    <>
+      <PreHeader />
+      <Header />
+    </>
+  );
 }

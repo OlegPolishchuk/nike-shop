@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { PreHeader as PreHeaderComponent } from '@/components/layouts';
+import { PreHeader as PreHeaderComponent } from '@/components';
 
 const meta = {
-  title: 'Ui/layouts',
+  title: 'layouts/pre header',
   component: PreHeaderComponent,
   tags: ['autodocs'],
 } satisfies Meta<typeof PreHeaderComponent>;

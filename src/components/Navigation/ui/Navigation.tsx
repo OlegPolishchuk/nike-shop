@@ -1,9 +1,19 @@
 import React from 'react';
 
-export const Navigation = () => {
-  return <div></div>;
-};
+import { navigationData } from '../constants/navigationData';
 
-Navigation.NavItem = ({ children }: { children: React.ReactNode }) => {
-  return { children };
+import { ItemNav } from './components/NavItem';
+
+interface Props {
+  className?: string;
+}
+
+export const Navigation = ({ className }: Props) => {
+  return (
+    <nav className={`flex items-center ${className}`}>
+      {navigationData.map((navItem) => (
+        <ItemNav key={navItem.title} navItem={navItem} />
+      ))}
+    </nav>
+  );
 };

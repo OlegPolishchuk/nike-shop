@@ -2,7 +2,7 @@ import type {StorybookConfig} from "@storybook/nextjs";
 import * as path from "path";
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)", "../src/**/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -26,7 +26,7 @@ const config: StorybookConfig = {
         '@/*' : path.resolve(__dirname, '../src/*'),
         '@/common/ui': path.resolve(__dirname, '../src/common/ui'),
         '@/public/images': path.resolve(__dirname, '../public/images/*'),
-        '@/components/layouts': path.resolve(__dirname, '../src/components/layouts'),
+        '@/components': path.resolve(__dirname, '../src/components')
       }
     }
 

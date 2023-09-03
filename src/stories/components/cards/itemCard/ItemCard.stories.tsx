@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import ItemCardImg from '../../../../public/images/card_item_img.webp';
+import ItemCardImg from '../../../assets/images/card_item_img.webp';
 
 import { ItemCard } from '@/common/ui';
 // import ItemCardImg from '@/public/images/card_item_img.webp';
 
 const meta = {
-  title: 'Ui/cards',
+  title: 'Components/cards',
   component: ItemCard,
   tags: ['autodocs'],
   args: {

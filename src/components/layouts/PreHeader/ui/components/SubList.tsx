@@ -26,9 +26,9 @@ export const SubList = ({ sublist, title }: Props) => {
           <Link
             href={sublink.href}
             key={index}
-            className={'text-black-200 hover:text-black-100 py-[4px] text-[14px]'}
+            className={'py-[4px] text-black-200 hover:text-black-100'}
           >
-            <Typography tag={'span'} variant={'body-2'}>
+            <Typography tag={'span'} variant={'body-2'} className={'text-[14px]'}>
               {sublink.title}
             </Typography>
           </Link>

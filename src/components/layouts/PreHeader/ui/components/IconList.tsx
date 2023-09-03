@@ -8,13 +8,13 @@ export const IconList = () => {
   return (
     <ul className={'flex'}>
       <li className={''}>
-        <Link href={''} className={'hover:fill-black-200 flex w-full px-[12px]'}>
+        <Link href={''} className={'flex w-full px-[12px] hover:fill-black-200'}>
           <JordanIcon className={'fill-inherit'} />
         </Link>
       </li>
 
       <li className={''}>
-        <Link href={''} className={'hover:fill-black-200 flex w-full px-[12px]'}>
+        <Link href={''} className={'flex w-full px-[12px] hover:fill-black-200'}>
           <ConverseIcon className={'fill-inherit'} />
         </Link>
       </li>
