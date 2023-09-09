@@ -17,7 +17,7 @@ export const NavList = () => {
         return (
           <div
             key={route.title}
-            className={'group/sublist relative flex items-center pr-[2px] text-[12px]'}
+            className={'group/sublist flex items-center pr-[2px] text-[12px] sm:relative'}
           >
             <Link
               href={route.href}
