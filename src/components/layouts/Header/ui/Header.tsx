@@ -19,10 +19,10 @@ export const Header = () => {
           </div>
 
           <div className={'flex grow justify-end'}>
-            <Navigation className={'mr-[5%] lg:mr-[15%]'} />
+            <Navigation className={'mr-[5%] lg:mr-[30%]'} />
           </div>
 
-          <div className={'flex gap-2'}>
+          <div className={'flex items-center gap-2'}>
             <SearchInput />
             <LikeButton />
             <CartButton />
@@ -35,7 +35,7 @@ export const Header = () => {
           </div>
 
           <div className={'flex items-center gap-4'}>
-            <SearchButton />
+            {/*<SearchButton />*/}
             <CartButton />
             <UserButton />
             <MobileNavigation />
