@@ -9,3 +9,7 @@ export * from './TwitterIcon';
 export * from './FacebookIcon';
 export * from './YoutubeIcon';
 export * from './InstagramIcon';
+export * from './MenuIcon';
+export * from './CloseIcon';
+export * from './UserIcon';
+export * from './NavArrowIcon';

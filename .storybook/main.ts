@@ -26,7 +26,8 @@ const config: StorybookConfig = {
         '@/*' : path.resolve(__dirname, '../src/*'),
         '@/common/ui': path.resolve(__dirname, '../src/common/ui'),
         '@/public/images': path.resolve(__dirname, '../public/images/*'),
-        '@/components': path.resolve(__dirname, '../src/components')
+        '@/components': path.resolve(__dirname, '../src/components'),
+        '@/common/hooks': path.resolve(__dirname, '../src/common/hooks')
       }
     }
 
