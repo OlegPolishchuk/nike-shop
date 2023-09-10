@@ -1,3 +1,4 @@
 export { Header, PreHeader } from './layouts';
-export { SearchInput } from './SearchInput';
+export { SearchInput } from './searchInput';
 export { Navigation, MobileNavigation } from './Navigation';
+export { Banner } from './banner/';

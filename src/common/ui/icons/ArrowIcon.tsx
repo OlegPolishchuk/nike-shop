@@ -5,8 +5,8 @@ export const ArrowIcon = (props: ComponentPropsWithRef<'svg'>) => {
     <svg
       aria-hidden='true'
       fill='#111'
-      height='30px'
-      width='30px'
+      height='24px'
+      width='24px'
       viewBox='0 0 185.4 300'
       {...props}
     >

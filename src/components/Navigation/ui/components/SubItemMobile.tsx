@@ -19,7 +19,7 @@ export const SubItemMobile = ({ sublist, className, onHide }: Props) => {
   return (
     <div
       className={clsx(
-        'fixed right-0 top-0 z-20 h-full w-[100%] translate-x-[100%] overflow-y-auto bg-white px-[30px] [transition:all_.2s_.1s]',
+        'fixed right-0 top-0 z-20 h-full w-[100%] overflow-y-auto bg-white px-[30px] [transition:all_.2s_.1s]',
         className && className,
       )}
     >

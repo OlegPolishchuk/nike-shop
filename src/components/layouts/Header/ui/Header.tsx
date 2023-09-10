@@ -10,7 +10,7 @@ export const Header = () => {
 
   return (
     <header
-      className={'relative flex h-[60px] items-center justify-between px-[14px] sm:px-[36px]'}
+      className={'relative z-20 flex h-[60px] items-center justify-between px-[14px] sm:px-[36px]'}
     >
       {isLargeScreen ? (
         <>
@@ -19,7 +19,7 @@ export const Header = () => {
           </div>
 
           <div className={'flex grow justify-end'}>
-            <Navigation className={'mr-[5%] lg:mr-[30%]'} />
+            <Navigation className={'md:mr-[30%] lg:mr-[35%]'} />
           </div>
 
           <div className={'flex items-center gap-2'}>

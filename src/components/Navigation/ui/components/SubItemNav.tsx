@@ -13,7 +13,7 @@ export const SubItemNav = ({ sublist }: Props) => {
   return (
     <div
       className={
-        'invisible absolute left-0 right-0 top-[60px] flex max-h-[800px] origin-top scale-y-0 justify-center bg-gray-100 p-[40px] pt-[16px] opacity-0  [transition:opacity_.2s,visibility_.2s,transform_.2s] group-hover/subNav:visible group-hover/subNav:scale-y-100 group-hover/subNav:opacity-100'
+        'z-100 invisible absolute left-0 right-0 top-[60px] flex max-h-[800px] origin-top scale-y-0 justify-center bg-light p-[40px] pt-[16px] opacity-0  [transition:opacity_.2s,visibility_.2s,transform_.2s] group-hover/subNav:visible group-hover/subNav:scale-y-100 group-hover/subNav:opacity-100'
       }
     >
       {sublist.map((subItem, index) => (

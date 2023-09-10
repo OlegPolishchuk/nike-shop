@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 
 import { SubItemMobile } from './SubItemMobile';
 
-import { Typography } from '@/common/ui';
-import { NavArrowButton } from '@/components/buttons';
+import { ArrowIcon, Typography } from '@/common/ui';
 import { NavItem } from '@/components/Navigation/types/types';
 
 interface Props {
@@ -11,17 +10,20 @@ interface Props {
   navItem: NavItem;
 }
 
+const showClassName = 'translate-x-0';
+const hideClassName = 'translate-x-[100%]';
+
 export const NavItemMobile = ({ navItem, className }: Props) => {
   const { sublist, href, title } = navItem;
 
-  const [subItemClassName, setSubItemClassName] = useState('');
+  const [subItemClassName, setSubItemClassName] = useState(hideClassName);
 
   const handleShowSubItem = () => {
-    setSubItemClassName('translate-x-0');
+    setSubItemClassName(showClassName);
   };
 
   const handleHideSubItem = () => {
-    setSubItemClassName('');
+    setSubItemClassName(hideClassName);
   };
 
   return (
@@ -34,7 +36,7 @@ export const NavItemMobile = ({ navItem, className }: Props) => {
           {title}
         </Typography>
 
-        {sublist && <NavArrowButton onCLick={handleShowSubItem} />}
+        {sublist && <ArrowIcon className={'h-[16px] w-[16px] fill-gray-300 font-normal'} />}
       </button>
 
       {sublist && (
