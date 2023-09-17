@@ -5,3 +5,4 @@ export { MenuButton } from './MenuButton/MenuButton';
 export { UserButton } from './UserButton/UserButton';
 export { CloseButton } from './CloseButton/CloseButton';
 export { NavArrowButton } from './NavArrowButton/NavArrowButton';
+export { SliderLeftButton, SliderRightButton } from './CarouselButtons';

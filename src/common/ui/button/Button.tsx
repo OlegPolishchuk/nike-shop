@@ -26,7 +26,7 @@ export const Button = ({
   const className =
     'flex justify-center items-center gap-2 content-center w-full rounded-full align-middle text-sm border-[1.5px]';
   const containedClassName =
-    'border-primary bg-primary text-light font-semibold hover:bg-pr-hover border-pr-hover';
+    'border-primary bg-primary text-light font-semibold hover:bg-black-200 border-black-200';
   const outlinedClassName = 'border-secondary bg-light text-primary hover:border-primary bg-light';
 
   const sizeDefaultClassName = 'py-[6px] px-[20px]';

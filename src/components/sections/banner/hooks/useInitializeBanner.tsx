@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { bannerData } from '../constants/bannerData';
 
-const BANNER_INTERVAL = 6000;
+const BANNER_INTERVAL = 3000;
 
 export const useInitializeBanner = () => {
   const [index, setIndex] = useState(0);

@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-import { Banner, PreHeader } from '@/components';
+import { Banner, ItemCardCarousel, MainTitle, PreHeader, VideoBanner } from '@/components';
 
 const Header = dynamic(() => import('../components').then((mode) => mode.Header), { ssr: false });
 
@@ -10,7 +10,13 @@ export default function Home() {
       <PreHeader />
       <Header />
 
-      <Banner />
+      <Banner className={'mb-[48px]'} />
+
+      <VideoBanner />
+
+      <MainTitle />
+
+      <ItemCardCarousel />
     </>
   );
 }

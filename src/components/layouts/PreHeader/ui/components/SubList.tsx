@@ -14,7 +14,7 @@ export const SubList = ({ sublist, title }: Props) => {
   return (
     <div
       className={
-        'invisible absolute right-0 top-[64px] z-10 w-full min-w-[240px] translate-y-[-20px] bg-light px-[16px] py-[24px] opacity-0 [transition:opacity_.2s,visibility_.1s,transform_.25s] group-hover/sublist:visible  group-hover/sublist:translate-y-0 group-hover/sublist:opacity-100 sm:right-0 sm:top-[34px]'
+        'invisible absolute right-0 top-[64px] z-30 w-full min-w-[240px] translate-y-[-20px] bg-light px-[16px] py-[24px] opacity-0 [transition:opacity_.2s,visibility_.1s,transform_.25s] group-hover/sublist:visible  group-hover/sublist:translate-y-0 group-hover/sublist:opacity-100 sm:right-0 sm:top-[34px]'
       }
     >
       <Typography variant={'body-1'} className={'mb-[14px] text-[16px]'}>

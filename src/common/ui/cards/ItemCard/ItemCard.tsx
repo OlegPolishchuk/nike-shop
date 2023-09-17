@@ -1,5 +1,6 @@
 import React from 'react';
 
+import clsx from 'clsx';
 import Image, { StaticImageData } from 'next/image';
 
 import { Typography } from '@/common/ui';
@@ -9,12 +10,25 @@ interface Props {
   title: string;
   price: string;
   category: string;
+  size?: 'medium' | 'small' | 'large';
 }
 
-export const ItemCard = ({ imgSrc, category, price, title }: Props) => {
+const sizesClassName = {
+  medium: 'w-full min-w-[350px] sm:min-w-[400px] sm:max-w-[400px]',
+  large: 'w-full min-w-[350px] sm:min-w-[400px] sm:max-w-[400px]',
+  small: 'w-full min-w-[300px] sm:w-full sm:max-w-[400px]',
+};
+
+export const ItemCard = ({ imgSrc, category, price, title, size = 'large' }: Props) => {
   return (
-    <div className={'min-h-[300px] min-w-[300px] max-w-[500px]'}>
-      <div className={'relative mb-[12px] aspect-square min-h-[300px]'}>
+    <div className={''}>
+      <div
+        className={clsx(
+          'relative mb-[12px]',
+          sizesClassName[size],
+          size === 'medium' ? 'aspect-video' : 'aspect-square',
+        )}
+      >
         <Image src={imgSrc} alt={title} fill priority />
       </div>
 

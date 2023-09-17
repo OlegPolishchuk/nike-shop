@@ -7,7 +7,7 @@ interface Props extends ComponentPropsWithRef<'button'> {
 export const IconButton = ({ icon, className, ...restProps }: Props) => {
   return (
     <button
-      className={`flex h-fit items-center justify-center rounded-full p-[6px] hover:bg-gray-200 ${className}`}
+      className={`flex items-center justify-center rounded-full p-[6px] hover:bg-gray-200 ${className}`}
       {...restProps}
     >
       {icon}

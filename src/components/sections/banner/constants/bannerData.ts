@@ -1,4 +1,4 @@
-import { BannerItem } from '@/components/banner/type/types';
+import { BannerItem } from '../type/types';
 
 export const bannerData: BannerItem[] = [
   {
