@@ -13,3 +13,4 @@ export * from './MenuIcon';
 export * from './CloseIcon';
 export * from './UserIcon';
 export * from './NavArrowIcon';
+export * from './PointIcon';

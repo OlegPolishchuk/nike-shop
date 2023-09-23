@@ -4,7 +4,7 @@ export const bannerData: BannerItem[] = [
   {
     id: 1,
     title: 'New Markdowns: Up to 40% Off',
-    link: 'Shop just-reduced styles—no code needed.',
+    link: 'Shop just-reduced styles—no code needed',
     href: '/',
   },
   {
@@ -22,13 +22,13 @@ export const bannerData: BannerItem[] = [
   {
     id: 4,
     title: 'Earn $75 with a New Apple Card Account',
-    link: 'Learn more.',
+    link: 'Learn more',
     href: '/',
   },
   {
     id: 5,
     title: 'Why Wait? Try Store Pickup',
-    link: 'Shop now.',
+    link: 'Shop now',
     href: '/',
   },
 ];

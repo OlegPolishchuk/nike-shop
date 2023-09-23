@@ -1,6 +1,14 @@
 import dynamic from 'next/dynamic';
 
-import { Banner, ItemCardCarousel, MainTitle, PreHeader, VideoBanner } from '@/components';
+import {
+  Banner,
+  Footer,
+  ItemCardCarousel,
+  MainTitle,
+  Membership,
+  PreHeader,
+  VideoBanner,
+} from '@/components';
 
 const Header = dynamic(() => import('../components').then((mode) => mode.Header), { ssr: false });
 
@@ -17,6 +25,10 @@ export default function Home() {
       <MainTitle />
 
       <ItemCardCarousel />
+
+      <Membership />
+
+      <Footer />
     </>
   );
 }

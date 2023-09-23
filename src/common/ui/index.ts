@@ -5,3 +5,4 @@ export * from './cards';
 export * from './logo/Logo';
 export * from './IconButton/IconButton';
 export * from './portal/Portal';
+export * from './socialLink/SocialLink';
