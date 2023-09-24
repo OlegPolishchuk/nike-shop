@@ -13,10 +13,10 @@ type BannerData = GetSectionBannerQuery['bannerSection']['data']['attributes'];
 
 interface Props {
   className?: string;
-  data: BannerData;
+  data?: BannerData;
 }
 
-export const Banner = ({ className, data }: Props) => {
+export const Banner = ({ className }: Props) => {
   const { translateUl } = useInitializeBanner();
 
   return (
