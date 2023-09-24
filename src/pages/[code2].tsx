@@ -78,11 +78,15 @@ export default function Home({
       <PreHeader />
       <Header />
 
-      <Banner data={bannerSection.data.attributes} className={'mb-[48px]'} />
+      {bannerSection.data.attributes && (
+        <Banner data={bannerSection.data.attributes} className={'mb-[48px]'} />
+      )}
 
-      <VideoBanner videoBannerData={sectionMainTitle.data.attributes.Video.data.attributes} />
+      {sectionMainTitle.data.attributes.Video && (
+        <VideoBanner videoBannerData={sectionMainTitle.data.attributes.Video.data.attributes} />
+      )}
 
-      <MainTitle data={sectionMainTitle.data.attributes} />
+      {sectionMainTitle.data.attributes && <MainTitle data={sectionMainTitle.data.attributes} />}
 
       <ItemCardCarousel />
 
