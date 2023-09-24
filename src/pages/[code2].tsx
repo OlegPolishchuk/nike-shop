@@ -43,15 +43,21 @@ export const getStaticProps: GetStaticProps<{
     locale,
   });
 
+  console.log('pageHome =', pageHome);
+
   const { sectionMainTitle } = await gql.getSectionMainTitle({
     id: pageHome.data.attributes.section_main_title.data.id,
     locale,
   });
 
+  console.log('sectionMainTitle =', sectionMainTitle);
+
   const { bannerSection } = await gql.getSectionBanner({
     id: pageHome.data.attributes.banner_section.data.id,
     locale,
   });
+
+  console.log('bannerSection =', bannerSection);
 
   return {
     props: {
