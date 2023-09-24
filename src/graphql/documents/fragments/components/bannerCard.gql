@@ -1,0 +1,5 @@
+fragment BannerCard on ComponentUiBannerCard {
+  id
+  Title
+  description
+}

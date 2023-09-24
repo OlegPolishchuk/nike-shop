@@ -1,0 +1,14 @@
+fragment FigureFragment on ComponentUiFigure {
+  id
+  caption
+  LinkButton {
+    ...ButtonFragment
+  }
+  image {
+    data {
+      attributes {
+        ...FileFragment
+      }
+    }
+  }
+}

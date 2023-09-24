@@ -1,0 +1,19 @@
+fragment SectionMainTitleFragment on SectionMainTitle {
+    MainTitle
+    SubTitle
+    Video {
+        data {
+            attributes {
+                ...FileFragment
+            }
+        }
+    }
+    ShowCollectionLinkButton {
+        ...ButtonFragment
+    }
+    WatchLinkButton {
+        ...ButtonFragment
+    }
+    Title
+    publishedAt
+}

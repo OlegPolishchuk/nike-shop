@@ -7,12 +7,16 @@ import { bannerData } from '../constants/bannerData';
 import { useInitializeBanner } from '../hooks/useInitializeBanner';
 
 import { Typography } from '@/common/ui';
+import { GetSectionBannerQuery } from '@/graphql/__generated__';
+
+type BannerData = GetSectionBannerQuery['bannerSection']['data']['attributes'];
 
 interface Props {
   className?: string;
+  data: BannerData;
 }
 
-export const Banner = ({ className }: Props) => {
+export const Banner = ({ className, data }: Props) => {
   const { translateUl } = useInitializeBanner();
 
   return (
