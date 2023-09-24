@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps<{
   const { code2 } = params as { code2: string };
   const { countries } = await gql.getCountries();
   const country = countries.data.find((country) => country.attributes.code2 === code2);
-
+  console.log('country =', country);
   if (!country) {
     return {
       redirect: {
@@ -46,14 +46,14 @@ export const getStaticProps: GetStaticProps<{
   console.log('pageHome =', pageHome);
 
   const { sectionMainTitle } = await gql.getSectionMainTitle({
-    id: pageHome.data.attributes.section_main_title.data.id,
+    id: pageHome.data.attributes.section_main_title?.data.id,
     locale,
   });
 
   console.log('sectionMainTitle =', sectionMainTitle);
 
   const { bannerSection } = await gql.getSectionBanner({
-    id: pageHome.data.attributes.banner_section.data.id,
+    id: pageHome.data.attributes.banner_section?.data.id,
     locale,
   });
 
@@ -78,15 +78,13 @@ export default function Home({
       <PreHeader />
       <Header />
 
-      {bannerSection.data.attributes && (
-        <Banner data={bannerSection.data.attributes} className={'mb-[48px]'} />
-      )}
+      {bannerSection && <Banner data={bannerSection.data.attributes} className={'mb-[48px]'} />}
 
-      {sectionMainTitle.data.attributes.Video && (
+      {sectionMainTitle && (
         <VideoBanner videoBannerData={sectionMainTitle.data.attributes.Video.data.attributes} />
       )}
 
-      {sectionMainTitle.data.attributes && <MainTitle data={sectionMainTitle.data.attributes} />}
+      {sectionMainTitle && <MainTitle data={sectionMainTitle.data.attributes} />}
 
       <ItemCardCarousel />
 
