@@ -27,6 +27,8 @@ export const getStaticProps: GetStaticProps<{
 }> = async ({ params, locale }) => {
   const { code2 } = params as { code2: string };
   const { countries } = await gql.getCountries();
+  console.log('code2 =', code2);
+  console.log('countries =', countries);
   const country = countries.data.find((country) => country.attributes.code2 === code2);
   console.log('country =', country);
   if (!country) {
