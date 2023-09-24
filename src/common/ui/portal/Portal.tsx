@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactElement, ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
@@ -24,5 +24,6 @@ export const Portal = ({ children, tagClassnames, tag }: Props) => {
     };
   }, []);
 
+  // @ts-ignore
   return createPortal(children, container as Element);
 };

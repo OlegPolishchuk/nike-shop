@@ -1,0 +1,13 @@
+fragment PageHomeFragment on PageHome {
+    Title
+    section_main_title {
+        data {
+            id
+        }
+    }
+    banner_section {
+        data {
+            id
+        }
+    }
+}
