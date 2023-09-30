@@ -1,5 +1,4 @@
 import { GraphQLClient } from 'graphql-request';
-// @ts-ignore
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
 export type Maybe<T> = T;
@@ -190,7 +189,6 @@ export type ComponentUiButton = {
   readonly href: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
   readonly label: Maybe<Scalars['String']['output']>;
-  readonly title: Scalars['String']['output'];
 };
 
 export type ComponentUiButtonFiltersInput = {
@@ -199,14 +197,12 @@ export type ComponentUiButtonFiltersInput = {
   readonly label: InputMaybe<StringFilterInput>;
   readonly not: InputMaybe<ComponentUiButtonFiltersInput>;
   readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiButtonFiltersInput>>>;
-  readonly title: InputMaybe<StringFilterInput>;
 };
 
 export type ComponentUiButtonInput = {
   readonly href: InputMaybe<Scalars['String']['input']>;
   readonly id: InputMaybe<Scalars['ID']['input']>;
   readonly label: InputMaybe<Scalars['String']['input']>;
-  readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentUiFigure = {
@@ -214,34 +210,13 @@ export type ComponentUiFigure = {
   readonly LinkButton: Maybe<ReadonlyArray<Maybe<ComponentUiButton>>>;
   readonly caption: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
-  readonly image: UploadFileRelationResponseCollection;
+  readonly image: Maybe<UploadFileEntityResponse>;
 };
 
 export type ComponentUiFigureLinkButtonArgs = {
   filters: InputMaybe<ComponentUiButtonFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type ComponentUiFigureImageArgs = {
-  filters: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type ComponentUiFigureFiltersInput = {
-  readonly LinkButton: InputMaybe<ComponentUiButtonFiltersInput>;
-  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiFigureFiltersInput>>>;
-  readonly caption: InputMaybe<StringFilterInput>;
-  readonly not: InputMaybe<ComponentUiFigureFiltersInput>;
-  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiFigureFiltersInput>>>;
-};
-
-export type ComponentUiFigureInput = {
-  readonly LinkButton: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiButtonInput>>>;
-  readonly caption: InputMaybe<Scalars['String']['input']>;
-  readonly id: InputMaybe<Scalars['ID']['input']>;
-  readonly image: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
 };
 
 export type ComponentUiLink = {
@@ -270,6 +245,55 @@ export type ComponentUiLinkListLinkArgs = {
   filters: InputMaybe<ComponentUiLinkFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentUiMembershipCard = {
+  readonly __typename?: 'ComponentUiMembershipCard';
+  readonly id: Scalars['ID']['output'];
+  readonly image: UploadFileEntityResponse;
+  readonly link: Scalars['String']['output'];
+  readonly subtitle: Maybe<Scalars['String']['output']>;
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentUiMembershipCardFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiMembershipCardFiltersInput>>>;
+  readonly link: InputMaybe<StringFilterInput>;
+  readonly not: InputMaybe<ComponentUiMembershipCardFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiMembershipCardFiltersInput>>>;
+  readonly subtitle: InputMaybe<StringFilterInput>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentUiMembershipCardInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly image: InputMaybe<Scalars['ID']['input']>;
+  readonly link: InputMaybe<Scalars['String']['input']>;
+  readonly subtitle: InputMaybe<Scalars['String']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentUiTrendCard = {
+  readonly __typename?: 'ComponentUiTrendCard';
+  readonly id: Scalars['ID']['output'];
+  readonly image: UploadFileEntityResponse;
+  readonly link: Scalars['String']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentUiTrendCardFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiTrendCardFiltersInput>>>;
+  readonly link: InputMaybe<StringFilterInput>;
+  readonly not: InputMaybe<ComponentUiTrendCardFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiTrendCardFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentUiTrendCardInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly image: InputMaybe<Scalars['ID']['input']>;
+  readonly link: InputMaybe<Scalars['String']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Country = {
@@ -407,6 +431,8 @@ export type GenericMorph =
   | ComponentUiFigure
   | ComponentUiLink
   | ComponentUiLinkList
+  | ComponentUiMembershipCard
+  | ComponentUiTrendCard
   | Country
   | I18NLocale
   | Language
@@ -1601,17 +1627,20 @@ export type SectionMainTitleRelationResponseCollection = {
 
 export type SectionMembership = {
   readonly __typename?: 'SectionMembership';
-  readonly card: ReadonlyArray<Maybe<ComponentUiFigure>>;
+  readonly JoinUsButton: Maybe<ComponentUiButton>;
+  readonly SignInButton: Maybe<ComponentUiButton>;
+  readonly card: Maybe<ReadonlyArray<Maybe<ComponentUiMembershipCard>>>;
   readonly createdAt: Maybe<Scalars['DateTime']['output']>;
   readonly locale: Maybe<Scalars['String']['output']>;
   readonly localizations: Maybe<SectionMembershipRelationResponseCollection>;
   readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
+  readonly subtitle: Maybe<Scalars['String']['output']>;
   readonly title: Scalars['String']['output'];
   readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type SectionMembershipCardArgs = {
-  filters: InputMaybe<ComponentUiFigureFiltersInput>;
+  filters: InputMaybe<ComponentUiMembershipCardFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
@@ -1641,8 +1670,10 @@ export type SectionMembershipEntityResponseCollection = {
 };
 
 export type SectionMembershipFiltersInput = {
+  readonly JoinUsButton: InputMaybe<ComponentUiButtonFiltersInput>;
+  readonly SignInButton: InputMaybe<ComponentUiButtonFiltersInput>;
   readonly and: InputMaybe<ReadonlyArray<InputMaybe<SectionMembershipFiltersInput>>>;
-  readonly card: InputMaybe<ComponentUiFigureFiltersInput>;
+  readonly card: InputMaybe<ComponentUiMembershipCardFiltersInput>;
   readonly createdAt: InputMaybe<DateTimeFilterInput>;
   readonly id: InputMaybe<IdFilterInput>;
   readonly locale: InputMaybe<StringFilterInput>;
@@ -1650,13 +1681,17 @@ export type SectionMembershipFiltersInput = {
   readonly not: InputMaybe<SectionMembershipFiltersInput>;
   readonly or: InputMaybe<ReadonlyArray<InputMaybe<SectionMembershipFiltersInput>>>;
   readonly publishedAt: InputMaybe<DateTimeFilterInput>;
+  readonly subtitle: InputMaybe<StringFilterInput>;
   readonly title: InputMaybe<StringFilterInput>;
   readonly updatedAt: InputMaybe<DateTimeFilterInput>;
 };
 
 export type SectionMembershipInput = {
-  readonly card: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiFigureInput>>>;
+  readonly JoinUsButton: InputMaybe<ComponentUiButtonInput>;
+  readonly SignInButton: InputMaybe<ComponentUiButtonInput>;
+  readonly card: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiMembershipCardInput>>>;
   readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  readonly subtitle: InputMaybe<Scalars['String']['input']>;
   readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -1740,12 +1775,19 @@ export type SectionShoeRelationResponseCollection = {
 export type SectionTrend = {
   readonly __typename?: 'SectionTrend';
   readonly SectionTitle: Scalars['String']['output'];
+  readonly card: ReadonlyArray<Maybe<ComponentUiTrendCard>>;
   readonly createdAt: Maybe<Scalars['DateTime']['output']>;
   readonly locale: Maybe<Scalars['String']['output']>;
   readonly localizations: Maybe<SectionTrendRelationResponseCollection>;
   readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
   readonly title: Scalars['String']['output'];
   readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type SectionTrendCardArgs = {
+  filters: InputMaybe<ComponentUiTrendCardFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type SectionTrendLocalizationsArgs = {
@@ -1775,6 +1817,7 @@ export type SectionTrendEntityResponseCollection = {
 export type SectionTrendFiltersInput = {
   readonly SectionTitle: InputMaybe<StringFilterInput>;
   readonly and: InputMaybe<ReadonlyArray<InputMaybe<SectionTrendFiltersInput>>>;
+  readonly card: InputMaybe<ComponentUiTrendCardFiltersInput>;
   readonly createdAt: InputMaybe<DateTimeFilterInput>;
   readonly id: InputMaybe<IdFilterInput>;
   readonly locale: InputMaybe<StringFilterInput>;
@@ -1788,6 +1831,7 @@ export type SectionTrendFiltersInput = {
 
 export type SectionTrendInput = {
   readonly SectionTitle: InputMaybe<Scalars['String']['input']>;
+  readonly card: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiTrendCardInput>>>;
   readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
   readonly title: InputMaybe<Scalars['String']['input']>;
 };
@@ -2414,8 +2458,8 @@ export type FigureFragmentFragment = {
     readonly href: string;
   }>;
   readonly image: {
-    readonly __typename?: 'UploadFileRelationResponseCollection';
-    readonly data: ReadonlyArray<{
+    readonly __typename?: 'UploadFileEntityResponse';
+    readonly data: {
       readonly __typename?: 'UploadFileEntity';
       readonly attributes: {
         readonly __typename?: 'UploadFile';
@@ -2434,7 +2478,7 @@ export type FigureFragmentFragment = {
         readonly provider: string;
         readonly provider_metadata: any;
       };
-    }>;
+    };
   };
 };
 
@@ -2443,6 +2487,37 @@ export type LinkFragmentFragment = {
   readonly id: string;
   readonly label: string;
   readonly href: string;
+};
+
+export type MembershipCardFragment = {
+  readonly __typename?: 'ComponentUiMembershipCard';
+  readonly id: string;
+  readonly title: string;
+  readonly subtitle: string;
+  readonly link: string;
+  readonly image: {
+    readonly __typename?: 'UploadFileEntityResponse';
+    readonly data: {
+      readonly __typename?: 'UploadFileEntity';
+      readonly attributes: {
+        readonly __typename?: 'UploadFile';
+        readonly name: string;
+        readonly alternativeText: string;
+        readonly caption: string;
+        readonly width: number;
+        readonly height: number;
+        readonly formats: any;
+        readonly hash: string;
+        readonly ext: string;
+        readonly mime: string;
+        readonly size: number;
+        readonly url: string;
+        readonly previewUrl: string;
+        readonly provider: string;
+        readonly provider_metadata: any;
+      };
+    };
+  };
 };
 
 export type ShoeOptionFragmentFragment = {
@@ -2579,6 +2654,55 @@ export type SectionMainTitleFragmentFragment = {
   };
 };
 
+export type SectionMembershipFragmentFragment = {
+  readonly __typename?: 'SectionMembership';
+  readonly title: string;
+  readonly subtitle: string;
+  readonly publishedAt: any;
+  readonly JoinUsButton: {
+    readonly __typename?: 'ComponentUiButton';
+    readonly id: string;
+    readonly label: string;
+    readonly href: string;
+  };
+  readonly SignInButton: {
+    readonly __typename?: 'ComponentUiButton';
+    readonly id: string;
+    readonly label: string;
+    readonly href: string;
+  };
+  readonly card: ReadonlyArray<{
+    readonly __typename?: 'ComponentUiMembershipCard';
+    readonly id: string;
+    readonly title: string;
+    readonly subtitle: string;
+    readonly link: string;
+    readonly image: {
+      readonly __typename?: 'UploadFileEntityResponse';
+      readonly data: {
+        readonly __typename?: 'UploadFileEntity';
+        readonly attributes: {
+          readonly __typename?: 'UploadFile';
+          readonly name: string;
+          readonly alternativeText: string;
+          readonly caption: string;
+          readonly width: number;
+          readonly height: number;
+          readonly formats: any;
+          readonly hash: string;
+          readonly ext: string;
+          readonly mime: string;
+          readonly size: number;
+          readonly url: string;
+          readonly previewUrl: string;
+          readonly provider: string;
+          readonly provider_metadata: any;
+        };
+      };
+    };
+  }>;
+};
+
 export type GetCountriesQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetCountriesQuery = {
@@ -2710,6 +2834,70 @@ export type GetSectionMainTitleQuery = {
           readonly label: string;
           readonly href: string;
         };
+      };
+    };
+  };
+};
+
+export type GetSectionMembershipQueryVariables = Exact<{
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+}>;
+
+export type GetSectionMembershipQuery = {
+  readonly __typename?: 'Query';
+  readonly sectionMembership: {
+    readonly __typename?: 'SectionMembershipEntityResponse';
+    readonly data: {
+      readonly __typename?: 'SectionMembershipEntity';
+      readonly id: string;
+      readonly attributes: {
+        readonly __typename?: 'SectionMembership';
+        readonly title: string;
+        readonly subtitle: string;
+        readonly publishedAt: any;
+        readonly JoinUsButton: {
+          readonly __typename?: 'ComponentUiButton';
+          readonly id: string;
+          readonly label: string;
+          readonly href: string;
+        };
+        readonly SignInButton: {
+          readonly __typename?: 'ComponentUiButton';
+          readonly id: string;
+          readonly label: string;
+          readonly href: string;
+        };
+        readonly card: ReadonlyArray<{
+          readonly __typename?: 'ComponentUiMembershipCard';
+          readonly id: string;
+          readonly title: string;
+          readonly subtitle: string;
+          readonly link: string;
+          readonly image: {
+            readonly __typename?: 'UploadFileEntityResponse';
+            readonly data: {
+              readonly __typename?: 'UploadFileEntity';
+              readonly attributes: {
+                readonly __typename?: 'UploadFile';
+                readonly name: string;
+                readonly alternativeText: string;
+                readonly caption: string;
+                readonly width: number;
+                readonly height: number;
+                readonly formats: any;
+                readonly hash: string;
+                readonly ext: string;
+                readonly mime: string;
+                readonly size: number;
+                readonly url: string;
+                readonly previewUrl: string;
+                readonly provider: string;
+                readonly provider_metadata: any;
+              };
+            };
+          };
+        }>;
       };
     };
   };
@@ -2853,6 +3041,40 @@ export const SectionMainTitleFragmentFragmentDoc = gql`
   ${FileFragmentFragmentDoc}
   ${ButtonFragmentFragmentDoc}
 `;
+export const MembershipCardFragmentDoc = gql`
+  fragment MembershipCard on ComponentUiMembershipCard {
+    id
+    title
+    subtitle
+    image {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+    link
+  }
+  ${FileFragmentFragmentDoc}
+`;
+export const SectionMembershipFragmentFragmentDoc = gql`
+  fragment SectionMembershipFragment on SectionMembership {
+    title
+    subtitle
+    JoinUsButton {
+      ...ButtonFragment
+    }
+    SignInButton {
+      ...ButtonFragment
+    }
+    card {
+      ...MembershipCard
+    }
+    publishedAt
+  }
+  ${ButtonFragmentFragmentDoc}
+  ${MembershipCardFragmentDoc}
+`;
 export const GetCountriesDocument = gql`
   query getCountries {
     countries {
@@ -2904,6 +3126,19 @@ export const GetSectionMainTitleDocument = gql`
     }
   }
   ${SectionMainTitleFragmentFragmentDoc}
+`;
+export const GetSectionMembershipDocument = gql`
+  query getSectionMembership($id: ID, $locale: I18NLocaleCode) {
+    sectionMembership(id: $id, locale: $locale) {
+      data {
+        id
+        attributes {
+          ...SectionMembershipFragment
+        }
+      }
+    }
+  }
+  ${SectionMembershipFragmentFragmentDoc}
 `;
 
 export type SdkFunctionWrapper = <T>(
@@ -2969,6 +3204,20 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
             ...wrappedRequestHeaders,
           }),
         'getSectionMainTitle',
+        'query',
+      );
+    },
+    getSectionMembership(
+      variables?: GetSectionMembershipQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetSectionMembershipQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetSectionMembershipQuery>(GetSectionMembershipDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'getSectionMembership',
         'query',
       );
     },

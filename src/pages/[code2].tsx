@@ -11,7 +11,12 @@ import {
   VideoBanner,
 } from '@/components';
 import { Trends } from '@/components/sections';
-import { GetSectionBannerQuery, GetSectionMainTitleQuery, gql } from '@/graphql/client';
+import {
+  GetSectionBannerQuery,
+  GetSectionMainTitleQuery,
+  GetSectionMembershipQuery,
+  gql,
+} from '@/graphql/client';
 
 const Header = dynamic(() => import('../components').then((mode) => mode.Header), { ssr: false });
 
@@ -25,6 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<{
   sectionMainTitle: GetSectionMainTitleQuery['sectionMainTitle'];
   bannerSection: GetSectionBannerQuery['bannerSection'];
+  sectionMembership: GetSectionMembershipQuery['sectionMembership'];
 }> = async ({ params, locale }) => {
   const { code2 } = params as { code2: string };
   const { countries } = await gql.getCountries();
@@ -62,10 +68,18 @@ export const getStaticProps: GetStaticProps<{
 
   console.log('bannerSection =', bannerSection);
 
+  const { sectionMembership } = await gql.getSectionMembership({
+    id: pageHome.data.attributes.banner_section?.data.id,
+    locale,
+  });
+
+  console.log('sectionMembership =', sectionMembership);
+
   return {
     props: {
       sectionMainTitle,
       bannerSection,
+      sectionMembership,
     },
   };
 };
@@ -73,6 +87,7 @@ export const getStaticProps: GetStaticProps<{
 export default function Home({
   sectionMainTitle,
   bannerSection,
+  sectionMembership,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   console.log('sectionMainTitle =', sectionMainTitle);
   console.log('bannerSection =', bannerSection);
@@ -93,7 +108,7 @@ export default function Home({
 
       <Trends />
 
-      <Membership />
+      {sectionMembership && <Membership data={sectionMembership.data.attributes} />}
 
       <Footer />
     </>

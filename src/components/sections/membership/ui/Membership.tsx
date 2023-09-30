@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { indent } from '@graphql-codegen/visitor-plugin-common';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,27 +8,37 @@ import { MembershipCard } from './MembershipCard';
 
 import { Button, Typography } from '@/common/ui';
 import { BaseSection } from '@/components/sections';
+import { GetSectionMembershipQuery } from '@/graphql/__generated__';
 
-export const Membership = () => {
+interface Props {
+  data: GetSectionMembershipQuery['sectionMembership']['data']['attributes'];
+}
+
+export const Membership = ({ data }: Props) => {
+  const { title, card, JoinUsButton, SignInButton, subtitle } = data;
+
+  console.log('sevtionMembership =', data);
+
   return (
     <BaseSection className={'mb-[70px]'}>
       <div
         className={'flex flex-col gap-1 bg-[#0E0E0E] px-[10px] py-[24px] md:flex-row md:px-[46px]'}
       >
         <div className={'flex flex-col gap-[24px] text-light'}>
-          <Typography variant={'title-1'} className={' uppercase leading-[60px]'}>
-            Become a <br />
-            member
-          </Typography>
+          <Typography
+            variant={'title-1'}
+            className={' uppercase leading-[60px]'}
+            dangerousHTML={title}
+          />
 
-          <Typography variant={'title-3'}>Sign up free. Join the community</Typography>
+          <Typography variant={'title-3'}>{subtitle}</Typography>
 
           <div className={'flex gap-2'}>
             <div>
-              <Button variant={'outlined'}>Join us</Button>
+              <Button variant={'outlined'}>{JoinUsButton.label}</Button>
             </div>
             <div>
-              <Button variant={'outlined'}>Sign in</Button>
+              <Button variant={'outlined'}>{SignInButton.label}</Button>
             </div>
           </div>
         </div>
@@ -45,7 +56,9 @@ export const Membership = () => {
       </div>
 
       <div className='flex flex-col gap-7 md:grid md:grid-cols-3 md:gap-1'>
-        <MembershipCard />
+        {card.map((card) => (
+          <MembershipCard key={card.id} card={card} />
+        ))}
       </div>
     </BaseSection>
   );

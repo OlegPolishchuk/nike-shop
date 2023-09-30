@@ -1,0 +1,13 @@
+fragment MembershipCard on ComponentUiMembershipCard {
+  id
+  title
+  subtitle
+  image {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+  link
+}
