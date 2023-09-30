@@ -10,6 +10,7 @@ import {
   PreHeader,
   VideoBanner,
 } from '@/components';
+import { Trends } from '@/components/sections';
 import { GetSectionBannerQuery, GetSectionMainTitleQuery, gql } from '@/graphql/client';
 
 const Header = dynamic(() => import('../components').then((mode) => mode.Header), { ssr: false });
@@ -89,6 +90,8 @@ export default function Home({
       {sectionMainTitle && <MainTitle data={sectionMainTitle.data.attributes} />}
 
       <ItemCardCarousel />
+
+      <Trends />
 
       <Membership />
 
