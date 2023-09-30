@@ -1,13 +1,16 @@
 import React from 'react';
 
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
-export const getStaticProps: GetStaticProps = ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async () => {
+  const BaseUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+
   return {
     redirect: {
-      destination: params ? `/${params}` : '/ru',
+      destination: BaseUrl + '/ru',
       permanent: true,
     },
+    props: {},
   };
 };
 
