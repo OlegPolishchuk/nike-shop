@@ -5,13 +5,13 @@ type VideoData =
   GetSectionMainTitleQuery['sectionMainTitle']['data']['attributes']['Video']['data']['attributes'];
 
 interface Props {
-  videoBannerData: VideoData;
+  data: VideoData;
 }
 
 const BaseUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
-export const VideoBanner = ({ videoBannerData }: Props) => {
-  const { url } = videoBannerData;
+export const VideoBanner = ({ data }: Props) => {
+  const { url } = data;
 
   return (
     <section className={'my-[48px] hidden sm:block'}>

@@ -1,0 +1,12 @@
+fragment TrendCard on ComponentUiTrendCard {
+  id
+  title
+  link
+  image {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+}

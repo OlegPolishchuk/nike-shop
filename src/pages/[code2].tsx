@@ -15,6 +15,8 @@ import {
   GetSectionBannerQuery,
   GetSectionMainTitleQuery,
   GetSectionMembershipQuery,
+  GetSectionPopularQuery,
+  GetSectionTrendQuery,
   gql,
 } from '@/graphql/client';
 
@@ -31,6 +33,8 @@ export const getStaticProps: GetStaticProps<{
   sectionMainTitle: GetSectionMainTitleQuery['sectionMainTitle'];
   bannerSection: GetSectionBannerQuery['bannerSection'];
   sectionMembership: GetSectionMembershipQuery['sectionMembership'];
+  sectionTrend: GetSectionTrendQuery['sectionTrend'];
+  sectionPopular: GetSectionPopularQuery['sectionPopular'];
 }> = async ({ params, locale }) => {
   const { code2 } = params as { code2: string };
   const { countries } = await gql.getCountries();
@@ -75,11 +79,27 @@ export const getStaticProps: GetStaticProps<{
 
   console.log('sectionMembership =', sectionMembership);
 
+  const { sectionTrend } = await gql.getSectionTrend({
+    id: pageHome.data.attributes.banner_section?.data.id,
+    locale,
+  });
+
+  console.log('sectionTrend =', sectionTrend);
+
+  const { sectionPopular } = await gql.getSectionPopular({
+    id: pageHome.data.attributes.banner_section?.data.id,
+    locale,
+  });
+
+  console.log('sectionPopular =', sectionPopular);
+
   return {
     props: {
       sectionMainTitle,
       bannerSection,
       sectionMembership,
+      sectionTrend,
+      sectionPopular,
     },
   };
 };
@@ -88,6 +108,8 @@ export default function Home({
   sectionMainTitle,
   bannerSection,
   sectionMembership,
+  sectionTrend,
+  sectionPopular,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   console.log('sectionMainTitle =', sectionMainTitle);
   console.log('bannerSection =', bannerSection);
@@ -97,17 +119,12 @@ export default function Home({
       <Header />
 
       {bannerSection && <Banner data={bannerSection.data.attributes} className={'mb-[48px]'} />}
-
       {sectionMainTitle && (
-        <VideoBanner videoBannerData={sectionMainTitle.data.attributes.Video.data.attributes} />
+        <VideoBanner data={sectionMainTitle.data.attributes.Video.data.attributes} />
       )}
-
       {sectionMainTitle && <MainTitle data={sectionMainTitle.data.attributes} />}
-
-      <ItemCardCarousel />
-
-      <Trends />
-
+      {sectionPopular && <ItemCardCarousel data={sectionPopular.data.attributes} />}
+      {sectionTrend && <Trends data={sectionTrend.data.attributes} />}
       {sectionMembership && <Membership data={sectionMembership.data.attributes} />}
 
       <Footer />

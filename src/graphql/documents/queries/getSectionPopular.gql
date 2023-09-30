@@ -1,0 +1,10 @@
+query getSectionPopular($id: ID, $locale: I18NLocaleCode) {
+  sectionPopular(id: $id, locale: $locale) {
+    data {
+      id
+      attributes {
+        ...SectionPopularFragment
+      }
+    }
+  }
+}

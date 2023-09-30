@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Typography } from '@/common/ui';
+import { ImageFromCms } from '@/components';
 import { MembershipCardFragment } from '@/graphql/__generated__';
 
 const BaseUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
@@ -18,9 +19,9 @@ export const MembershipCard = ({ card }: Props) => {
   return (
     <div className='relative h-0 min-h-[300px] w-full pb-[100%]'>
       <Link href={link}>
-        <Image
-          src={BaseUrl + image.data.attributes.url}
-          alt='membership'
+        <ImageFromCms
+          src={image.data.attributes.url}
+          alt={'membership'}
           fill
           className='h-full w-full'
         />

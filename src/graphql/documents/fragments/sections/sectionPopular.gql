@@ -1,0 +1,7 @@
+fragment SectionPopularFragment on SectionPopular {
+   sectionTitle
+   card {
+        ...ShoeCarouselCard
+   }
+   updatedAt
+}

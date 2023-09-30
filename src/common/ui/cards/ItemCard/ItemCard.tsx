@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Image, { StaticImageData } from 'next/image';
 
 import { Typography } from '@/common/ui';
+import { ImageFromCms } from '@/components';
 
 interface Props {
   imgSrc: string | StaticImageData;
@@ -29,7 +30,8 @@ export const ItemCard = ({ imgSrc, category, price, title, size = 'large' }: Pro
           size === 'medium' ? 'aspect-video' : 'aspect-square',
         )}
       >
-        <Image src={imgSrc} alt={title} fill priority />
+        {/*<Image src={imgSrc} alt={title} fill priority />*/}
+        <ImageFromCms src={imgSrc} alt={title} fill priority />
       </div>
 
       <div className={'flex justify-between pr-[16px]'}>

@@ -19,15 +19,9 @@ export const MainTitle = ({ data }: Props) => {
         className={'text-[48px] uppercase leading-[60px] md:text-[72px]'}
         tag={'h1'}
         dangerousHTML={MainTitle}
-      >
-        {/*MOVEMENT ESSENTIALS FOR <br /> YOUR EVERY MOOD*/}
-      </Typography>
+      ></Typography>
 
-      <Typography variant={'body-1'}>
-        {/*Discover leggings, bras, sneakers, and comfy basics that let you move freely and express*/}
-        {/*what*/}
-        {SubTitle}
-      </Typography>
+      <Typography variant={'body-1'}>{SubTitle}</Typography>
 
       <div className={'flex justify-center gap-[10px]'}>
         <div>

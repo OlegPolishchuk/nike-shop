@@ -17,8 +17,6 @@ interface Props {
 export const Membership = ({ data }: Props) => {
   const { title, card, JoinUsButton, SignInButton, subtitle } = data;
 
-  console.log('sevtionMembership =', data);
-
   return (
     <BaseSection className={'mb-[70px]'}>
       <div

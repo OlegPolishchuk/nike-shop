@@ -1,0 +1,7 @@
+fragment SectionTrendFragment on SectionTrend {
+   SectionTitle
+   card {
+        ...TrendCard
+   }
+   updatedAt
+}

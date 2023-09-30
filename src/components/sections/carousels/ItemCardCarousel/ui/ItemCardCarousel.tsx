@@ -7,10 +7,15 @@ import { ItemCard } from '@/common/ui';
 import { SectionTitle } from '@/components';
 import { SliderLeftButton, SliderRightButton } from '@/components/buttons';
 import { BaseSection } from '@/components/sections';
+import { GetSectionPopularQuery } from '@/graphql/__generated__';
 
-const itemsList = Array.from({ length: 5 });
+interface Props {
+  data: GetSectionPopularQuery['sectionPopular']['data']['attributes'];
+}
 
-export const ItemCardCarousel = () => {
+export const ItemCardCarousel = ({ data }: Props) => {
+  const { card: cards } = data;
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const { ref: lastItemRef, inView } = useInView({
@@ -19,11 +24,13 @@ export const ItemCardCarousel = () => {
 
   const selectedRef = useRef<HTMLLIElement>(null);
 
+  const lastCardIndex = cards.length - 1;
+
   const onNextClick = () => {
     if (!selectedRef.current) return;
 
     flushSync(() => {
-      if (currentIndex < itemsList.length - 1) {
+      if (currentIndex < lastCardIndex) {
         setCurrentIndex(currentIndex + 1);
       }
     });
@@ -52,11 +59,11 @@ export const ItemCardCarousel = () => {
   };
 
   const isBackDisabled = currentIndex === 0;
-  const isNextDisabled = inView || currentIndex == itemsList.length - 1;
+  const isNextDisabled = inView || currentIndex == lastCardIndex;
 
   const getRef = (index: number) => {
     if (index === currentIndex) return selectedRef;
-    if (index === itemsList.length - 1) return lastItemRef;
+    if (index === lastCardIndex) return lastItemRef;
 
     return null;
   };
@@ -74,13 +81,13 @@ export const ItemCardCarousel = () => {
 
       <div className={'pb-[30px]'}>
         <ul className={'flex gap-4 overflow-hidden'}>
-          {itemsList.map((item, index) => (
-            <li key={index} ref={getRef(index)}>
+          {cards.map((card, index) => (
+            <li key={card.id} ref={getRef(index)}>
               <ItemCard
-                category='Shoes'
-                title='Air Jordan 1 Low OG'
-                imgSrc={'/images/card_item_img.webp'}
-                price='140'
+                category={card.tag}
+                title={card.title}
+                imgSrc={card.media.data.attributes.url}
+                price={card.price}
               />
             </li>
           ))}

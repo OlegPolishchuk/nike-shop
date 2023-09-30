@@ -274,6 +274,35 @@ export type ComponentUiMembershipCardInput = {
   readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ComponentUiShoeCardForCarousel = {
+  readonly __typename?: 'ComponentUiShoeCardForCarousel';
+  readonly id: Scalars['ID']['output'];
+  readonly link: Scalars['String']['output'];
+  readonly media: UploadFileEntityResponse;
+  readonly price: Scalars['String']['output'];
+  readonly tag: Scalars['String']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentUiShoeCardForCarouselFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiShoeCardForCarouselFiltersInput>>>;
+  readonly link: InputMaybe<StringFilterInput>;
+  readonly not: InputMaybe<ComponentUiShoeCardForCarouselFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiShoeCardForCarouselFiltersInput>>>;
+  readonly price: InputMaybe<StringFilterInput>;
+  readonly tag: InputMaybe<StringFilterInput>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentUiShoeCardForCarouselInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly link: InputMaybe<Scalars['String']['input']>;
+  readonly media: InputMaybe<Scalars['ID']['input']>;
+  readonly price: InputMaybe<Scalars['String']['input']>;
+  readonly tag: InputMaybe<Scalars['String']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ComponentUiTrendCard = {
   readonly __typename?: 'ComponentUiTrendCard';
   readonly id: Scalars['ID']['output'];
@@ -433,6 +462,7 @@ export type GenericMorph =
   | ComponentUiLink
   | ComponentUiLinkList
   | ComponentUiMembershipCard
+  | ComponentUiShoeCardForCarousel
   | ComponentUiTrendCard
   | Country
   | I18NLocale
@@ -442,6 +472,7 @@ export type GenericMorph =
   | PageShoe
   | SectionMainTitle
   | SectionMembership
+  | SectionPopular
   | SectionShoe
   | SectionTrend
   | Shoe
@@ -684,6 +715,8 @@ export type Mutation = {
   readonly createSectionMainTitleLocalization: Maybe<SectionMainTitleEntityResponse>;
   readonly createSectionMembership: Maybe<SectionMembershipEntityResponse>;
   readonly createSectionMembershipLocalization: Maybe<SectionMembershipEntityResponse>;
+  readonly createSectionPopular: Maybe<SectionPopularEntityResponse>;
+  readonly createSectionPopularLocalization: Maybe<SectionPopularEntityResponse>;
   readonly createSectionShoe: Maybe<SectionShoeEntityResponse>;
   readonly createSectionShoeLocalization: Maybe<SectionShoeEntityResponse>;
   readonly createSectionTrend: Maybe<SectionTrendEntityResponse>;
@@ -708,6 +741,7 @@ export type Mutation = {
   readonly deletePageShoe: Maybe<PageShoeEntityResponse>;
   readonly deleteSectionMainTitle: Maybe<SectionMainTitleEntityResponse>;
   readonly deleteSectionMembership: Maybe<SectionMembershipEntityResponse>;
+  readonly deleteSectionPopular: Maybe<SectionPopularEntityResponse>;
   readonly deleteSectionShoe: Maybe<SectionShoeEntityResponse>;
   readonly deleteSectionTrend: Maybe<SectionTrendEntityResponse>;
   readonly deleteShoe: Maybe<ShoeEntityResponse>;
@@ -739,6 +773,7 @@ export type Mutation = {
   readonly updatePageShoe: Maybe<PageShoeEntityResponse>;
   readonly updateSectionMainTitle: Maybe<SectionMainTitleEntityResponse>;
   readonly updateSectionMembership: Maybe<SectionMembershipEntityResponse>;
+  readonly updateSectionPopular: Maybe<SectionPopularEntityResponse>;
   readonly updateSectionShoe: Maybe<SectionShoeEntityResponse>;
   readonly updateSectionTrend: Maybe<SectionTrendEntityResponse>;
   readonly updateShoe: Maybe<ShoeEntityResponse>;
@@ -836,6 +871,17 @@ export type MutationCreateSectionMembershipArgs = {
 
 export type MutationCreateSectionMembershipLocalizationArgs = {
   data: InputMaybe<SectionMembershipInput>;
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationCreateSectionPopularArgs = {
+  data: SectionPopularInput;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationCreateSectionPopularLocalizationArgs = {
+  data: InputMaybe<SectionPopularInput>;
   id: InputMaybe<Scalars['ID']['input']>;
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
@@ -946,6 +992,11 @@ export type MutationDeleteSectionMainTitleArgs = {
 };
 
 export type MutationDeleteSectionMembershipArgs = {
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationDeleteSectionPopularArgs = {
   id: Scalars['ID']['input'];
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
@@ -1076,6 +1127,12 @@ export type MutationUpdateSectionMembershipArgs = {
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
+export type MutationUpdateSectionPopularArgs = {
+  data: SectionPopularInput;
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
 export type MutationUpdateSectionShoeArgs = {
   data: SectionShoeInput;
   id: Scalars['ID']['input'];
@@ -1144,6 +1201,7 @@ export type PageHome = {
   readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
   readonly section_main_title: Maybe<SectionMainTitleEntityResponse>;
   readonly section_membership: Maybe<SectionMembershipEntityResponse>;
+  readonly section_popular: Maybe<SectionPopularEntityResponse>;
   readonly section_trend: Maybe<SectionTrendEntityResponse>;
   readonly settingBannerSection: ComponentSettingsBannerSection;
   readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
@@ -1186,6 +1244,7 @@ export type PageHomeFiltersInput = {
   readonly publishedAt: InputMaybe<DateTimeFilterInput>;
   readonly section_main_title: InputMaybe<SectionMainTitleFiltersInput>;
   readonly section_membership: InputMaybe<SectionMembershipFiltersInput>;
+  readonly section_popular: InputMaybe<SectionPopularFiltersInput>;
   readonly section_trend: InputMaybe<SectionTrendFiltersInput>;
   readonly settingBannerSection: InputMaybe<ComponentSettingsBannerSectionFiltersInput>;
   readonly updatedAt: InputMaybe<DateTimeFilterInput>;
@@ -1197,6 +1256,7 @@ export type PageHomeInput = {
   readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
   readonly section_main_title: InputMaybe<Scalars['ID']['input']>;
   readonly section_membership: InputMaybe<Scalars['ID']['input']>;
+  readonly section_popular: InputMaybe<Scalars['ID']['input']>;
   readonly section_trend: InputMaybe<Scalars['ID']['input']>;
   readonly settingBannerSection: InputMaybe<ComponentSettingsBannerSectionInput>;
 };
@@ -1313,6 +1373,8 @@ export type Query = {
   readonly sectionMainTitles: Maybe<SectionMainTitleEntityResponseCollection>;
   readonly sectionMembership: Maybe<SectionMembershipEntityResponse>;
   readonly sectionMemberships: Maybe<SectionMembershipEntityResponseCollection>;
+  readonly sectionPopular: Maybe<SectionPopularEntityResponse>;
+  readonly sectionPopulars: Maybe<SectionPopularEntityResponseCollection>;
   readonly sectionShoe: Maybe<SectionShoeEntityResponse>;
   readonly sectionShoes: Maybe<SectionShoeEntityResponseCollection>;
   readonly sectionTrend: Maybe<SectionTrendEntityResponse>;
@@ -1439,6 +1501,19 @@ export type QuerySectionMembershipArgs = {
 
 export type QuerySectionMembershipsArgs = {
   filters: InputMaybe<SectionMembershipFiltersInput>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type QuerySectionPopularArgs = {
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type QuerySectionPopularsArgs = {
+  filters: InputMaybe<SectionPopularFiltersInput>;
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
@@ -1699,6 +1774,75 @@ export type SectionMembershipInput = {
 export type SectionMembershipRelationResponseCollection = {
   readonly __typename?: 'SectionMembershipRelationResponseCollection';
   readonly data: ReadonlyArray<SectionMembershipEntity>;
+};
+
+export type SectionPopular = {
+  readonly __typename?: 'SectionPopular';
+  readonly card: ReadonlyArray<Maybe<ComponentUiShoeCardForCarousel>>;
+  readonly createdAt: Maybe<Scalars['DateTime']['output']>;
+  readonly locale: Maybe<Scalars['String']['output']>;
+  readonly localizations: Maybe<SectionPopularRelationResponseCollection>;
+  readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
+  readonly sectionTitle: Scalars['String']['output'];
+  readonly title: Scalars['String']['output'];
+  readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type SectionPopularCardArgs = {
+  filters: InputMaybe<ComponentUiShoeCardForCarouselFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SectionPopularLocalizationsArgs = {
+  filters: InputMaybe<SectionPopularFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SectionPopularEntity = {
+  readonly __typename?: 'SectionPopularEntity';
+  readonly attributes: Maybe<SectionPopular>;
+  readonly id: Maybe<Scalars['ID']['output']>;
+};
+
+export type SectionPopularEntityResponse = {
+  readonly __typename?: 'SectionPopularEntityResponse';
+  readonly data: Maybe<SectionPopularEntity>;
+};
+
+export type SectionPopularEntityResponseCollection = {
+  readonly __typename?: 'SectionPopularEntityResponseCollection';
+  readonly data: ReadonlyArray<SectionPopularEntity>;
+  readonly meta: ResponseCollectionMeta;
+};
+
+export type SectionPopularFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<SectionPopularFiltersInput>>>;
+  readonly card: InputMaybe<ComponentUiShoeCardForCarouselFiltersInput>;
+  readonly createdAt: InputMaybe<DateTimeFilterInput>;
+  readonly id: InputMaybe<IdFilterInput>;
+  readonly locale: InputMaybe<StringFilterInput>;
+  readonly localizations: InputMaybe<SectionPopularFiltersInput>;
+  readonly not: InputMaybe<SectionPopularFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<SectionPopularFiltersInput>>>;
+  readonly publishedAt: InputMaybe<DateTimeFilterInput>;
+  readonly sectionTitle: InputMaybe<StringFilterInput>;
+  readonly title: InputMaybe<StringFilterInput>;
+  readonly updatedAt: InputMaybe<DateTimeFilterInput>;
+};
+
+export type SectionPopularInput = {
+  readonly card: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiShoeCardForCarouselInput>>>;
+  readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  readonly sectionTitle: InputMaybe<Scalars['String']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SectionPopularRelationResponseCollection = {
+  readonly __typename?: 'SectionPopularRelationResponseCollection';
+  readonly data: ReadonlyArray<SectionPopularEntity>;
 };
 
 export type SectionShoe = {
@@ -2521,6 +2665,38 @@ export type MembershipCardFragment = {
   };
 };
 
+export type ShoeCarouselCardFragment = {
+  readonly __typename?: 'ComponentUiShoeCardForCarousel';
+  readonly id: string;
+  readonly title: string;
+  readonly link: string;
+  readonly price: string;
+  readonly tag: string;
+  readonly media: {
+    readonly __typename?: 'UploadFileEntityResponse';
+    readonly data: {
+      readonly __typename?: 'UploadFileEntity';
+      readonly attributes: {
+        readonly __typename?: 'UploadFile';
+        readonly name: string;
+        readonly alternativeText: string;
+        readonly caption: string;
+        readonly width: number;
+        readonly height: number;
+        readonly formats: any;
+        readonly hash: string;
+        readonly ext: string;
+        readonly mime: string;
+        readonly size: number;
+        readonly url: string;
+        readonly previewUrl: string;
+        readonly provider: string;
+        readonly provider_metadata: any;
+      };
+    };
+  };
+};
+
 export type ShoeOptionFragmentFragment = {
   readonly __typename?: 'ComponentEntityShoeOption';
   readonly medias: {
@@ -2545,6 +2721,36 @@ export type ShoeOptionFragmentFragment = {
         readonly provider_metadata: any;
       };
     }>;
+  };
+};
+
+export type TrendCardFragment = {
+  readonly __typename?: 'ComponentUiTrendCard';
+  readonly id: string;
+  readonly title: string;
+  readonly link: string;
+  readonly image: {
+    readonly __typename?: 'UploadFileEntityResponse';
+    readonly data: {
+      readonly __typename?: 'UploadFileEntity';
+      readonly attributes: {
+        readonly __typename?: 'UploadFile';
+        readonly name: string;
+        readonly alternativeText: string;
+        readonly caption: string;
+        readonly width: number;
+        readonly height: number;
+        readonly formats: any;
+        readonly hash: string;
+        readonly ext: string;
+        readonly mime: string;
+        readonly size: number;
+        readonly url: string;
+        readonly previewUrl: string;
+        readonly provider: string;
+        readonly provider_metadata: any;
+      };
+    };
   };
 };
 
@@ -2677,6 +2883,78 @@ export type SectionMembershipFragmentFragment = {
     readonly id: string;
     readonly title: string;
     readonly subtitle: string;
+    readonly link: string;
+    readonly image: {
+      readonly __typename?: 'UploadFileEntityResponse';
+      readonly data: {
+        readonly __typename?: 'UploadFileEntity';
+        readonly attributes: {
+          readonly __typename?: 'UploadFile';
+          readonly name: string;
+          readonly alternativeText: string;
+          readonly caption: string;
+          readonly width: number;
+          readonly height: number;
+          readonly formats: any;
+          readonly hash: string;
+          readonly ext: string;
+          readonly mime: string;
+          readonly size: number;
+          readonly url: string;
+          readonly previewUrl: string;
+          readonly provider: string;
+          readonly provider_metadata: any;
+        };
+      };
+    };
+  }>;
+};
+
+export type SectionPopularFragmentFragment = {
+  readonly __typename?: 'SectionPopular';
+  readonly sectionTitle: string;
+  readonly updatedAt: any;
+  readonly card: ReadonlyArray<{
+    readonly __typename?: 'ComponentUiShoeCardForCarousel';
+    readonly id: string;
+    readonly title: string;
+    readonly link: string;
+    readonly price: string;
+    readonly tag: string;
+    readonly media: {
+      readonly __typename?: 'UploadFileEntityResponse';
+      readonly data: {
+        readonly __typename?: 'UploadFileEntity';
+        readonly attributes: {
+          readonly __typename?: 'UploadFile';
+          readonly name: string;
+          readonly alternativeText: string;
+          readonly caption: string;
+          readonly width: number;
+          readonly height: number;
+          readonly formats: any;
+          readonly hash: string;
+          readonly ext: string;
+          readonly mime: string;
+          readonly size: number;
+          readonly url: string;
+          readonly previewUrl: string;
+          readonly provider: string;
+          readonly provider_metadata: any;
+        };
+      };
+    };
+  }>;
+};
+
+export type SectionTrendFragmentFragment = {
+  readonly __typename?: 'SectionTrend';
+  readonly SectionTitle: string;
+  readonly updatedAt: any;
+  readonly card: ReadonlyArray<{
+    readonly __typename?: 'ComponentUiTrendCard';
+    readonly id: string;
+    readonly title: string;
     readonly link: string;
     readonly image: {
       readonly __typename?: 'UploadFileEntityResponse';
@@ -2904,6 +3182,108 @@ export type GetSectionMembershipQuery = {
   };
 };
 
+export type GetSectionPopularQueryVariables = Exact<{
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+}>;
+
+export type GetSectionPopularQuery = {
+  readonly __typename?: 'Query';
+  readonly sectionPopular: {
+    readonly __typename?: 'SectionPopularEntityResponse';
+    readonly data: {
+      readonly __typename?: 'SectionPopularEntity';
+      readonly id: string;
+      readonly attributes: {
+        readonly __typename?: 'SectionPopular';
+        readonly sectionTitle: string;
+        readonly updatedAt: any;
+        readonly card: ReadonlyArray<{
+          readonly __typename?: 'ComponentUiShoeCardForCarousel';
+          readonly id: string;
+          readonly title: string;
+          readonly link: string;
+          readonly price: string;
+          readonly tag: string;
+          readonly media: {
+            readonly __typename?: 'UploadFileEntityResponse';
+            readonly data: {
+              readonly __typename?: 'UploadFileEntity';
+              readonly attributes: {
+                readonly __typename?: 'UploadFile';
+                readonly name: string;
+                readonly alternativeText: string;
+                readonly caption: string;
+                readonly width: number;
+                readonly height: number;
+                readonly formats: any;
+                readonly hash: string;
+                readonly ext: string;
+                readonly mime: string;
+                readonly size: number;
+                readonly url: string;
+                readonly previewUrl: string;
+                readonly provider: string;
+                readonly provider_metadata: any;
+              };
+            };
+          };
+        }>;
+      };
+    };
+  };
+};
+
+export type GetSectionTrendQueryVariables = Exact<{
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+}>;
+
+export type GetSectionTrendQuery = {
+  readonly __typename?: 'Query';
+  readonly sectionTrend: {
+    readonly __typename?: 'SectionTrendEntityResponse';
+    readonly data: {
+      readonly __typename?: 'SectionTrendEntity';
+      readonly id: string;
+      readonly attributes: {
+        readonly __typename?: 'SectionTrend';
+        readonly SectionTitle: string;
+        readonly updatedAt: any;
+        readonly card: ReadonlyArray<{
+          readonly __typename?: 'ComponentUiTrendCard';
+          readonly id: string;
+          readonly title: string;
+          readonly link: string;
+          readonly image: {
+            readonly __typename?: 'UploadFileEntityResponse';
+            readonly data: {
+              readonly __typename?: 'UploadFileEntity';
+              readonly attributes: {
+                readonly __typename?: 'UploadFile';
+                readonly name: string;
+                readonly alternativeText: string;
+                readonly caption: string;
+                readonly width: number;
+                readonly height: number;
+                readonly formats: any;
+                readonly hash: string;
+                readonly ext: string;
+                readonly mime: string;
+                readonly size: number;
+                readonly url: string;
+                readonly previewUrl: string;
+                readonly provider: string;
+                readonly provider_metadata: any;
+              };
+            };
+          };
+        }>;
+      };
+    };
+  };
+};
+
 export const ButtonFragmentFragmentDoc = gql`
   fragment ButtonFragment on ComponentUiButton {
     id
@@ -3076,6 +3456,58 @@ export const SectionMembershipFragmentFragmentDoc = gql`
   ${ButtonFragmentFragmentDoc}
   ${MembershipCardFragmentDoc}
 `;
+export const ShoeCarouselCardFragmentDoc = gql`
+  fragment ShoeCarouselCard on ComponentUiShoeCardForCarousel {
+    id
+    title
+    link
+    price
+    tag
+    media {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+  }
+  ${FileFragmentFragmentDoc}
+`;
+export const SectionPopularFragmentFragmentDoc = gql`
+  fragment SectionPopularFragment on SectionPopular {
+    sectionTitle
+    card {
+      ...ShoeCarouselCard
+    }
+    updatedAt
+  }
+  ${ShoeCarouselCardFragmentDoc}
+`;
+export const TrendCardFragmentDoc = gql`
+  fragment TrendCard on ComponentUiTrendCard {
+    id
+    title
+    link
+    image {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+  }
+  ${FileFragmentFragmentDoc}
+`;
+export const SectionTrendFragmentFragmentDoc = gql`
+  fragment SectionTrendFragment on SectionTrend {
+    SectionTitle
+    card {
+      ...TrendCard
+    }
+    updatedAt
+  }
+  ${TrendCardFragmentDoc}
+`;
 export const GetCountriesDocument = gql`
   query getCountries {
     countries {
@@ -3140,6 +3572,32 @@ export const GetSectionMembershipDocument = gql`
     }
   }
   ${SectionMembershipFragmentFragmentDoc}
+`;
+export const GetSectionPopularDocument = gql`
+  query getSectionPopular($id: ID, $locale: I18NLocaleCode) {
+    sectionPopular(id: $id, locale: $locale) {
+      data {
+        id
+        attributes {
+          ...SectionPopularFragment
+        }
+      }
+    }
+  }
+  ${SectionPopularFragmentFragmentDoc}
+`;
+export const GetSectionTrendDocument = gql`
+  query getSectionTrend($id: ID, $locale: I18NLocaleCode) {
+    sectionTrend(id: $id, locale: $locale) {
+      data {
+        id
+        attributes {
+          ...SectionTrendFragment
+        }
+      }
+    }
+  }
+  ${SectionTrendFragmentFragmentDoc}
 `;
 
 export type SdkFunctionWrapper = <T>(
@@ -3219,6 +3677,34 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
             ...wrappedRequestHeaders,
           }),
         'getSectionMembership',
+        'query',
+      );
+    },
+    getSectionPopular(
+      variables?: GetSectionPopularQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetSectionPopularQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetSectionPopularQuery>(GetSectionPopularDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'getSectionPopular',
+        'query',
+      );
+    },
+    getSectionTrend(
+      variables?: GetSectionTrendQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetSectionTrendQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetSectionTrendQuery>(GetSectionTrendDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'getSectionTrend',
         'query',
       );
     },
