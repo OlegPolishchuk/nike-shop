@@ -2,6 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 import Link from 'next/link';
+import Markdown from 'react-markdown';
 
 import { bannerData } from '../constants/bannerData';
 import { useInitializeBanner } from '../hooks/useInitializeBanner';
@@ -16,8 +17,10 @@ interface Props {
   data?: BannerData;
 }
 
-export const Banner = ({ className }: Props) => {
+export const Banner = ({ className, data }: Props) => {
   const { translateUl } = useInitializeBanner();
+
+  console.log(data?.card[0]);
 
   return (
     <div
@@ -30,17 +33,29 @@ export const Banner = ({ className }: Props) => {
         className={clsx('inline-block w-full [transition:transform_.5s]')}
         style={{ transform: `translate(-${translateUl}%)` }}
       >
-        {bannerData.map((item) => (
+        {/*{bannerData.map((item) => (*/}
+        {/*  <li key={item.id} className={`inline-block h-full w-full text-center `}>*/}
+        {/*    <Typography variant={'body-1'} className={'mb-[8px]'}>*/}
+        {/*      {item.title}*/}
+        {/*    </Typography>*/}
+
+        {/*    <Link href={item.href}>*/}
+        {/*      <Typography variant={'body-2'} tag={'span'} className={'underline'}>*/}
+        {/*        {item.link}*/}
+        {/*      </Typography>*/}
+        {/*    </Link>*/}
+        {/*  </li>*/}
+        {/*))}*/}
+
+        {data?.card.map((item) => (
           <li key={item.id} className={`inline-block h-full w-full text-center `}>
             <Typography variant={'body-1'} className={'mb-[8px]'}>
-              {item.title}
+              {item.Title}
             </Typography>
 
-            <Link href={item.href}>
-              <Typography variant={'body-2'} tag={'span'} className={'underline'}>
-                {item.link}
-              </Typography>
-            </Link>
+            <Typography variant={'body-2'} tag={'span'} className={'underline'}>
+              <Markdown>{item.description}</Markdown>
+            </Typography>
           </li>
         ))}
       </ul>

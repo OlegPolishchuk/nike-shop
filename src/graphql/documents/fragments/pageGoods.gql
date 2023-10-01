@@ -1,0 +1,10 @@
+fragment PageGoods on GoodsPageEntity {
+    id
+    attributes {
+        pageTitle
+        title
+        good {
+            ...ShoeCarouselCard
+        }
+    }
+}

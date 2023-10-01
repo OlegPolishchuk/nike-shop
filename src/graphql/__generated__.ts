@@ -119,8 +119,12 @@ export type BooleanFilterInput = {
 
 export type ComponentEntityShoeOption = {
   readonly __typename?: 'ComponentEntityShoeOption';
+  readonly description: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
   readonly medias: Maybe<UploadFileRelationResponseCollection>;
+  readonly price: Scalars['String']['output'];
+  readonly tag: Scalars['String']['output'];
+  readonly title: Scalars['String']['output'];
 };
 
 export type ComponentEntityShoeOptionMediasArgs = {
@@ -131,13 +135,21 @@ export type ComponentEntityShoeOptionMediasArgs = {
 
 export type ComponentEntityShoeOptionFiltersInput = {
   readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentEntityShoeOptionFiltersInput>>>;
+  readonly description: InputMaybe<StringFilterInput>;
   readonly not: InputMaybe<ComponentEntityShoeOptionFiltersInput>;
   readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentEntityShoeOptionFiltersInput>>>;
+  readonly price: InputMaybe<StringFilterInput>;
+  readonly tag: InputMaybe<StringFilterInput>;
+  readonly title: InputMaybe<StringFilterInput>;
 };
 
 export type ComponentEntityShoeOptionInput = {
+  readonly description: InputMaybe<Scalars['String']['input']>;
   readonly id: InputMaybe<Scalars['ID']['input']>;
   readonly medias: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
+  readonly price: InputMaybe<Scalars['String']['input']>;
+  readonly tag: InputMaybe<Scalars['String']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentLayoutHeaderLinkList = {
@@ -465,6 +477,7 @@ export type GenericMorph =
   | ComponentUiShoeCardForCarousel
   | ComponentUiTrendCard
   | Country
+  | GoodsPage
   | I18NLocale
   | Language
   | LayoutHeader
@@ -483,6 +496,75 @@ export type GenericMorph =
   | UsersPermissionsPermission
   | UsersPermissionsRole
   | UsersPermissionsUser;
+
+export type GoodsPage = {
+  readonly __typename?: 'GoodsPage';
+  readonly createdAt: Maybe<Scalars['DateTime']['output']>;
+  readonly good: Maybe<ReadonlyArray<Maybe<ComponentUiShoeCardForCarousel>>>;
+  readonly locale: Maybe<Scalars['String']['output']>;
+  readonly localizations: Maybe<GoodsPageRelationResponseCollection>;
+  readonly pageTitle: Scalars['String']['output'];
+  readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
+  readonly title: Scalars['String']['output'];
+  readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type GoodsPageGoodArgs = {
+  filters: InputMaybe<ComponentUiShoeCardForCarouselFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type GoodsPageLocalizationsArgs = {
+  filters: InputMaybe<GoodsPageFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type GoodsPageEntity = {
+  readonly __typename?: 'GoodsPageEntity';
+  readonly attributes: Maybe<GoodsPage>;
+  readonly id: Maybe<Scalars['ID']['output']>;
+};
+
+export type GoodsPageEntityResponse = {
+  readonly __typename?: 'GoodsPageEntityResponse';
+  readonly data: Maybe<GoodsPageEntity>;
+};
+
+export type GoodsPageEntityResponseCollection = {
+  readonly __typename?: 'GoodsPageEntityResponseCollection';
+  readonly data: ReadonlyArray<GoodsPageEntity>;
+  readonly meta: ResponseCollectionMeta;
+};
+
+export type GoodsPageFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<GoodsPageFiltersInput>>>;
+  readonly createdAt: InputMaybe<DateTimeFilterInput>;
+  readonly good: InputMaybe<ComponentUiShoeCardForCarouselFiltersInput>;
+  readonly id: InputMaybe<IdFilterInput>;
+  readonly locale: InputMaybe<StringFilterInput>;
+  readonly localizations: InputMaybe<GoodsPageFiltersInput>;
+  readonly not: InputMaybe<GoodsPageFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<GoodsPageFiltersInput>>>;
+  readonly pageTitle: InputMaybe<StringFilterInput>;
+  readonly publishedAt: InputMaybe<DateTimeFilterInput>;
+  readonly title: InputMaybe<StringFilterInput>;
+  readonly updatedAt: InputMaybe<DateTimeFilterInput>;
+};
+
+export type GoodsPageInput = {
+  readonly good: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiShoeCardForCarouselInput>>>;
+  readonly pageTitle: InputMaybe<Scalars['String']['input']>;
+  readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type GoodsPageRelationResponseCollection = {
+  readonly __typename?: 'GoodsPageRelationResponseCollection';
+  readonly data: ReadonlyArray<GoodsPageEntity>;
+};
 
 export type I18NLocale = {
   readonly __typename?: 'I18NLocale';
@@ -704,6 +786,8 @@ export type Mutation = {
   readonly createBannerSectionLocalization: Maybe<BannerSectionEntityResponse>;
   readonly createCountry: Maybe<CountryEntityResponse>;
   readonly createCountryLocalization: Maybe<CountryEntityResponse>;
+  readonly createGoodsPage: Maybe<GoodsPageEntityResponse>;
+  readonly createGoodsPageLocalization: Maybe<GoodsPageEntityResponse>;
   readonly createLanguage: Maybe<LanguageEntityResponse>;
   readonly createLayoutHeader: Maybe<LayoutHeaderEntityResponse>;
   readonly createLayoutHeaderLocalization: Maybe<LayoutHeaderEntityResponse>;
@@ -735,6 +819,7 @@ export type Mutation = {
   readonly createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   readonly deleteBannerSection: Maybe<BannerSectionEntityResponse>;
   readonly deleteCountry: Maybe<CountryEntityResponse>;
+  readonly deleteGoodsPage: Maybe<GoodsPageEntityResponse>;
   readonly deleteLanguage: Maybe<LanguageEntityResponse>;
   readonly deleteLayoutHeader: Maybe<LayoutHeaderEntityResponse>;
   readonly deletePageHome: Maybe<PageHomeEntityResponse>;
@@ -767,6 +852,7 @@ export type Mutation = {
   readonly updateBannerSection: Maybe<BannerSectionEntityResponse>;
   readonly updateCountry: Maybe<CountryEntityResponse>;
   readonly updateFileInfo: UploadFileEntityResponse;
+  readonly updateGoodsPage: Maybe<GoodsPageEntityResponse>;
   readonly updateLanguage: Maybe<LanguageEntityResponse>;
   readonly updateLayoutHeader: Maybe<LayoutHeaderEntityResponse>;
   readonly updatePageHome: Maybe<PageHomeEntityResponse>;
@@ -812,6 +898,17 @@ export type MutationCreateCountryArgs = {
 
 export type MutationCreateCountryLocalizationArgs = {
   data: InputMaybe<CountryInput>;
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationCreateGoodsPageArgs = {
+  data: GoodsPageInput;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationCreateGoodsPageLocalizationArgs = {
+  data: InputMaybe<GoodsPageInput>;
   id: InputMaybe<Scalars['ID']['input']>;
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
@@ -967,6 +1064,11 @@ export type MutationDeleteCountryArgs = {
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
+export type MutationDeleteGoodsPageArgs = {
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
 export type MutationDeleteLanguageArgs = {
   id: Scalars['ID']['input'];
 };
@@ -1090,6 +1192,12 @@ export type MutationUpdateCountryArgs = {
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID']['input'];
   info: InputMaybe<FileInfoInput>;
+};
+
+export type MutationUpdateGoodsPageArgs = {
+  data: GoodsPageInput;
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 export type MutationUpdateLanguageArgs = {
@@ -1358,6 +1466,8 @@ export type Query = {
   readonly bannerSections: Maybe<BannerSectionEntityResponseCollection>;
   readonly countries: Maybe<CountryEntityResponseCollection>;
   readonly country: Maybe<CountryEntityResponse>;
+  readonly goodsPage: Maybe<GoodsPageEntityResponse>;
+  readonly goodsPages: Maybe<GoodsPageEntityResponseCollection>;
   readonly i18NLocale: Maybe<I18NLocaleEntityResponse>;
   readonly i18NLocales: Maybe<I18NLocaleEntityResponseCollection>;
   readonly language: Maybe<LanguageEntityResponse>;
@@ -1419,6 +1529,19 @@ export type QueryCountriesArgs = {
 export type QueryCountryArgs = {
   id: InputMaybe<Scalars['ID']['input']>;
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type QueryGoodsPageArgs = {
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type QueryGoodsPagesArgs = {
+  filters: InputMaybe<GoodsPageFiltersInput>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type QueryI18NLocaleArgs = {
@@ -1853,8 +1976,8 @@ export type SectionShoe = {
   readonly favoriteButton: Maybe<ComponentUiButton>;
   readonly locale: Maybe<Scalars['String']['output']>;
   readonly localizations: Maybe<SectionShoeRelationResponseCollection>;
+  readonly options: ComponentEntityShoeOption;
   readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
-  readonly title: Scalars['String']['output'];
   readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -1898,9 +2021,9 @@ export type SectionShoeFiltersInput = {
   readonly locale: InputMaybe<StringFilterInput>;
   readonly localizations: InputMaybe<SectionShoeFiltersInput>;
   readonly not: InputMaybe<SectionShoeFiltersInput>;
+  readonly options: InputMaybe<ComponentEntityShoeOptionFiltersInput>;
   readonly or: InputMaybe<ReadonlyArray<InputMaybe<SectionShoeFiltersInput>>>;
   readonly publishedAt: InputMaybe<DateTimeFilterInput>;
-  readonly title: InputMaybe<StringFilterInput>;
   readonly updatedAt: InputMaybe<DateTimeFilterInput>;
 };
 
@@ -1908,8 +2031,8 @@ export type SectionShoeInput = {
   readonly addToBagButton: InputMaybe<ComponentUiButtonInput>;
   readonly detailsButton: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiButtonInput>>>;
   readonly favoriteButton: InputMaybe<ComponentUiButtonInput>;
+  readonly options: InputMaybe<ComponentEntityShoeOptionInput>;
   readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
-  readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SectionShoeRelationResponseCollection = {
@@ -2795,6 +2918,47 @@ export type LanguageEntityFragmentFragment = {
   };
 };
 
+export type PageGoodsFragment = {
+  readonly __typename?: 'GoodsPageEntity';
+  readonly id: string;
+  readonly attributes: {
+    readonly __typename?: 'GoodsPage';
+    readonly pageTitle: string;
+    readonly title: string;
+    readonly good: ReadonlyArray<{
+      readonly __typename?: 'ComponentUiShoeCardForCarousel';
+      readonly id: string;
+      readonly title: string;
+      readonly link: string;
+      readonly price: string;
+      readonly tag: string;
+      readonly media: {
+        readonly __typename?: 'UploadFileEntityResponse';
+        readonly data: {
+          readonly __typename?: 'UploadFileEntity';
+          readonly attributes: {
+            readonly __typename?: 'UploadFile';
+            readonly name: string;
+            readonly alternativeText: string;
+            readonly caption: string;
+            readonly width: number;
+            readonly height: number;
+            readonly formats: any;
+            readonly hash: string;
+            readonly ext: string;
+            readonly mime: string;
+            readonly size: number;
+            readonly url: string;
+            readonly previewUrl: string;
+            readonly provider: string;
+            readonly provider_metadata: any;
+          };
+        };
+      };
+    }>;
+  };
+};
+
 export type PageHomeFragmentFragment = {
   readonly __typename?: 'PageHome';
   readonly Title: string;
@@ -3002,6 +3166,57 @@ export type GetCountriesQuery = {
           readonly __typename?: 'PageHomeEntityResponse';
           readonly data: { readonly __typename?: 'PageHomeEntity'; readonly id: string };
         };
+      };
+    }>;
+  };
+};
+
+export type GetGoodsPageQueryVariables = Exact<{
+  pageTitle: InputMaybe<StringFilterInput>;
+}>;
+
+export type GetGoodsPageQuery = {
+  readonly __typename?: 'Query';
+  readonly goodsPages: {
+    readonly __typename?: 'GoodsPageEntityResponseCollection';
+    readonly data: ReadonlyArray<{
+      readonly __typename?: 'GoodsPageEntity';
+      readonly id: string;
+      readonly attributes: {
+        readonly __typename?: 'GoodsPage';
+        readonly pageTitle: string;
+        readonly title: string;
+        readonly good: ReadonlyArray<{
+          readonly __typename?: 'ComponentUiShoeCardForCarousel';
+          readonly id: string;
+          readonly title: string;
+          readonly link: string;
+          readonly price: string;
+          readonly tag: string;
+          readonly media: {
+            readonly __typename?: 'UploadFileEntityResponse';
+            readonly data: {
+              readonly __typename?: 'UploadFileEntity';
+              readonly attributes: {
+                readonly __typename?: 'UploadFile';
+                readonly name: string;
+                readonly alternativeText: string;
+                readonly caption: string;
+                readonly width: number;
+                readonly height: number;
+                readonly formats: any;
+                readonly hash: string;
+                readonly ext: string;
+                readonly mime: string;
+                readonly size: number;
+                readonly url: string;
+                readonly previewUrl: string;
+                readonly provider: string;
+                readonly provider_metadata: any;
+              };
+            };
+          };
+        }>;
       };
     }>;
   };
@@ -3369,6 +3584,36 @@ export const LanguageEntityFragmentFragmentDoc = gql`
     }
   }
 `;
+export const ShoeCarouselCardFragmentDoc = gql`
+  fragment ShoeCarouselCard on ComponentUiShoeCardForCarousel {
+    id
+    title
+    link
+    price
+    tag
+    media {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+  }
+  ${FileFragmentFragmentDoc}
+`;
+export const PageGoodsFragmentDoc = gql`
+  fragment PageGoods on GoodsPageEntity {
+    id
+    attributes {
+      pageTitle
+      title
+      good {
+        ...ShoeCarouselCard
+      }
+    }
+  }
+  ${ShoeCarouselCardFragmentDoc}
+`;
 export const PageHomeFragmentFragmentDoc = gql`
   fragment PageHomeFragment on PageHome {
     Title
@@ -3456,23 +3701,6 @@ export const SectionMembershipFragmentFragmentDoc = gql`
   ${ButtonFragmentFragmentDoc}
   ${MembershipCardFragmentDoc}
 `;
-export const ShoeCarouselCardFragmentDoc = gql`
-  fragment ShoeCarouselCard on ComponentUiShoeCardForCarousel {
-    id
-    title
-    link
-    price
-    tag
-    media {
-      data {
-        attributes {
-          ...FileFragment
-        }
-      }
-    }
-  }
-  ${FileFragmentFragmentDoc}
-`;
 export const SectionPopularFragmentFragmentDoc = gql`
   fragment SectionPopularFragment on SectionPopular {
     sectionTitle
@@ -3520,6 +3748,16 @@ export const GetCountriesDocument = gql`
     }
   }
   ${CountryFragmentFragmentDoc}
+`;
+export const GetGoodsPageDocument = gql`
+  query getGoodsPage($pageTitle: StringFilterInput) {
+    goodsPages(filters: { pageTitle: $pageTitle }) {
+      data {
+        ...PageGoods
+      }
+    }
+  }
+  ${PageGoodsFragmentDoc}
 `;
 export const GetPageHomeDocument = gql`
   query getPageHome($id: ID, $locale: I18NLocaleCode) {
@@ -3621,6 +3859,20 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
             ...wrappedRequestHeaders,
           }),
         'getCountries',
+        'query',
+      );
+    },
+    getGoodsPage(
+      variables?: { pageTitle: { eq: string } },
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetGoodsPageQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetGoodsPageQuery>(GetGoodsPageDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'getGoodsPage',
         'query',
       );
     },

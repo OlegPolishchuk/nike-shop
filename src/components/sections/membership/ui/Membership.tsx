@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { indent } from '@graphql-codegen/visitor-plugin-common';
 import Image from 'next/image';
 import Link from 'next/link';
 
