@@ -1,6 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 export type Maybe<T> = T;
 export type InputMaybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -12,6 +14,7 @@ export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> =
 export type Incremental<T> =
   | T
   | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string };
@@ -4113,3 +4116,707 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
+export const ButtonFragmentFragmentDoc = gql`
+  fragment ButtonFragment on ComponentUiButton {
+    id
+    label
+    href
+  }
+`;
+export const FileFragmentFragmentDoc = gql`
+  fragment FileFragment on UploadFile {
+    name
+    alternativeText
+    caption
+    width
+    height
+    formats
+    hash
+    ext
+    mime
+    size
+    url
+    previewUrl
+    provider
+    provider_metadata
+  }
+`;
+export const FigureFragmentFragmentDoc = gql`
+  fragment FigureFragment on ComponentUiFigure {
+    id
+    caption
+    LinkButton {
+      ...ButtonFragment
+    }
+    image {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+  }
+  ${ButtonFragmentFragmentDoc}
+  ${FileFragmentFragmentDoc}
+`;
+export const LinkFragmentFragmentDoc = gql`
+  fragment LinkFragment on ComponentUiLink {
+    id
+    label
+    href
+  }
+`;
+export const ShoeOptionFragmentFragmentDoc = gql`
+  fragment ShoeOptionFragment on ComponentEntityShoeOption {
+    medias {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+  }
+  ${FileFragmentFragmentDoc}
+`;
+export const CountryFragmentFragmentDoc = gql`
+  fragment CountryFragment on Country {
+    code3
+    code2
+    createdAt
+    updatedAt
+    publishedAt
+    page_home {
+      data {
+        id
+      }
+    }
+  }
+`;
+export const LanguageEntityFragmentFragmentDoc = gql`
+  fragment LanguageEntityFragment on LanguageEntity {
+    id
+    attributes {
+      name
+      code
+    }
+  }
+`;
+export const ShoeCarouselCardFragmentDoc = gql`
+  fragment ShoeCarouselCard on ComponentUiShoeCardForCarousel {
+    id
+    title
+    link
+    price
+    tag
+    media {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+    section_shoes {
+      data {
+        id
+      }
+    }
+  }
+  ${FileFragmentFragmentDoc}
+`;
+export const PageGoodsFragmentDoc = gql`
+  fragment PageGoods on GoodsPageEntity {
+    id
+    attributes {
+      pageTitle
+      title
+      good {
+        ...ShoeCarouselCard
+      }
+    }
+  }
+  ${ShoeCarouselCardFragmentDoc}
+`;
+export const HomePageFragmentFragmentDoc = gql`
+  fragment HomePageFragment on HomePage {
+    section_main_title {
+      data {
+        id
+      }
+    }
+    banner_section {
+      data {
+        id
+      }
+    }
+    section_trend {
+      data {
+        id
+      }
+    }
+    section_popular {
+      data {
+        id
+      }
+    }
+    section_membership {
+      data {
+        id
+      }
+    }
+  }
+`;
+export const BannerCardFragmentDoc = gql`
+  fragment BannerCard on ComponentUiBannerCard {
+    id
+    Title
+    description
+  }
+`;
+export const SectionBannerFragmentFragmentDoc = gql`
+  fragment SectionBannerFragment on BannerSection {
+    card {
+      ...BannerCard
+    }
+  }
+  ${BannerCardFragmentDoc}
+`;
+export const SectionMainTitleFragmentFragmentDoc = gql`
+  fragment SectionMainTitleFragment on SectionMainTitle {
+    MainTitle
+    SubTitle
+    Video {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+    ShowCollectionLinkButton {
+      ...ButtonFragment
+    }
+    WatchLinkButton {
+      ...ButtonFragment
+    }
+    Title
+    publishedAt
+  }
+  ${FileFragmentFragmentDoc}
+  ${ButtonFragmentFragmentDoc}
+`;
+export const MembershipCardFragmentDoc = gql`
+  fragment MembershipCard on ComponentUiMembershipCard {
+    id
+    title
+    subtitle
+    image {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+    link
+  }
+  ${FileFragmentFragmentDoc}
+`;
+export const SectionMembershipFragmentFragmentDoc = gql`
+  fragment SectionMembershipFragment on SectionMembership {
+    title
+    subtitle
+    JoinUsButton {
+      ...ButtonFragment
+    }
+    SignInButton {
+      ...ButtonFragment
+    }
+    card {
+      ...MembershipCard
+    }
+    publishedAt
+  }
+  ${ButtonFragmentFragmentDoc}
+  ${MembershipCardFragmentDoc}
+`;
+export const SectionPopularFragmentFragmentDoc = gql`
+  fragment SectionPopularFragment on SectionPopular {
+    sectionTitle
+    card {
+      ...ShoeCarouselCard
+    }
+    updatedAt
+  }
+  ${ShoeCarouselCardFragmentDoc}
+`;
+export const TrendCardFragmentDoc = gql`
+  fragment TrendCard on ComponentUiTrendCard {
+    id
+    title
+    link
+    image {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+  }
+  ${FileFragmentFragmentDoc}
+`;
+export const SectionTrendFragmentFragmentDoc = gql`
+  fragment SectionTrendFragment on SectionTrend {
+    SectionTitle
+    card {
+      ...TrendCard
+    }
+    updatedAt
+  }
+  ${TrendCardFragmentDoc}
+`;
+export const GetCountriesDocument = gql`
+  query getCountries {
+    countries {
+      data {
+        id
+        attributes {
+          ...CountryFragment
+        }
+      }
+    }
+  }
+  ${CountryFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetCountriesQuery__
+ *
+ * To run a query within a React component, call `useGetCountriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCountriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetCountriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetCountriesQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetCountriesQuery, GetCountriesQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetCountriesQuery, GetCountriesQueryVariables>(
+    GetCountriesDocument,
+    options,
+  );
+}
+export function useGetCountriesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetCountriesQuery, GetCountriesQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetCountriesQuery, GetCountriesQueryVariables>(
+    GetCountriesDocument,
+    options,
+  );
+}
+export type GetCountriesQueryHookResult = ReturnType<typeof useGetCountriesQuery>;
+export type GetCountriesLazyQueryHookResult = ReturnType<typeof useGetCountriesLazyQuery>;
+export type GetCountriesQueryResult = Apollo.QueryResult<
+  GetCountriesQuery,
+  GetCountriesQueryVariables
+>;
+export const GetGoodsPageDocument = gql`
+  query getGoodsPage($pageTitle: StringFilterInput) {
+    goodsPages(filters: { pageTitle: $pageTitle }) {
+      data {
+        ...PageGoods
+      }
+    }
+  }
+  ${PageGoodsFragmentDoc}
+`;
+
+/**
+ * __useGetGoodsPageQuery__
+ *
+ * To run a query within a React component, call `useGetGoodsPageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGoodsPageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGoodsPageQuery({
+ *   variables: {
+ *      pageTitle: // value for 'pageTitle'
+ *   },
+ * });
+ */
+export function useGetGoodsPageQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetGoodsPageQuery, GetGoodsPageQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetGoodsPageQuery, GetGoodsPageQueryVariables>(
+    GetGoodsPageDocument,
+    options,
+  );
+}
+export function useGetGoodsPageLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetGoodsPageQuery, GetGoodsPageQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetGoodsPageQuery, GetGoodsPageQueryVariables>(
+    GetGoodsPageDocument,
+    options,
+  );
+}
+export type GetGoodsPageQueryHookResult = ReturnType<typeof useGetGoodsPageQuery>;
+export type GetGoodsPageLazyQueryHookResult = ReturnType<typeof useGetGoodsPageLazyQuery>;
+export type GetGoodsPageQueryResult = Apollo.QueryResult<
+  GetGoodsPageQuery,
+  GetGoodsPageQueryVariables
+>;
+export const GetHomePageDocument = gql`
+  query getHomePage {
+    homePage {
+      data {
+        id
+        attributes {
+          ...HomePageFragment
+        }
+      }
+    }
+  }
+  ${HomePageFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetHomePageQuery__
+ *
+ * To run a query within a React component, call `useGetHomePageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetHomePageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetHomePageQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetHomePageQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetHomePageQuery, GetHomePageQueryVariables>(GetHomePageDocument, options);
+}
+export function useGetHomePageLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetHomePageQuery, GetHomePageQueryVariables>(
+    GetHomePageDocument,
+    options,
+  );
+}
+export type GetHomePageQueryHookResult = ReturnType<typeof useGetHomePageQuery>;
+export type GetHomePageLazyQueryHookResult = ReturnType<typeof useGetHomePageLazyQuery>;
+export type GetHomePageQueryResult = Apollo.QueryResult<
+  GetHomePageQuery,
+  GetHomePageQueryVariables
+>;
+export const GetSectionBannerDocument = gql`
+  query getSectionBanner($id: ID, $locale: I18NLocaleCode) {
+    bannerSection(id: $id, locale: $locale) {
+      data {
+        id
+        attributes {
+          ...SectionBannerFragment
+        }
+      }
+    }
+  }
+  ${SectionBannerFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetSectionBannerQuery__
+ *
+ * To run a query within a React component, call `useGetSectionBannerQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSectionBannerQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSectionBannerQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useGetSectionBannerQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetSectionBannerQuery, GetSectionBannerQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetSectionBannerQuery, GetSectionBannerQueryVariables>(
+    GetSectionBannerDocument,
+    options,
+  );
+}
+export function useGetSectionBannerLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetSectionBannerQuery, GetSectionBannerQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetSectionBannerQuery, GetSectionBannerQueryVariables>(
+    GetSectionBannerDocument,
+    options,
+  );
+}
+export type GetSectionBannerQueryHookResult = ReturnType<typeof useGetSectionBannerQuery>;
+export type GetSectionBannerLazyQueryHookResult = ReturnType<typeof useGetSectionBannerLazyQuery>;
+export type GetSectionBannerQueryResult = Apollo.QueryResult<
+  GetSectionBannerQuery,
+  GetSectionBannerQueryVariables
+>;
+export const GetSectionMainTitleDocument = gql`
+  query getSectionMainTitle($id: ID, $locale: I18NLocaleCode) {
+    sectionMainTitle(id: $id, locale: $locale) {
+      data {
+        id
+        attributes {
+          ...SectionMainTitleFragment
+        }
+      }
+    }
+  }
+  ${SectionMainTitleFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetSectionMainTitleQuery__
+ *
+ * To run a query within a React component, call `useGetSectionMainTitleQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSectionMainTitleQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSectionMainTitleQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useGetSectionMainTitleQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetSectionMainTitleQuery,
+    GetSectionMainTitleQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetSectionMainTitleQuery, GetSectionMainTitleQueryVariables>(
+    GetSectionMainTitleDocument,
+    options,
+  );
+}
+export function useGetSectionMainTitleLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetSectionMainTitleQuery,
+    GetSectionMainTitleQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetSectionMainTitleQuery, GetSectionMainTitleQueryVariables>(
+    GetSectionMainTitleDocument,
+    options,
+  );
+}
+export type GetSectionMainTitleQueryHookResult = ReturnType<typeof useGetSectionMainTitleQuery>;
+export type GetSectionMainTitleLazyQueryHookResult = ReturnType<
+  typeof useGetSectionMainTitleLazyQuery
+>;
+export type GetSectionMainTitleQueryResult = Apollo.QueryResult<
+  GetSectionMainTitleQuery,
+  GetSectionMainTitleQueryVariables
+>;
+export const GetSectionMembershipDocument = gql`
+  query getSectionMembership($id: ID, $locale: I18NLocaleCode) {
+    sectionMembership(id: $id, locale: $locale) {
+      data {
+        id
+        attributes {
+          ...SectionMembershipFragment
+        }
+      }
+    }
+  }
+  ${SectionMembershipFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetSectionMembershipQuery__
+ *
+ * To run a query within a React component, call `useGetSectionMembershipQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSectionMembershipQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSectionMembershipQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useGetSectionMembershipQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetSectionMembershipQuery,
+    GetSectionMembershipQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetSectionMembershipQuery, GetSectionMembershipQueryVariables>(
+    GetSectionMembershipDocument,
+    options,
+  );
+}
+export function useGetSectionMembershipLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetSectionMembershipQuery,
+    GetSectionMembershipQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetSectionMembershipQuery, GetSectionMembershipQueryVariables>(
+    GetSectionMembershipDocument,
+    options,
+  );
+}
+export type GetSectionMembershipQueryHookResult = ReturnType<typeof useGetSectionMembershipQuery>;
+export type GetSectionMembershipLazyQueryHookResult = ReturnType<
+  typeof useGetSectionMembershipLazyQuery
+>;
+export type GetSectionMembershipQueryResult = Apollo.QueryResult<
+  GetSectionMembershipQuery,
+  GetSectionMembershipQueryVariables
+>;
+export const GetSectionPopularDocument = gql`
+  query getSectionPopular($id: ID, $locale: I18NLocaleCode) {
+    sectionPopular(id: $id, locale: $locale) {
+      data {
+        id
+        attributes {
+          ...SectionPopularFragment
+        }
+      }
+    }
+  }
+  ${SectionPopularFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetSectionPopularQuery__
+ *
+ * To run a query within a React component, call `useGetSectionPopularQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSectionPopularQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSectionPopularQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useGetSectionPopularQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetSectionPopularQuery, GetSectionPopularQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetSectionPopularQuery, GetSectionPopularQueryVariables>(
+    GetSectionPopularDocument,
+    options,
+  );
+}
+export function useGetSectionPopularLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetSectionPopularQuery,
+    GetSectionPopularQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetSectionPopularQuery, GetSectionPopularQueryVariables>(
+    GetSectionPopularDocument,
+    options,
+  );
+}
+export type GetSectionPopularQueryHookResult = ReturnType<typeof useGetSectionPopularQuery>;
+export type GetSectionPopularLazyQueryHookResult = ReturnType<typeof useGetSectionPopularLazyQuery>;
+export type GetSectionPopularQueryResult = Apollo.QueryResult<
+  GetSectionPopularQuery,
+  GetSectionPopularQueryVariables
+>;
+export const GetSectionTrendDocument = gql`
+  query getSectionTrend($id: ID, $locale: I18NLocaleCode) {
+    sectionTrend(id: $id, locale: $locale) {
+      data {
+        id
+        attributes {
+          ...SectionTrendFragment
+        }
+      }
+    }
+  }
+  ${SectionTrendFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetSectionTrendQuery__
+ *
+ * To run a query within a React component, call `useGetSectionTrendQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSectionTrendQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSectionTrendQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useGetSectionTrendQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetSectionTrendQuery, GetSectionTrendQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetSectionTrendQuery, GetSectionTrendQueryVariables>(
+    GetSectionTrendDocument,
+    options,
+  );
+}
+export function useGetSectionTrendLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetSectionTrendQuery, GetSectionTrendQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetSectionTrendQuery, GetSectionTrendQueryVariables>(
+    GetSectionTrendDocument,
+    options,
+  );
+}
+export type GetSectionTrendQueryHookResult = ReturnType<typeof useGetSectionTrendQuery>;
+export type GetSectionTrendLazyQueryHookResult = ReturnType<typeof useGetSectionTrendLazyQuery>;
+export type GetSectionTrendQueryResult = Apollo.QueryResult<
+  GetSectionTrendQuery,
+  GetSectionTrendQueryVariables
+>;

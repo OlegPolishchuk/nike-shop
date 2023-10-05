@@ -1,4 +1,4 @@
-import { createApolloClient } from '@/api/apollo-client';
+import { createApolloClient } from '@/graphql/apollo-client';
 import { gql } from '@/graphql/client';
 
 const client = createApolloClient();

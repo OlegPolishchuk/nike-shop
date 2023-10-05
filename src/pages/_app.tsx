@@ -6,7 +6,7 @@ import { ApolloProvider } from '@apollo/client';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 
-import { createApolloClient } from '@/api/apollo-client';
+import { createApolloClient } from '@/graphql/apollo-client';
 
 export type NextPageWithLayout<P = object> = NextPage<P> & {
   getLayout?: (page: ReactElement) => ReactElement;
