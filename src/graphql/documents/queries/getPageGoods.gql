@@ -1,7 +1,0 @@
-query getGoodsPage($pageTitle: StringFilterInput) {
- goodsPages(filters:{pageTitle: $pageTitle}){
-  data {
-    ...PageGoods
-  }
-}
-}

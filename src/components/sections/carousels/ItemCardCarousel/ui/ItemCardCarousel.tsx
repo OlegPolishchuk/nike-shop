@@ -88,6 +88,7 @@ export const ItemCardCarousel = ({ data }: Props) => {
                 title={card.title}
                 imgSrc={card.media.data.attributes.url}
                 price={card.price}
+                link={card.link}
               />
             </li>
           ))}

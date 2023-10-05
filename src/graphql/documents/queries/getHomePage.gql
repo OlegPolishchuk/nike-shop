@@ -1,0 +1,10 @@
+query getHomePage {
+  homePage {
+    data {
+      id
+      attributes {
+        ...HomePageFragment
+      }
+    }
+  }
+}

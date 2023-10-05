@@ -2,6 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 
 import { Typography } from '@/common/ui';
 import { ImageFromCms } from '@/components';
@@ -11,6 +12,7 @@ interface Props {
   title: string;
   price: string;
   category: string;
+  link: string;
   size?: 'medium' | 'small' | 'large';
 }
 
@@ -20,7 +22,7 @@ const sizesClassName = {
   small: 'w-full min-w-[300px] sm:w-full sm:max-w-[400px]',
 };
 
-export const ItemCard = ({ imgSrc, category, price, title, size = 'large' }: Props) => {
+export const ItemCard = ({ imgSrc, category, price, title, link, size = 'large' }: Props) => {
   return (
     <div className={''}>
       <div
@@ -34,7 +36,7 @@ export const ItemCard = ({ imgSrc, category, price, title, size = 'large' }: Pro
         <ImageFromCms src={imgSrc} alt={title} fill priority />
       </div>
 
-      <div className={'flex justify-between pr-[16px]'}>
+      <div className={clsx('flex justify-between pr-[16px]', sizesClassName[size])}>
         <div>
           <Typography variant={'body-1'} className={'mb-[10px]'}>
             {title}

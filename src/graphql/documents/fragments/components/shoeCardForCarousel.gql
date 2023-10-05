@@ -11,4 +11,9 @@ fragment ShoeCarouselCard on ComponentUiShoeCardForCarousel {
         }
       }
     }
+  section_shoes {
+    data {
+        id
+    }
+  }
 }

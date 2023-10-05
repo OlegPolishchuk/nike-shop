@@ -15,16 +15,18 @@ export const TrendCard = ({ card }: Props) => {
   const { image, title, link } = card;
 
   return (
-    <div className='relative h-0 min-h-[300px] w-full pb-[100%]'>
+    <div>
       <Link href={link}>
-        <ImageFromCms
-          src={image.data.attributes.url}
-          alt='membership'
-          fill
-          className='h-full w-full'
-        />
+        <div className='relative h-0 min-h-[300px] w-full pb-[100%]'>
+          <ImageFromCms
+            src={image.data.attributes.url}
+            alt='membership'
+            fill
+            className='h-full w-full'
+          />
+        </div>
 
-        <div className={'absolute bottom-[-25px] flex w-full flex-col  justify-center'}>
+        <div className={'mt-3 flex w-full flex-col  justify-center'}>
           <Typography variant={'body-1'}>{title}</Typography>
         </div>
       </Link>

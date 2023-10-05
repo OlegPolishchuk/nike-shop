@@ -3,13 +3,13 @@ import { NavItem } from '@/components/Navigation/types/types';
 export const navigationData: NavItem[] = [
   {
     title: 'New & Featured',
-    href: '/goods/NewReleases',
+    href: '/category/NewReleases',
     sublist: [
       [
         {
           title: 'New & Featured',
           items: [
-            { title: 'New Arrivals', href: '/goods/NewReleases', sublist: null },
+            { title: 'New Arrivals', href: '/category/NewReleases', sublist: null },
             { title: 'Best Sellers', href: '#', sublist: null },
             { title: 'Member Exclusive', href: '#', sublist: null },
             { title: 'New in Running', href: '#', sublist: null },

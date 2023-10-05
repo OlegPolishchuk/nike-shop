@@ -12,7 +12,6 @@ interface Props {
 }
 
 export const MainTitle = ({ data }: Props) => {
-  console.log(data);
   const { MainTitle, SubTitle, ShowCollectionLinkButton, WatchLinkButton } = data;
 
   return (

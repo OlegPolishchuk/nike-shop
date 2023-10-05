@@ -20,8 +20,6 @@ interface Props {
 export const Banner = ({ className, data }: Props) => {
   const { translateUl } = useInitializeBanner();
 
-  console.log(data?.card[0]);
-
   return (
     <div
       className={clsx(
