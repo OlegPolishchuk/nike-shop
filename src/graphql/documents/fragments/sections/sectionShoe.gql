@@ -1,0 +1,18 @@
+fragment SectionShoeFragment on SectionShoe {
+   addToBagButton {
+        ...ButtonFragment
+   }
+   favoriteButton {
+        ...ButtonFragment
+   }
+   options {
+       ...ShoeOptionFragment
+   }
+   sizes {
+        id
+        Sizes {
+            ...Size
+        }
+   }
+   updatedAt
+}

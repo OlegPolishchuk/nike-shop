@@ -1,0 +1,78 @@
+fragment WomenSizes on ComponentSettingsWomenSizes {
+    id
+    w5 {
+        id
+        title
+        inStock
+    }
+    w55 {
+        id
+        title
+        inStock
+    }
+    w6 {
+        id
+        title
+        inStock
+    }
+    w65 {
+        id
+        title
+        inStock
+    }
+    w7 {
+        id
+        title
+        inStock
+    }
+    w75 {
+        id
+        title
+        inStock
+    }
+    w8 {
+        id
+        title
+        inStock
+    }
+    w85 {
+        id
+        title
+        inStock
+    }
+    w9 {
+        id
+        title
+        inStock
+    }
+    w95 {
+        id
+        title
+        inStock
+    }
+    w10 {
+        id
+        title
+        inStock
+    }
+    w105 {
+        id
+        title
+        inStock
+    }
+    w11 {
+        id
+        title
+        inStock
+    }
+    w115 {
+        id
+        title
+        inStock
+    }
+    w12 {
+        id
+        title
+        inStock
+    }
+}

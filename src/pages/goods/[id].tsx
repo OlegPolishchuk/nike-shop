@@ -1,17 +1,28 @@
 import React from 'react';
 
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
+import { ShoeSection } from '@/components';
 import { getMainLayout } from '@/components/layouts';
+import { GetSectionShoeQuery, gql } from '@/graphql/client';
 
-export const getStaticProps: GetStaticProps = () => {
+interface Props {
+  sectionShoe: GetSectionShoeQuery['sectionShoe'];
+}
+export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) => {
+  const { id } = params as { id: string };
+
+  const { sectionShoe } = await gql.getSectionShoe({ id });
+
   return {
-    props: {},
+    props: {
+      sectionShoe,
+    },
   };
 };
 
-const ProductPage = () => {
-  return <div></div>;
+const ProductPage = ({ sectionShoe }: Props) => {
+  return <ShoeSection sectionShoe={sectionShoe} />;
 };
 
 ProductPage.getLayout = getMainLayout;

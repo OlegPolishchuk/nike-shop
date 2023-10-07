@@ -1,0 +1,93 @@
+fragment MenSizes on ComponentSettingsMenSizes {
+    id
+    m7 {
+        id
+        title
+        inStock
+    }
+    m75 {
+        id
+        title
+        inStock
+    }
+    m8 {
+        id
+        title
+        inStock
+    }
+    m85 {
+        id
+        title
+        inStock
+    }
+    m9 {
+        id
+        title
+        inStock
+    }
+    n95 {
+        id
+        title
+        inStock
+    }
+    m10 {
+        id
+        title
+        inStock
+    }
+    m105 {
+        id
+        title
+        inStock
+    }
+    m11 {
+        id
+        title
+        inStock
+    }
+    m115 {
+        id
+        title
+        inStock
+    }
+    m12 {
+        id
+        title
+        inStock
+    }
+    m125 {
+        id
+        title
+        inStock
+    }
+    m13 {
+        id
+        title
+        inStock
+    }
+    m14 {
+        id
+        title
+        inStock
+    }
+    m15 {
+        id
+        title
+        inStock
+    }
+    m16 {
+        id
+        title
+        inStock
+    }
+    m17 {
+        id
+        title
+        inStock
+    }
+    m18 {
+        id
+        title
+        inStock
+    }
+}

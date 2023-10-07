@@ -2,6 +2,7 @@ import React from 'react';
 
 import Link from 'next/link';
 
+import { PRICE_TAG } from '@/common/constants/constants';
 import { Typography } from '@/common/ui';
 import { ImageFromCms } from '@/components';
 import { ShoeCarouselCardFragment } from '@/graphql/__generated__';
@@ -32,7 +33,9 @@ export const GoodsCard = ({ card }: Props) => {
             </Typography>
           </div>
 
-          <Typography variant={'body-1'}>&#36;{price}</Typography>
+          <Typography variant={'body-1'}>
+            {PRICE_TAG} {price}
+          </Typography>
         </div>
       </Link>
     </div>

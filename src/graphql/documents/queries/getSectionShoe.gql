@@ -1,0 +1,10 @@
+query getSectionShoe($id: ID) {
+  sectionShoe(id: $id) {
+    data {
+          id
+          attributes {
+            ...SectionShoeFragment
+          }
+        }
+  }
+}

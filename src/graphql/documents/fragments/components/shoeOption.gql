@@ -6,4 +6,8 @@ fragment ShoeOptionFragment on ComponentEntityShoeOption {
       }
     }
   }
+  title
+  tag
+  price
+  description
 }

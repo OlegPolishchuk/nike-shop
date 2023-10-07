@@ -7,8 +7,9 @@ generates:
       - typescript
       - typescript-operations
       - typescript-graphql-request
-      - typescript-react-apollo
+#      - typescript-react-apollo
 config:
+  rewrite: true
   maybeValue: 'T'
   avoidOptionals: true
   immutableTypes: true

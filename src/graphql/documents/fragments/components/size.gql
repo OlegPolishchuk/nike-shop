@@ -1,0 +1,5 @@
+fragment Size on  ComponentSettingsSize {
+  id
+  title
+  inStock
+}

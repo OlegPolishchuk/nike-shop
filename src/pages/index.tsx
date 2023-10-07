@@ -12,7 +12,12 @@ import {
 import { Banner, ItemCardCarousel, MainTitle, Membership, VideoBanner } from '@/components';
 import { getMainLayout } from '@/components/layouts';
 import { Trends } from '@/components/sections';
-import { useGetHomePageQuery } from '@/graphql/__generated__';
+import {
+  GetHomePageDocument,
+  HomePage,
+  HomePageEntity,
+  useGetHomePageQuery,
+} from '@/graphql/__generated__';
 import { createApolloClient } from '@/graphql/apollo-client';
 import {
   GetSectionBannerQuery,

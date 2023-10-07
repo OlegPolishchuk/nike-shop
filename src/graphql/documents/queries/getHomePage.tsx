@@ -1,6 +1,6 @@
-import { graphql } from '@/graphql/generated';
+import { gql } from '@apollo/client';
 
-export const getHomePageQuery = graphql(`
+export const getHomePageQuery = gql(`
   query getHomePage {
     homePage {
       data {

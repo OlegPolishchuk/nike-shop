@@ -1,0 +1,68 @@
+fragment KidSize on ComponentSettingsKidSizes {
+    id
+    c105 {
+        id
+        title
+        inStock
+    }
+    c11 {
+        id
+        title
+        inStock
+    }
+    c115 {
+        id
+        title
+        inStock
+    }
+    c115 {
+        id
+        title
+        inStock
+    }
+    c12 {
+        id
+        title
+        inStock
+    }
+    c125 {
+        id
+        title
+        inStock
+    }
+    c13 {
+        id
+        title
+        inStock
+    }
+    c135 {
+        id
+        title
+        inStock
+    }
+    y1 {
+        id
+        title
+        inStock
+    }
+    y15 {
+        id
+        title
+        inStock
+    }
+    y2 {
+        id
+        title
+        inStock
+    }
+    y25 {
+        id
+        title
+        inStock
+    }
+    y3 {
+        id
+        title
+        inStock
+    }
+}

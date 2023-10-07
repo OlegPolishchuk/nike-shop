@@ -1,8 +1,7 @@
 import { GraphQLClient } from 'graphql-request';
+// @ts-ignore
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
 export type Maybe<T> = T;
 export type InputMaybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -14,7 +13,6 @@ export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> =
 export type Incremental<T> =
   | T
   | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
-const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string };
@@ -154,10 +152,640 @@ export type ComponentEntityShoeOptionInput = {
   readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ComponentKidSizes1Y = {
+  readonly __typename?: 'ComponentKidSizes1Y';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes1YFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes1YFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes1YFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes1YFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes1YInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes2Y = {
+  readonly __typename?: 'ComponentKidSizes2Y';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes2YFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes2YFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes2YFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes2YFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes2YInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes3Y = {
+  readonly __typename?: 'ComponentKidSizes3Y';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes3YFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes3YFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes3YFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes3YFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes3YInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes11C = {
+  readonly __typename?: 'ComponentKidSizes11C';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes11CFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes11CFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes11CFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes11CFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes11CInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes12C = {
+  readonly __typename?: 'ComponentKidSizes12C';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes12CFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes12CFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes12CFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes12CFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes12CInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes13C = {
+  readonly __typename?: 'ComponentKidSizes13C';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes13CFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes13CFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes13CFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes13CFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes13CInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes15Y = {
+  readonly __typename?: 'ComponentKidSizes15Y';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes15YFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes15YFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes15YFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes15YFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes15YInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes25Y = {
+  readonly __typename?: 'ComponentKidSizes25Y';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes25YFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes25YFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes25YFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes25YFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes25YInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes105C = {
+  readonly __typename?: 'ComponentKidSizes105C';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes105CFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes105CFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes105CFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes105CFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes105CInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes115C = {
+  readonly __typename?: 'ComponentKidSizes115C';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes115CFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes115CFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes115CFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes115CFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes115CInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes125C = {
+  readonly __typename?: 'ComponentKidSizes125C';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes125CFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes125CFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes125CFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes125CFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes125CInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentKidSizes135C = {
+  readonly __typename?: 'ComponentKidSizes135C';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentKidSizes135CFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes135CFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentKidSizes135CFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentKidSizes135CFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentKidSizes135CInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ComponentLayoutHeaderLinkList = {
   readonly __typename?: 'ComponentLayoutHeaderLinkList';
   readonly Title: Scalars['String']['output'];
   readonly id: Scalars['ID']['output'];
+};
+
+export type ComponentMenSizesM7W85 = {
+  readonly __typename?: 'ComponentMenSizesM7W85';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM7W85FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM7W85FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM7W85FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM7W85FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM7W85Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM8W95 = {
+  readonly __typename?: 'ComponentMenSizesM8W95';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM8W95FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM8W95FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM8W95FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM8W95FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM8W95Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM9W105 = {
+  readonly __typename?: 'ComponentMenSizesM9W105';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM9W105FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM9W105FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM9W105FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM9W105FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM9W105Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM10W115 = {
+  readonly __typename?: 'ComponentMenSizesM10W115';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM10W115FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM10W115FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM10W115FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM10W115FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM10W115Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM11W125 = {
+  readonly __typename?: 'ComponentMenSizesM11W125';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM11W125FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM11W125FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM11W125FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM11W125FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM11W125Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM12W135 = {
+  readonly __typename?: 'ComponentMenSizesM12W135';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM12W135FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM12W135FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM12W135FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM12W135FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM12W135Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM13W145 = {
+  readonly __typename?: 'ComponentMenSizesM13W145';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM13W145FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM13W145FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM13W145FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM13W145FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM13W145Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM14W155 = {
+  readonly __typename?: 'ComponentMenSizesM14W155';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM14W155FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM14W155FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM14W155FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM14W155FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM14W155Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM15W165 = {
+  readonly __typename?: 'ComponentMenSizesM15W165';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM15W165FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM15W165FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM15W165FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM15W165FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM15W165Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM16W175 = {
+  readonly __typename?: 'ComponentMenSizesM16W175';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM16W175FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM16W175FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM16W175FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM16W175FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM16W175Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM17W185 = {
+  readonly __typename?: 'ComponentMenSizesM17W185';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM17W185FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM17W185FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM17W185FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM17W185FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM17W185Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM18W195 = {
+  readonly __typename?: 'ComponentMenSizesM18W195';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM18W195FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM18W195FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM18W195FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM18W195FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM18W195Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM75W9 = {
+  readonly __typename?: 'ComponentMenSizesM75W9';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM75W9FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM75W9FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM75W9FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM75W9FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM75W9Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM85W10 = {
+  readonly __typename?: 'ComponentMenSizesM85W10';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM85W10FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM85W10FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM85W10FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM85W10FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM85W10Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM95W11 = {
+  readonly __typename?: 'ComponentMenSizesM95W11';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM95W11FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM95W11FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM95W11FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM95W11FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM95W11Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM105W12 = {
+  readonly __typename?: 'ComponentMenSizesM105W12';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM105W12FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM105W12FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM105W12FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM105W12FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM105W12Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM115W13 = {
+  readonly __typename?: 'ComponentMenSizesM115W13';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM115W13FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM115W13FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM115W13FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM115W13FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM115W13Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenSizesM125W14 = {
+  readonly __typename?: 'ComponentMenSizesM125W14';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentMenSizesM125W14FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM125W14FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentMenSizesM125W14FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentMenSizesM125W14FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenSizesM125W14Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentSettingsBannerSection = {
@@ -176,6 +804,207 @@ export type ComponentSettingsBannerSectionFiltersInput = {
 export type ComponentSettingsBannerSectionInput = {
   readonly id: InputMaybe<Scalars['ID']['input']>;
   readonly show: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ComponentSettingsKidSizes = {
+  readonly __typename?: 'ComponentSettingsKidSizes';
+  readonly c11: ComponentKidSizes11C;
+  readonly c12: ComponentKidSizes12C;
+  readonly c13: ComponentKidSizes13C;
+  readonly c105: ComponentKidSizes105C;
+  readonly c115: ComponentKidSizes115C;
+  readonly c125: ComponentKidSizes125C;
+  readonly c135: ComponentKidSizes135C;
+  readonly id: Scalars['ID']['output'];
+  readonly y1: ComponentKidSizes1Y;
+  readonly y2: ComponentKidSizes2Y;
+  readonly y3: ComponentKidSizes3Y;
+  readonly y15: ComponentKidSizes15Y;
+  readonly y25: ComponentKidSizes25Y;
+};
+
+export type ComponentSettingsKidSizesFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsKidSizesFiltersInput>>>;
+  readonly c11: InputMaybe<ComponentKidSizes11CFiltersInput>;
+  readonly c12: InputMaybe<ComponentKidSizes12CFiltersInput>;
+  readonly c13: InputMaybe<ComponentKidSizes13CFiltersInput>;
+  readonly c105: InputMaybe<ComponentKidSizes105CFiltersInput>;
+  readonly c115: InputMaybe<ComponentKidSizes115CFiltersInput>;
+  readonly c125: InputMaybe<ComponentKidSizes125CFiltersInput>;
+  readonly c135: InputMaybe<ComponentKidSizes135CFiltersInput>;
+  readonly not: InputMaybe<ComponentSettingsKidSizesFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsKidSizesFiltersInput>>>;
+  readonly y1: InputMaybe<ComponentKidSizes1YFiltersInput>;
+  readonly y2: InputMaybe<ComponentKidSizes2YFiltersInput>;
+  readonly y3: InputMaybe<ComponentKidSizes3YFiltersInput>;
+  readonly y15: InputMaybe<ComponentKidSizes15YFiltersInput>;
+  readonly y25: InputMaybe<ComponentKidSizes25YFiltersInput>;
+};
+
+export type ComponentSettingsKidSizesInput = {
+  readonly c11: InputMaybe<ComponentKidSizes11CInput>;
+  readonly c12: InputMaybe<ComponentKidSizes12CInput>;
+  readonly c13: InputMaybe<ComponentKidSizes13CInput>;
+  readonly c105: InputMaybe<ComponentKidSizes105CInput>;
+  readonly c115: InputMaybe<ComponentKidSizes115CInput>;
+  readonly c125: InputMaybe<ComponentKidSizes125CInput>;
+  readonly c135: InputMaybe<ComponentKidSizes135CInput>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly y1: InputMaybe<ComponentKidSizes1YInput>;
+  readonly y2: InputMaybe<ComponentKidSizes2YInput>;
+  readonly y3: InputMaybe<ComponentKidSizes3YInput>;
+  readonly y15: InputMaybe<ComponentKidSizes15YInput>;
+  readonly y25: InputMaybe<ComponentKidSizes25YInput>;
+};
+
+export type ComponentSettingsMenSizes = {
+  readonly __typename?: 'ComponentSettingsMenSizes';
+  readonly id: Scalars['ID']['output'];
+  readonly m7: ComponentMenSizesM7W85;
+  readonly m8: ComponentMenSizesM8W95;
+  readonly m9: ComponentMenSizesM9W105;
+  readonly m10: ComponentMenSizesM10W115;
+  readonly m11: ComponentMenSizesM11W125;
+  readonly m12: ComponentMenSizesM12W135;
+  readonly m13: ComponentMenSizesM13W145;
+  readonly m14: ComponentMenSizesM14W155;
+  readonly m15: ComponentMenSizesM15W165;
+  readonly m16: ComponentMenSizesM16W175;
+  readonly m17: ComponentMenSizesM17W185;
+  readonly m18: ComponentMenSizesM18W195;
+  readonly m75: ComponentMenSizesM75W9;
+  readonly m85: ComponentMenSizesM85W10;
+  readonly m105: ComponentMenSizesM105W12;
+  readonly m115: ComponentMenSizesM115W13;
+  readonly m125: ComponentMenSizesM125W14;
+  readonly n95: ComponentMenSizesM95W11;
+};
+
+export type ComponentSettingsMenSizesFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsMenSizesFiltersInput>>>;
+  readonly m7: InputMaybe<ComponentMenSizesM7W85FiltersInput>;
+  readonly m8: InputMaybe<ComponentMenSizesM8W95FiltersInput>;
+  readonly m9: InputMaybe<ComponentMenSizesM9W105FiltersInput>;
+  readonly m10: InputMaybe<ComponentMenSizesM10W115FiltersInput>;
+  readonly m11: InputMaybe<ComponentMenSizesM11W125FiltersInput>;
+  readonly m12: InputMaybe<ComponentMenSizesM12W135FiltersInput>;
+  readonly m13: InputMaybe<ComponentMenSizesM13W145FiltersInput>;
+  readonly m14: InputMaybe<ComponentMenSizesM14W155FiltersInput>;
+  readonly m15: InputMaybe<ComponentMenSizesM15W165FiltersInput>;
+  readonly m16: InputMaybe<ComponentMenSizesM16W175FiltersInput>;
+  readonly m17: InputMaybe<ComponentMenSizesM17W185FiltersInput>;
+  readonly m18: InputMaybe<ComponentMenSizesM18W195FiltersInput>;
+  readonly m75: InputMaybe<ComponentMenSizesM75W9FiltersInput>;
+  readonly m85: InputMaybe<ComponentMenSizesM85W10FiltersInput>;
+  readonly m105: InputMaybe<ComponentMenSizesM105W12FiltersInput>;
+  readonly m115: InputMaybe<ComponentMenSizesM115W13FiltersInput>;
+  readonly m125: InputMaybe<ComponentMenSizesM125W14FiltersInput>;
+  readonly n95: InputMaybe<ComponentMenSizesM95W11FiltersInput>;
+  readonly not: InputMaybe<ComponentSettingsMenSizesFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsMenSizesFiltersInput>>>;
+};
+
+export type ComponentSettingsMenSizesInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly m7: InputMaybe<ComponentMenSizesM7W85Input>;
+  readonly m8: InputMaybe<ComponentMenSizesM8W95Input>;
+  readonly m9: InputMaybe<ComponentMenSizesM9W105Input>;
+  readonly m10: InputMaybe<ComponentMenSizesM10W115Input>;
+  readonly m11: InputMaybe<ComponentMenSizesM11W125Input>;
+  readonly m12: InputMaybe<ComponentMenSizesM12W135Input>;
+  readonly m13: InputMaybe<ComponentMenSizesM13W145Input>;
+  readonly m14: InputMaybe<ComponentMenSizesM14W155Input>;
+  readonly m15: InputMaybe<ComponentMenSizesM15W165Input>;
+  readonly m16: InputMaybe<ComponentMenSizesM16W175Input>;
+  readonly m17: InputMaybe<ComponentMenSizesM17W185Input>;
+  readonly m18: InputMaybe<ComponentMenSizesM18W195Input>;
+  readonly m75: InputMaybe<ComponentMenSizesM75W9Input>;
+  readonly m85: InputMaybe<ComponentMenSizesM85W10Input>;
+  readonly m105: InputMaybe<ComponentMenSizesM105W12Input>;
+  readonly m115: InputMaybe<ComponentMenSizesM115W13Input>;
+  readonly m125: InputMaybe<ComponentMenSizesM125W14Input>;
+  readonly n95: InputMaybe<ComponentMenSizesM95W11Input>;
+};
+
+export type ComponentSettingsSize = {
+  readonly __typename?: 'ComponentSettingsSize';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentSettingsSizeFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsSizeFiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentSettingsSizeFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsSizeFiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentSettingsSizeInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentSettingsWomenSizes = {
+  readonly __typename?: 'ComponentSettingsWomenSizes';
+  readonly id: Scalars['ID']['output'];
+  readonly w5: ComponentWomenSizesW5M35;
+  readonly w6: ComponentWomenSizesW6M45;
+  readonly w7: ComponentWomenSizesW7M55;
+  readonly w8: ComponentWomenSizesW8M65;
+  readonly w9: ComponentWomenSizesW9M75;
+  readonly w10: ComponentWomenSizesW10M85;
+  readonly w11: ComponentWomenSizesW11M95;
+  readonly w12: ComponentWomenSizesW12M105;
+  readonly w55: ComponentWomenSizesW55M4;
+  readonly w65: ComponentWomenSizesW65M5;
+  readonly w75: ComponentWomenSizesW75M6;
+  readonly w85: ComponentWomenSizesW85M7;
+  readonly w95: ComponentWomenSizesW95M8;
+  readonly w105: ComponentWomenSizesW105M9;
+  readonly w115: ComponentWomenSizesW115M10;
+};
+
+export type ComponentSettingsWomenSizesFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsWomenSizesFiltersInput>>>;
+  readonly not: InputMaybe<ComponentSettingsWomenSizesFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsWomenSizesFiltersInput>>>;
+  readonly w5: InputMaybe<ComponentWomenSizesW5M35FiltersInput>;
+  readonly w6: InputMaybe<ComponentWomenSizesW6M45FiltersInput>;
+  readonly w7: InputMaybe<ComponentWomenSizesW7M55FiltersInput>;
+  readonly w8: InputMaybe<ComponentWomenSizesW8M65FiltersInput>;
+  readonly w9: InputMaybe<ComponentWomenSizesW9M75FiltersInput>;
+  readonly w10: InputMaybe<ComponentWomenSizesW10M85FiltersInput>;
+  readonly w11: InputMaybe<ComponentWomenSizesW11M95FiltersInput>;
+  readonly w12: InputMaybe<ComponentWomenSizesW12M105FiltersInput>;
+  readonly w55: InputMaybe<ComponentWomenSizesW55M4FiltersInput>;
+  readonly w65: InputMaybe<ComponentWomenSizesW65M5FiltersInput>;
+  readonly w75: InputMaybe<ComponentWomenSizesW75M6FiltersInput>;
+  readonly w85: InputMaybe<ComponentWomenSizesW85M7FiltersInput>;
+  readonly w95: InputMaybe<ComponentWomenSizesW95M8FiltersInput>;
+  readonly w105: InputMaybe<ComponentWomenSizesW105M9FiltersInput>;
+  readonly w115: InputMaybe<ComponentWomenSizesW115M10FiltersInput>;
+};
+
+export type ComponentSettingsWomenSizesInput = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly w5: InputMaybe<ComponentWomenSizesW5M35Input>;
+  readonly w6: InputMaybe<ComponentWomenSizesW6M45Input>;
+  readonly w7: InputMaybe<ComponentWomenSizesW7M55Input>;
+  readonly w8: InputMaybe<ComponentWomenSizesW8M65Input>;
+  readonly w9: InputMaybe<ComponentWomenSizesW9M75Input>;
+  readonly w10: InputMaybe<ComponentWomenSizesW10M85Input>;
+  readonly w11: InputMaybe<ComponentWomenSizesW11M95Input>;
+  readonly w12: InputMaybe<ComponentWomenSizesW12M105Input>;
+  readonly w55: InputMaybe<ComponentWomenSizesW55M4Input>;
+  readonly w65: InputMaybe<ComponentWomenSizesW65M5Input>;
+  readonly w75: InputMaybe<ComponentWomenSizesW75M6Input>;
+  readonly w85: InputMaybe<ComponentWomenSizesW85M7Input>;
+  readonly w95: InputMaybe<ComponentWomenSizesW95M8Input>;
+  readonly w105: InputMaybe<ComponentWomenSizesW105M9Input>;
+  readonly w115: InputMaybe<ComponentWomenSizesW115M10Input>;
 };
 
 export type ComponentUiBannerCard = {
@@ -327,6 +1156,30 @@ export type ComponentUiShoeCardForCarouselInput = {
   readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ComponentUiSizes = {
+  readonly __typename?: 'ComponentUiSizes';
+  readonly Sizes: ReadonlyArray<Maybe<ComponentSettingsSize>>;
+  readonly id: Scalars['ID']['output'];
+};
+
+export type ComponentUiSizesSizesArgs = {
+  filters: InputMaybe<ComponentSettingsSizeFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentUiSizesFiltersInput = {
+  readonly Sizes: InputMaybe<ComponentSettingsSizeFiltersInput>;
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiSizesFiltersInput>>>;
+  readonly not: InputMaybe<ComponentUiSizesFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiSizesFiltersInput>>>;
+};
+
+export type ComponentUiSizesInput = {
+  readonly Sizes: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsSizeInput>>>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type ComponentUiTrendCard = {
   readonly __typename?: 'ComponentUiTrendCard';
   readonly id: Scalars['ID']['output'];
@@ -347,6 +1200,321 @@ export type ComponentUiTrendCardInput = {
   readonly id: InputMaybe<Scalars['ID']['input']>;
   readonly image: InputMaybe<Scalars['ID']['input']>;
   readonly link: InputMaybe<Scalars['String']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW5M35 = {
+  readonly __typename?: 'ComponentWomenSizesW5M35';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW5M35FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW5M35FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW5M35FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW5M35FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW5M35Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW6M45 = {
+  readonly __typename?: 'ComponentWomenSizesW6M45';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW6M45FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW6M45FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW6M45FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW6M45FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW6M45Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW7M55 = {
+  readonly __typename?: 'ComponentWomenSizesW7M55';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW7M55FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW7M55FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW7M55FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW7M55FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW7M55Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW8M65 = {
+  readonly __typename?: 'ComponentWomenSizesW8M65';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW8M65FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW8M65FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW8M65FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW8M65FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW8M65Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW9M75 = {
+  readonly __typename?: 'ComponentWomenSizesW9M75';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW9M75FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW9M75FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW9M75FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW9M75FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW9M75Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW10M85 = {
+  readonly __typename?: 'ComponentWomenSizesW10M85';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW10M85FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW10M85FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW10M85FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW10M85FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW10M85Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW11M95 = {
+  readonly __typename?: 'ComponentWomenSizesW11M95';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW11M95FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW11M95FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW11M95FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW11M95FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW11M95Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW12M105 = {
+  readonly __typename?: 'ComponentWomenSizesW12M105';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW12M105FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW12M105FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW12M105FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW12M105FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW12M105Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW55M4 = {
+  readonly __typename?: 'ComponentWomenSizesW55M4';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW55M4FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW55M4FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW55M4FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW55M4FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW55M4Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW65M5 = {
+  readonly __typename?: 'ComponentWomenSizesW65M5';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW65M5FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW65M5FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW65M5FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW65M5FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW65M5Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW75M6 = {
+  readonly __typename?: 'ComponentWomenSizesW75M6';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW75M6FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW75M6FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW75M6FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW75M6FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW75M6Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW85M7 = {
+  readonly __typename?: 'ComponentWomenSizesW85M7';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW85M7FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW85M7FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW85M7FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW85M7FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW85M7Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW95M8 = {
+  readonly __typename?: 'ComponentWomenSizesW95M8';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW95M8FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW95M8FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW95M8FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW95M8FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW95M8Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW105M9 = {
+  readonly __typename?: 'ComponentWomenSizesW105M9';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW105M9FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW105M9FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW105M9FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW105M9FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW105M9Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentWomenSizesW115M10 = {
+  readonly __typename?: 'ComponentWomenSizesW115M10';
+  readonly id: Scalars['ID']['output'];
+  readonly inStock: Scalars['Boolean']['output'];
+  readonly title: Scalars['String']['output'];
+};
+
+export type ComponentWomenSizesW115M10FiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW115M10FiltersInput>>>;
+  readonly inStock: InputMaybe<BooleanFilterInput>;
+  readonly not: InputMaybe<ComponentWomenSizesW115M10FiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentWomenSizesW115M10FiltersInput>>>;
+  readonly title: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentWomenSizesW115M10Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly inStock: InputMaybe<Scalars['Boolean']['input']>;
   readonly title: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -478,8 +1646,42 @@ export type FloatFilterInput = {
 export type GenericMorph =
   | BannerSection
   | ComponentEntityShoeOption
+  | ComponentKidSizes1Y
+  | ComponentKidSizes2Y
+  | ComponentKidSizes3Y
+  | ComponentKidSizes11C
+  | ComponentKidSizes12C
+  | ComponentKidSizes13C
+  | ComponentKidSizes15Y
+  | ComponentKidSizes25Y
+  | ComponentKidSizes105C
+  | ComponentKidSizes115C
+  | ComponentKidSizes125C
+  | ComponentKidSizes135C
   | ComponentLayoutHeaderLinkList
+  | ComponentMenSizesM7W85
+  | ComponentMenSizesM8W95
+  | ComponentMenSizesM9W105
+  | ComponentMenSizesM10W115
+  | ComponentMenSizesM11W125
+  | ComponentMenSizesM12W135
+  | ComponentMenSizesM13W145
+  | ComponentMenSizesM14W155
+  | ComponentMenSizesM15W165
+  | ComponentMenSizesM16W175
+  | ComponentMenSizesM17W185
+  | ComponentMenSizesM18W195
+  | ComponentMenSizesM75W9
+  | ComponentMenSizesM85W10
+  | ComponentMenSizesM95W11
+  | ComponentMenSizesM105W12
+  | ComponentMenSizesM115W13
+  | ComponentMenSizesM125W14
   | ComponentSettingsBannerSection
+  | ComponentSettingsKidSizes
+  | ComponentSettingsMenSizes
+  | ComponentSettingsSize
+  | ComponentSettingsWomenSizes
   | ComponentUiBannerCard
   | ComponentUiButton
   | ComponentUiFigure
@@ -487,13 +1689,31 @@ export type GenericMorph =
   | ComponentUiLinkList
   | ComponentUiMembershipCard
   | ComponentUiShoeCardForCarousel
+  | ComponentUiSizes
   | ComponentUiTrendCard
+  | ComponentWomenSizesW5M35
+  | ComponentWomenSizesW6M45
+  | ComponentWomenSizesW7M55
+  | ComponentWomenSizesW8M65
+  | ComponentWomenSizesW9M75
+  | ComponentWomenSizesW10M85
+  | ComponentWomenSizesW11M95
+  | ComponentWomenSizesW12M105
+  | ComponentWomenSizesW55M4
+  | ComponentWomenSizesW65M5
+  | ComponentWomenSizesW75M6
+  | ComponentWomenSizesW85M7
+  | ComponentWomenSizesW95M8
+  | ComponentWomenSizesW105M9
+  | ComponentWomenSizesW115M10
   | Country
   | GoodsPage
   | HomePage
   | I18NLocale
+  | KidSize
   | Language
   | LayoutHeader
+  | MenSize
   | PageHome
   | PageShoe
   | SectionMainTitle
@@ -508,7 +1728,8 @@ export type GenericMorph =
   | UploadFolder
   | UsersPermissionsPermission
   | UsersPermissionsRole
-  | UsersPermissionsUser;
+  | UsersPermissionsUser
+  | WomenSize;
 
 export type GoodsPage = {
   readonly __typename?: 'GoodsPage';
@@ -733,6 +1954,96 @@ export type JsonFilterInput = {
   readonly startsWith: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type KidSize = {
+  readonly __typename?: 'KidSize';
+  readonly c11: ComponentKidSizes11C;
+  readonly c12: ComponentKidSizes12C;
+  readonly c13: ComponentKidSizes13C;
+  readonly c105: ComponentKidSizes105C;
+  readonly c115: ComponentKidSizes115C;
+  readonly c125: ComponentKidSizes125C;
+  readonly c135: ComponentKidSizes135C;
+  readonly createdAt: Maybe<Scalars['DateTime']['output']>;
+  readonly locale: Maybe<Scalars['String']['output']>;
+  readonly localizations: Maybe<KidSizeRelationResponseCollection>;
+  readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
+  readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
+  readonly y1: ComponentKidSizes1Y;
+  readonly y2: ComponentKidSizes2Y;
+  readonly y3: ComponentKidSizes3Y;
+  readonly y15: ComponentKidSizes15Y;
+  readonly y25: ComponentKidSizes25Y;
+};
+
+export type KidSizeLocalizationsArgs = {
+  filters: InputMaybe<KidSizeFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type KidSizeEntity = {
+  readonly __typename?: 'KidSizeEntity';
+  readonly attributes: Maybe<KidSize>;
+  readonly id: Maybe<Scalars['ID']['output']>;
+};
+
+export type KidSizeEntityResponse = {
+  readonly __typename?: 'KidSizeEntityResponse';
+  readonly data: Maybe<KidSizeEntity>;
+};
+
+export type KidSizeEntityResponseCollection = {
+  readonly __typename?: 'KidSizeEntityResponseCollection';
+  readonly data: ReadonlyArray<KidSizeEntity>;
+  readonly meta: ResponseCollectionMeta;
+};
+
+export type KidSizeFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<KidSizeFiltersInput>>>;
+  readonly c11: InputMaybe<ComponentKidSizes11CFiltersInput>;
+  readonly c12: InputMaybe<ComponentKidSizes12CFiltersInput>;
+  readonly c13: InputMaybe<ComponentKidSizes13CFiltersInput>;
+  readonly c105: InputMaybe<ComponentKidSizes105CFiltersInput>;
+  readonly c115: InputMaybe<ComponentKidSizes115CFiltersInput>;
+  readonly c125: InputMaybe<ComponentKidSizes125CFiltersInput>;
+  readonly c135: InputMaybe<ComponentKidSizes135CFiltersInput>;
+  readonly createdAt: InputMaybe<DateTimeFilterInput>;
+  readonly id: InputMaybe<IdFilterInput>;
+  readonly locale: InputMaybe<StringFilterInput>;
+  readonly localizations: InputMaybe<KidSizeFiltersInput>;
+  readonly not: InputMaybe<KidSizeFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<KidSizeFiltersInput>>>;
+  readonly publishedAt: InputMaybe<DateTimeFilterInput>;
+  readonly updatedAt: InputMaybe<DateTimeFilterInput>;
+  readonly y1: InputMaybe<ComponentKidSizes1YFiltersInput>;
+  readonly y2: InputMaybe<ComponentKidSizes2YFiltersInput>;
+  readonly y3: InputMaybe<ComponentKidSizes3YFiltersInput>;
+  readonly y15: InputMaybe<ComponentKidSizes15YFiltersInput>;
+  readonly y25: InputMaybe<ComponentKidSizes25YFiltersInput>;
+};
+
+export type KidSizeInput = {
+  readonly c11: InputMaybe<ComponentKidSizes11CInput>;
+  readonly c12: InputMaybe<ComponentKidSizes12CInput>;
+  readonly c13: InputMaybe<ComponentKidSizes13CInput>;
+  readonly c105: InputMaybe<ComponentKidSizes105CInput>;
+  readonly c115: InputMaybe<ComponentKidSizes115CInput>;
+  readonly c125: InputMaybe<ComponentKidSizes125CInput>;
+  readonly c135: InputMaybe<ComponentKidSizes135CInput>;
+  readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  readonly y1: InputMaybe<ComponentKidSizes1YInput>;
+  readonly y2: InputMaybe<ComponentKidSizes2YInput>;
+  readonly y3: InputMaybe<ComponentKidSizes3YInput>;
+  readonly y15: InputMaybe<ComponentKidSizes15YInput>;
+  readonly y25: InputMaybe<ComponentKidSizes25YInput>;
+};
+
+export type KidSizeRelationResponseCollection = {
+  readonly __typename?: 'KidSizeRelationResponseCollection';
+  readonly data: ReadonlyArray<KidSizeEntity>;
+};
+
 export type Language = {
   readonly __typename?: 'Language';
   readonly code: Scalars['String']['output'];
@@ -834,6 +2145,114 @@ export type LayoutHeaderRelationResponseCollection = {
   readonly data: ReadonlyArray<LayoutHeaderEntity>;
 };
 
+export type MenSize = {
+  readonly __typename?: 'MenSize';
+  readonly createdAt: Maybe<Scalars['DateTime']['output']>;
+  readonly locale: Maybe<Scalars['String']['output']>;
+  readonly localizations: Maybe<MenSizeRelationResponseCollection>;
+  readonly m7: ComponentMenSizesM7W85;
+  readonly m8: ComponentMenSizesM8W95;
+  readonly m9: ComponentMenSizesM9W105;
+  readonly m10: ComponentMenSizesM10W115;
+  readonly m11: ComponentMenSizesM11W125;
+  readonly m12: ComponentMenSizesM12W135;
+  readonly m13: ComponentMenSizesM13W145;
+  readonly m14: ComponentMenSizesM14W155;
+  readonly m15: ComponentMenSizesM15W165;
+  readonly m16: ComponentMenSizesM16W175;
+  readonly m17: Maybe<ComponentMenSizesM17W185>;
+  readonly m18: ComponentMenSizesM18W195;
+  readonly m75: ComponentMenSizesM75W9;
+  readonly m85: ComponentMenSizesM85W10;
+  readonly m105: ComponentMenSizesM105W12;
+  readonly m115: ComponentMenSizesM115W13;
+  readonly m125: ComponentMenSizesM125W14;
+  readonly n95: ComponentMenSizesM95W11;
+  readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
+  readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type MenSizeLocalizationsArgs = {
+  filters: InputMaybe<MenSizeFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type MenSizeEntity = {
+  readonly __typename?: 'MenSizeEntity';
+  readonly attributes: Maybe<MenSize>;
+  readonly id: Maybe<Scalars['ID']['output']>;
+};
+
+export type MenSizeEntityResponse = {
+  readonly __typename?: 'MenSizeEntityResponse';
+  readonly data: Maybe<MenSizeEntity>;
+};
+
+export type MenSizeEntityResponseCollection = {
+  readonly __typename?: 'MenSizeEntityResponseCollection';
+  readonly data: ReadonlyArray<MenSizeEntity>;
+  readonly meta: ResponseCollectionMeta;
+};
+
+export type MenSizeFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<MenSizeFiltersInput>>>;
+  readonly createdAt: InputMaybe<DateTimeFilterInput>;
+  readonly id: InputMaybe<IdFilterInput>;
+  readonly locale: InputMaybe<StringFilterInput>;
+  readonly localizations: InputMaybe<MenSizeFiltersInput>;
+  readonly m7: InputMaybe<ComponentMenSizesM7W85FiltersInput>;
+  readonly m8: InputMaybe<ComponentMenSizesM8W95FiltersInput>;
+  readonly m9: InputMaybe<ComponentMenSizesM9W105FiltersInput>;
+  readonly m10: InputMaybe<ComponentMenSizesM10W115FiltersInput>;
+  readonly m11: InputMaybe<ComponentMenSizesM11W125FiltersInput>;
+  readonly m12: InputMaybe<ComponentMenSizesM12W135FiltersInput>;
+  readonly m13: InputMaybe<ComponentMenSizesM13W145FiltersInput>;
+  readonly m14: InputMaybe<ComponentMenSizesM14W155FiltersInput>;
+  readonly m15: InputMaybe<ComponentMenSizesM15W165FiltersInput>;
+  readonly m16: InputMaybe<ComponentMenSizesM16W175FiltersInput>;
+  readonly m17: InputMaybe<ComponentMenSizesM17W185FiltersInput>;
+  readonly m18: InputMaybe<ComponentMenSizesM18W195FiltersInput>;
+  readonly m75: InputMaybe<ComponentMenSizesM75W9FiltersInput>;
+  readonly m85: InputMaybe<ComponentMenSizesM85W10FiltersInput>;
+  readonly m105: InputMaybe<ComponentMenSizesM105W12FiltersInput>;
+  readonly m115: InputMaybe<ComponentMenSizesM115W13FiltersInput>;
+  readonly m125: InputMaybe<ComponentMenSizesM125W14FiltersInput>;
+  readonly n95: InputMaybe<ComponentMenSizesM95W11FiltersInput>;
+  readonly not: InputMaybe<MenSizeFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<MenSizeFiltersInput>>>;
+  readonly publishedAt: InputMaybe<DateTimeFilterInput>;
+  readonly updatedAt: InputMaybe<DateTimeFilterInput>;
+};
+
+export type MenSizeInput = {
+  readonly m7: InputMaybe<ComponentMenSizesM7W85Input>;
+  readonly m8: InputMaybe<ComponentMenSizesM8W95Input>;
+  readonly m9: InputMaybe<ComponentMenSizesM9W105Input>;
+  readonly m10: InputMaybe<ComponentMenSizesM10W115Input>;
+  readonly m11: InputMaybe<ComponentMenSizesM11W125Input>;
+  readonly m12: InputMaybe<ComponentMenSizesM12W135Input>;
+  readonly m13: InputMaybe<ComponentMenSizesM13W145Input>;
+  readonly m14: InputMaybe<ComponentMenSizesM14W155Input>;
+  readonly m15: InputMaybe<ComponentMenSizesM15W165Input>;
+  readonly m16: InputMaybe<ComponentMenSizesM16W175Input>;
+  readonly m17: InputMaybe<ComponentMenSizesM17W185Input>;
+  readonly m18: InputMaybe<ComponentMenSizesM18W195Input>;
+  readonly m75: InputMaybe<ComponentMenSizesM75W9Input>;
+  readonly m85: InputMaybe<ComponentMenSizesM85W10Input>;
+  readonly m105: InputMaybe<ComponentMenSizesM105W12Input>;
+  readonly m115: InputMaybe<ComponentMenSizesM115W13Input>;
+  readonly m125: InputMaybe<ComponentMenSizesM125W14Input>;
+  readonly n95: InputMaybe<ComponentMenSizesM95W11Input>;
+  readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type MenSizeRelationResponseCollection = {
+  readonly __typename?: 'MenSizeRelationResponseCollection';
+  readonly data: ReadonlyArray<MenSizeEntity>;
+};
+
 export type Mutation = {
   readonly __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
@@ -845,9 +2264,13 @@ export type Mutation = {
   readonly createGoodsPage: Maybe<GoodsPageEntityResponse>;
   readonly createGoodsPageLocalization: Maybe<GoodsPageEntityResponse>;
   readonly createHomePageLocalization: Maybe<HomePageEntityResponse>;
+  readonly createKidSize: Maybe<KidSizeEntityResponse>;
+  readonly createKidSizeLocalization: Maybe<KidSizeEntityResponse>;
   readonly createLanguage: Maybe<LanguageEntityResponse>;
   readonly createLayoutHeader: Maybe<LayoutHeaderEntityResponse>;
   readonly createLayoutHeaderLocalization: Maybe<LayoutHeaderEntityResponse>;
+  readonly createMenSize: Maybe<MenSizeEntityResponse>;
+  readonly createMenSizeLocalization: Maybe<MenSizeEntityResponse>;
   readonly createPageHome: Maybe<PageHomeEntityResponse>;
   readonly createPageHomeLocalization: Maybe<PageHomeEntityResponse>;
   readonly createPageShoe: Maybe<PageShoeEntityResponse>;
@@ -874,12 +2297,16 @@ export type Mutation = {
   readonly createUsersPermissionsRole: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   readonly createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  readonly createWomenSize: Maybe<WomenSizeEntityResponse>;
+  readonly createWomenSizeLocalization: Maybe<WomenSizeEntityResponse>;
   readonly deleteBannerSection: Maybe<BannerSectionEntityResponse>;
   readonly deleteCountry: Maybe<CountryEntityResponse>;
   readonly deleteGoodsPage: Maybe<GoodsPageEntityResponse>;
   readonly deleteHomePage: Maybe<HomePageEntityResponse>;
+  readonly deleteKidSize: Maybe<KidSizeEntityResponse>;
   readonly deleteLanguage: Maybe<LanguageEntityResponse>;
   readonly deleteLayoutHeader: Maybe<LayoutHeaderEntityResponse>;
+  readonly deleteMenSize: Maybe<MenSizeEntityResponse>;
   readonly deletePageHome: Maybe<PageHomeEntityResponse>;
   readonly deletePageShoe: Maybe<PageShoeEntityResponse>;
   readonly deleteSectionMainTitle: Maybe<SectionMainTitleEntityResponse>;
@@ -896,6 +2323,7 @@ export type Mutation = {
   readonly deleteUsersPermissionsRole: Maybe<UsersPermissionsDeleteRolePayload>;
   /** Delete an existing user */
   readonly deleteUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  readonly deleteWomenSize: Maybe<WomenSizeEntityResponse>;
   /** Confirm an email users email address */
   readonly emailConfirmation: Maybe<UsersPermissionsLoginPayload>;
   /** Request a reset password token */
@@ -912,8 +2340,10 @@ export type Mutation = {
   readonly updateFileInfo: UploadFileEntityResponse;
   readonly updateGoodsPage: Maybe<GoodsPageEntityResponse>;
   readonly updateHomePage: Maybe<HomePageEntityResponse>;
+  readonly updateKidSize: Maybe<KidSizeEntityResponse>;
   readonly updateLanguage: Maybe<LanguageEntityResponse>;
   readonly updateLayoutHeader: Maybe<LayoutHeaderEntityResponse>;
+  readonly updateMenSize: Maybe<MenSizeEntityResponse>;
   readonly updatePageHome: Maybe<PageHomeEntityResponse>;
   readonly updatePageShoe: Maybe<PageShoeEntityResponse>;
   readonly updateSectionMainTitle: Maybe<SectionMainTitleEntityResponse>;
@@ -930,6 +2360,7 @@ export type Mutation = {
   readonly updateUsersPermissionsRole: Maybe<UsersPermissionsUpdateRolePayload>;
   /** Update an existing user */
   readonly updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  readonly updateWomenSize: Maybe<WomenSizeEntityResponse>;
   readonly upload: UploadFileEntityResponse;
 };
 
@@ -978,6 +2409,17 @@ export type MutationCreateHomePageLocalizationArgs = {
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
+export type MutationCreateKidSizeArgs = {
+  data: KidSizeInput;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationCreateKidSizeLocalizationArgs = {
+  data: InputMaybe<KidSizeInput>;
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
 export type MutationCreateLanguageArgs = {
   data: LanguageInput;
 };
@@ -989,6 +2431,17 @@ export type MutationCreateLayoutHeaderArgs = {
 
 export type MutationCreateLayoutHeaderLocalizationArgs = {
   data: InputMaybe<LayoutHeaderInput>;
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationCreateMenSizeArgs = {
+  data: MenSizeInput;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationCreateMenSizeLocalizationArgs = {
+  data: InputMaybe<MenSizeInput>;
   id: InputMaybe<Scalars['ID']['input']>;
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
@@ -1119,6 +2572,17 @@ export type MutationCreateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
 };
 
+export type MutationCreateWomenSizeArgs = {
+  data: WomenSizeInput;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationCreateWomenSizeLocalizationArgs = {
+  data: InputMaybe<WomenSizeInput>;
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
 export type MutationDeleteBannerSectionArgs = {
   id: Scalars['ID']['input'];
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
@@ -1138,11 +2602,21 @@ export type MutationDeleteHomePageArgs = {
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
+export type MutationDeleteKidSizeArgs = {
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
 export type MutationDeleteLanguageArgs = {
   id: Scalars['ID']['input'];
 };
 
 export type MutationDeleteLayoutHeaderArgs = {
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationDeleteMenSizeArgs = {
   id: Scalars['ID']['input'];
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
@@ -1213,6 +2687,11 @@ export type MutationDeleteUsersPermissionsUserArgs = {
   id: Scalars['ID']['input'];
 };
 
+export type MutationDeleteWomenSizeArgs = {
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
 export type MutationEmailConfirmationArgs = {
   confirmation: Scalars['String']['input'];
 };
@@ -1274,6 +2753,12 @@ export type MutationUpdateHomePageArgs = {
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
+export type MutationUpdateKidSizeArgs = {
+  data: KidSizeInput;
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
 export type MutationUpdateLanguageArgs = {
   data: LanguageInput;
   id: Scalars['ID']['input'];
@@ -1281,6 +2766,12 @@ export type MutationUpdateLanguageArgs = {
 
 export type MutationUpdateLayoutHeaderArgs = {
   data: LayoutHeaderInput;
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationUpdateMenSizeArgs = {
+  data: MenSizeInput;
   id: Scalars['ID']['input'];
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
@@ -1363,6 +2854,12 @@ export type MutationUpdateUsersPermissionsRoleArgs = {
 export type MutationUpdateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
   id: Scalars['ID']['input'];
+};
+
+export type MutationUpdateWomenSizeArgs = {
+  data: WomenSizeInput;
+  id: Scalars['ID']['input'];
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 export type MutationUploadArgs = {
@@ -1545,11 +3042,15 @@ export type Query = {
   readonly homePage: Maybe<HomePageEntityResponse>;
   readonly i18NLocale: Maybe<I18NLocaleEntityResponse>;
   readonly i18NLocales: Maybe<I18NLocaleEntityResponseCollection>;
+  readonly kidSize: Maybe<KidSizeEntityResponse>;
+  readonly kidSizes: Maybe<KidSizeEntityResponseCollection>;
   readonly language: Maybe<LanguageEntityResponse>;
   readonly languages: Maybe<LanguageEntityResponseCollection>;
   readonly layoutHeader: Maybe<LayoutHeaderEntityResponse>;
   readonly layoutHeaders: Maybe<LayoutHeaderEntityResponseCollection>;
   readonly me: Maybe<UsersPermissionsMe>;
+  readonly menSize: Maybe<MenSizeEntityResponse>;
+  readonly menSizes: Maybe<MenSizeEntityResponseCollection>;
   readonly pageHome: Maybe<PageHomeEntityResponse>;
   readonly pageHomes: Maybe<PageHomeEntityResponseCollection>;
   readonly pageShoe: Maybe<PageShoeEntityResponse>;
@@ -1578,6 +3079,8 @@ export type Query = {
   readonly usersPermissionsRoles: Maybe<UsersPermissionsRoleEntityResponseCollection>;
   readonly usersPermissionsUser: Maybe<UsersPermissionsUserEntityResponse>;
   readonly usersPermissionsUsers: Maybe<UsersPermissionsUserEntityResponseCollection>;
+  readonly womenSize: Maybe<WomenSizeEntityResponse>;
+  readonly womenSizes: Maybe<WomenSizeEntityResponseCollection>;
 };
 
 export type QueryBannerSectionArgs = {
@@ -1634,6 +3137,19 @@ export type QueryI18NLocalesArgs = {
   sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type QueryKidSizeArgs = {
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type QueryKidSizesArgs = {
+  filters: InputMaybe<KidSizeFiltersInput>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type QueryLanguageArgs = {
   id: InputMaybe<Scalars['ID']['input']>;
 };
@@ -1652,6 +3168,19 @@ export type QueryLayoutHeaderArgs = {
 
 export type QueryLayoutHeadersArgs = {
   filters: InputMaybe<LayoutHeaderFiltersInput>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type QueryMenSizeArgs = {
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type QueryMenSizesArgs = {
+  filters: InputMaybe<MenSizeFiltersInput>;
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
@@ -1825,6 +3354,19 @@ export type QueryUsersPermissionsUserArgs = {
 export type QueryUsersPermissionsUsersArgs = {
   filters: InputMaybe<UsersPermissionsUserFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type QueryWomenSizeArgs = {
+  id: InputMaybe<Scalars['ID']['input']>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type QueryWomenSizesArgs = {
+  filters: InputMaybe<WomenSizeFiltersInput>;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
@@ -2050,6 +3592,9 @@ export type SectionPopularRelationResponseCollection = {
 
 export type SectionShoe = {
   readonly __typename?: 'SectionShoe';
+  readonly KidSizes: Maybe<ComponentSettingsKidSizes>;
+  readonly MenSizes: Maybe<ComponentSettingsMenSizes>;
+  readonly WomenSizes: Maybe<ComponentSettingsWomenSizes>;
   readonly addToBagButton: Maybe<ComponentUiButton>;
   readonly createdAt: Maybe<Scalars['DateTime']['output']>;
   readonly detailsButton: Maybe<ReadonlyArray<Maybe<ComponentUiButton>>>;
@@ -2058,6 +3603,7 @@ export type SectionShoe = {
   readonly localizations: Maybe<SectionShoeRelationResponseCollection>;
   readonly options: ComponentEntityShoeOption;
   readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
+  readonly sizes: ComponentUiSizes;
   readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -2092,6 +3638,9 @@ export type SectionShoeEntityResponseCollection = {
 };
 
 export type SectionShoeFiltersInput = {
+  readonly KidSizes: InputMaybe<ComponentSettingsKidSizesFiltersInput>;
+  readonly MenSizes: InputMaybe<ComponentSettingsMenSizesFiltersInput>;
+  readonly WomenSizes: InputMaybe<ComponentSettingsWomenSizesFiltersInput>;
   readonly addToBagButton: InputMaybe<ComponentUiButtonFiltersInput>;
   readonly and: InputMaybe<ReadonlyArray<InputMaybe<SectionShoeFiltersInput>>>;
   readonly createdAt: InputMaybe<DateTimeFilterInput>;
@@ -2104,15 +3653,20 @@ export type SectionShoeFiltersInput = {
   readonly options: InputMaybe<ComponentEntityShoeOptionFiltersInput>;
   readonly or: InputMaybe<ReadonlyArray<InputMaybe<SectionShoeFiltersInput>>>;
   readonly publishedAt: InputMaybe<DateTimeFilterInput>;
+  readonly sizes: InputMaybe<ComponentUiSizesFiltersInput>;
   readonly updatedAt: InputMaybe<DateTimeFilterInput>;
 };
 
 export type SectionShoeInput = {
+  readonly KidSizes: InputMaybe<ComponentSettingsKidSizesInput>;
+  readonly MenSizes: InputMaybe<ComponentSettingsMenSizesInput>;
+  readonly WomenSizes: InputMaybe<ComponentSettingsWomenSizesInput>;
   readonly addToBagButton: InputMaybe<ComponentUiButtonInput>;
   readonly detailsButton: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiButtonInput>>>;
   readonly favoriteButton: InputMaybe<ComponentUiButtonInput>;
   readonly options: InputMaybe<ComponentEntityShoeOptionInput>;
   readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  readonly sizes: InputMaybe<ComponentUiSizesInput>;
 };
 
 export type SectionShoeRelationResponseCollection = {
@@ -2269,13 +3823,18 @@ export type ShoeRelationResponseCollection = {
 
 export type Size = {
   readonly __typename?: 'Size';
+  readonly Sizes: ReadonlyArray<Maybe<ComponentSettingsSize>>;
   readonly createdAt: Maybe<Scalars['DateTime']['output']>;
   readonly locale: Maybe<Scalars['String']['output']>;
   readonly localizations: Maybe<SizeRelationResponseCollection>;
-  readonly name: Scalars['String']['output'];
   readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
   readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
-  readonly values: Scalars['String']['output'];
+};
+
+export type SizeSizesArgs = {
+  filters: InputMaybe<ComponentSettingsSizeFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type SizeLocalizationsArgs = {
@@ -2303,23 +3862,21 @@ export type SizeEntityResponseCollection = {
 };
 
 export type SizeFiltersInput = {
+  readonly Sizes: InputMaybe<ComponentSettingsSizeFiltersInput>;
   readonly and: InputMaybe<ReadonlyArray<InputMaybe<SizeFiltersInput>>>;
   readonly createdAt: InputMaybe<DateTimeFilterInput>;
   readonly id: InputMaybe<IdFilterInput>;
   readonly locale: InputMaybe<StringFilterInput>;
   readonly localizations: InputMaybe<SizeFiltersInput>;
-  readonly name: InputMaybe<StringFilterInput>;
   readonly not: InputMaybe<SizeFiltersInput>;
   readonly or: InputMaybe<ReadonlyArray<InputMaybe<SizeFiltersInput>>>;
   readonly publishedAt: InputMaybe<DateTimeFilterInput>;
   readonly updatedAt: InputMaybe<DateTimeFilterInput>;
-  readonly values: InputMaybe<StringFilterInput>;
 };
 
 export type SizeInput = {
-  readonly name: InputMaybe<Scalars['String']['input']>;
+  readonly Sizes: InputMaybe<ReadonlyArray<InputMaybe<ComponentSettingsSizeInput>>>;
   readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
-  readonly values: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SizeRelationResponseCollection = {
@@ -2781,6 +4338,390 @@ export type UsersPermissionsUserRelationResponseCollection = {
   readonly data: ReadonlyArray<UsersPermissionsUserEntity>;
 };
 
+export type WomenSize = {
+  readonly __typename?: 'WomenSize';
+  readonly createdAt: Maybe<Scalars['DateTime']['output']>;
+  readonly locale: Maybe<Scalars['String']['output']>;
+  readonly localizations: Maybe<WomenSizeRelationResponseCollection>;
+  readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
+  readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
+  readonly w5: ComponentWomenSizesW5M35;
+  readonly w6: ComponentWomenSizesW6M45;
+  readonly w7: ComponentWomenSizesW7M55;
+  readonly w8: ComponentWomenSizesW8M65;
+  readonly w9: ComponentWomenSizesW9M75;
+  readonly w10: ComponentWomenSizesW10M85;
+  readonly w11: ComponentWomenSizesW11M95;
+  readonly w12: ComponentWomenSizesW12M105;
+  readonly w55: ComponentWomenSizesW55M4;
+  readonly w65: ComponentWomenSizesW65M5;
+  readonly w75: ComponentWomenSizesW75M6;
+  readonly w85: ComponentWomenSizesW85M7;
+  readonly w95: ComponentWomenSizesW95M8;
+  readonly w105: ComponentWomenSizesW105M9;
+  readonly w115: ComponentWomenSizesW115M10;
+};
+
+export type WomenSizeLocalizationsArgs = {
+  filters: InputMaybe<WomenSizeFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type WomenSizeEntity = {
+  readonly __typename?: 'WomenSizeEntity';
+  readonly attributes: Maybe<WomenSize>;
+  readonly id: Maybe<Scalars['ID']['output']>;
+};
+
+export type WomenSizeEntityResponse = {
+  readonly __typename?: 'WomenSizeEntityResponse';
+  readonly data: Maybe<WomenSizeEntity>;
+};
+
+export type WomenSizeEntityResponseCollection = {
+  readonly __typename?: 'WomenSizeEntityResponseCollection';
+  readonly data: ReadonlyArray<WomenSizeEntity>;
+  readonly meta: ResponseCollectionMeta;
+};
+
+export type WomenSizeFiltersInput = {
+  readonly and: InputMaybe<ReadonlyArray<InputMaybe<WomenSizeFiltersInput>>>;
+  readonly createdAt: InputMaybe<DateTimeFilterInput>;
+  readonly id: InputMaybe<IdFilterInput>;
+  readonly locale: InputMaybe<StringFilterInput>;
+  readonly localizations: InputMaybe<WomenSizeFiltersInput>;
+  readonly not: InputMaybe<WomenSizeFiltersInput>;
+  readonly or: InputMaybe<ReadonlyArray<InputMaybe<WomenSizeFiltersInput>>>;
+  readonly publishedAt: InputMaybe<DateTimeFilterInput>;
+  readonly updatedAt: InputMaybe<DateTimeFilterInput>;
+  readonly w5: InputMaybe<ComponentWomenSizesW5M35FiltersInput>;
+  readonly w6: InputMaybe<ComponentWomenSizesW6M45FiltersInput>;
+  readonly w7: InputMaybe<ComponentWomenSizesW7M55FiltersInput>;
+  readonly w8: InputMaybe<ComponentWomenSizesW8M65FiltersInput>;
+  readonly w9: InputMaybe<ComponentWomenSizesW9M75FiltersInput>;
+  readonly w10: InputMaybe<ComponentWomenSizesW10M85FiltersInput>;
+  readonly w11: InputMaybe<ComponentWomenSizesW11M95FiltersInput>;
+  readonly w12: InputMaybe<ComponentWomenSizesW12M105FiltersInput>;
+  readonly w55: InputMaybe<ComponentWomenSizesW55M4FiltersInput>;
+  readonly w65: InputMaybe<ComponentWomenSizesW65M5FiltersInput>;
+  readonly w75: InputMaybe<ComponentWomenSizesW75M6FiltersInput>;
+  readonly w85: InputMaybe<ComponentWomenSizesW85M7FiltersInput>;
+  readonly w95: InputMaybe<ComponentWomenSizesW95M8FiltersInput>;
+  readonly w105: InputMaybe<ComponentWomenSizesW105M9FiltersInput>;
+  readonly w115: InputMaybe<ComponentWomenSizesW115M10FiltersInput>;
+};
+
+export type WomenSizeInput = {
+  readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  readonly w5: InputMaybe<ComponentWomenSizesW5M35Input>;
+  readonly w6: InputMaybe<ComponentWomenSizesW6M45Input>;
+  readonly w7: InputMaybe<ComponentWomenSizesW7M55Input>;
+  readonly w8: InputMaybe<ComponentWomenSizesW8M65Input>;
+  readonly w9: InputMaybe<ComponentWomenSizesW9M75Input>;
+  readonly w10: InputMaybe<ComponentWomenSizesW10M85Input>;
+  readonly w11: InputMaybe<ComponentWomenSizesW11M95Input>;
+  readonly w12: InputMaybe<ComponentWomenSizesW12M105Input>;
+  readonly w55: InputMaybe<ComponentWomenSizesW55M4Input>;
+  readonly w65: InputMaybe<ComponentWomenSizesW65M5Input>;
+  readonly w75: InputMaybe<ComponentWomenSizesW75M6Input>;
+  readonly w85: InputMaybe<ComponentWomenSizesW85M7Input>;
+  readonly w95: InputMaybe<ComponentWomenSizesW95M8Input>;
+  readonly w105: InputMaybe<ComponentWomenSizesW105M9Input>;
+  readonly w115: InputMaybe<ComponentWomenSizesW115M10Input>;
+};
+
+export type WomenSizeRelationResponseCollection = {
+  readonly __typename?: 'WomenSizeRelationResponseCollection';
+  readonly data: ReadonlyArray<WomenSizeEntity>;
+};
+
+export type KidSizeFragment = {
+  readonly __typename?: 'ComponentSettingsKidSizes';
+  readonly id: string;
+  readonly c105: {
+    readonly __typename?: 'ComponentKidSizes105C';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly c11: {
+    readonly __typename?: 'ComponentKidSizes11C';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly c115: {
+    readonly __typename?: 'ComponentKidSizes115C';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly c12: {
+    readonly __typename?: 'ComponentKidSizes12C';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly c125: {
+    readonly __typename?: 'ComponentKidSizes125C';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly c13: {
+    readonly __typename?: 'ComponentKidSizes13C';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly c135: {
+    readonly __typename?: 'ComponentKidSizes135C';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly y1: {
+    readonly __typename?: 'ComponentKidSizes1Y';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly y15: {
+    readonly __typename?: 'ComponentKidSizes15Y';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly y2: {
+    readonly __typename?: 'ComponentKidSizes2Y';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly y25: {
+    readonly __typename?: 'ComponentKidSizes25Y';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly y3: {
+    readonly __typename?: 'ComponentKidSizes3Y';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+};
+
+export type MenSizesFragment = {
+  readonly __typename?: 'ComponentSettingsMenSizes';
+  readonly id: string;
+  readonly m7: {
+    readonly __typename?: 'ComponentMenSizesM7W85';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m75: {
+    readonly __typename?: 'ComponentMenSizesM75W9';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m8: {
+    readonly __typename?: 'ComponentMenSizesM8W95';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m85: {
+    readonly __typename?: 'ComponentMenSizesM85W10';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m9: {
+    readonly __typename?: 'ComponentMenSizesM9W105';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly n95: {
+    readonly __typename?: 'ComponentMenSizesM95W11';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m10: {
+    readonly __typename?: 'ComponentMenSizesM10W115';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m105: {
+    readonly __typename?: 'ComponentMenSizesM105W12';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m11: {
+    readonly __typename?: 'ComponentMenSizesM11W125';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m115: {
+    readonly __typename?: 'ComponentMenSizesM115W13';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m12: {
+    readonly __typename?: 'ComponentMenSizesM12W135';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m125: {
+    readonly __typename?: 'ComponentMenSizesM125W14';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m13: {
+    readonly __typename?: 'ComponentMenSizesM13W145';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m14: {
+    readonly __typename?: 'ComponentMenSizesM14W155';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m15: {
+    readonly __typename?: 'ComponentMenSizesM15W165';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m16: {
+    readonly __typename?: 'ComponentMenSizesM16W175';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m17: {
+    readonly __typename?: 'ComponentMenSizesM17W185';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly m18: {
+    readonly __typename?: 'ComponentMenSizesM18W195';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+};
+
+export type WomenSizesFragment = {
+  readonly __typename?: 'ComponentSettingsWomenSizes';
+  readonly id: string;
+  readonly w5: {
+    readonly __typename?: 'ComponentWomenSizesW5M35';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w55: {
+    readonly __typename?: 'ComponentWomenSizesW55M4';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w6: {
+    readonly __typename?: 'ComponentWomenSizesW6M45';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w65: {
+    readonly __typename?: 'ComponentWomenSizesW65M5';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w7: {
+    readonly __typename?: 'ComponentWomenSizesW7M55';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w75: {
+    readonly __typename?: 'ComponentWomenSizesW75M6';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w8: {
+    readonly __typename?: 'ComponentWomenSizesW8M65';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w85: {
+    readonly __typename?: 'ComponentWomenSizesW85M7';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w9: {
+    readonly __typename?: 'ComponentWomenSizesW9M75';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w95: {
+    readonly __typename?: 'ComponentWomenSizesW95M8';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w10: {
+    readonly __typename?: 'ComponentWomenSizesW10M85';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w105: {
+    readonly __typename?: 'ComponentWomenSizesW105M9';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w11: {
+    readonly __typename?: 'ComponentWomenSizesW11M95';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w115: {
+    readonly __typename?: 'ComponentWomenSizesW115M10';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+  readonly w12: {
+    readonly __typename?: 'ComponentWomenSizesW12M105';
+    readonly id: string;
+    readonly title: string;
+    readonly inStock: boolean;
+  };
+};
+
 export type BannerCardFragment = {
   readonly __typename?: 'ComponentUiBannerCard';
   readonly id: string;
@@ -2909,6 +4850,10 @@ export type ShoeCarouselCardFragment = {
 
 export type ShoeOptionFragmentFragment = {
   readonly __typename?: 'ComponentEntityShoeOption';
+  readonly title: string;
+  readonly tag: string;
+  readonly price: string;
+  readonly description: string;
   readonly medias: {
     readonly __typename?: 'UploadFileRelationResponseCollection';
     readonly data: ReadonlyArray<{
@@ -2932,6 +4877,13 @@ export type ShoeOptionFragmentFragment = {
       };
     }>;
   };
+};
+
+export type SizeFragment = {
+  readonly __typename?: 'ComponentSettingsSize';
+  readonly id: string;
+  readonly title: string;
+  readonly inStock: boolean;
 };
 
 export type TrendCardFragment = {
@@ -3221,6 +5173,63 @@ export type SectionPopularFragmentFragment = {
       }>;
     };
   }>;
+};
+
+export type SectionShoeFragmentFragment = {
+  readonly __typename?: 'SectionShoe';
+  readonly updatedAt: any;
+  readonly addToBagButton: {
+    readonly __typename?: 'ComponentUiButton';
+    readonly id: string;
+    readonly label: string;
+    readonly href: string;
+  };
+  readonly favoriteButton: {
+    readonly __typename?: 'ComponentUiButton';
+    readonly id: string;
+    readonly label: string;
+    readonly href: string;
+  };
+  readonly options: {
+    readonly __typename?: 'ComponentEntityShoeOption';
+    readonly title: string;
+    readonly tag: string;
+    readonly price: string;
+    readonly description: string;
+    readonly medias: {
+      readonly __typename?: 'UploadFileRelationResponseCollection';
+      readonly data: ReadonlyArray<{
+        readonly __typename?: 'UploadFileEntity';
+        readonly attributes: {
+          readonly __typename?: 'UploadFile';
+          readonly name: string;
+          readonly alternativeText: string;
+          readonly caption: string;
+          readonly width: number;
+          readonly height: number;
+          readonly formats: any;
+          readonly hash: string;
+          readonly ext: string;
+          readonly mime: string;
+          readonly size: number;
+          readonly url: string;
+          readonly previewUrl: string;
+          readonly provider: string;
+          readonly provider_metadata: any;
+        };
+      }>;
+    };
+  };
+  readonly sizes: {
+    readonly __typename?: 'ComponentUiSizes';
+    readonly id: string;
+    readonly Sizes: ReadonlyArray<{
+      readonly __typename?: 'ComponentSettingsSize';
+      readonly id: string;
+      readonly title: string;
+      readonly inStock: boolean;
+    }>;
+  };
 };
 
 export type SectionTrendFragmentFragment = {
@@ -3583,6 +5592,77 @@ export type GetSectionPopularQuery = {
   };
 };
 
+export type GetSectionShoeQueryVariables = Exact<{
+  id: InputMaybe<Scalars['ID']['input']>;
+}>;
+
+export type GetSectionShoeQuery = {
+  readonly __typename?: 'Query';
+  readonly sectionShoe: {
+    readonly __typename?: 'SectionShoeEntityResponse';
+    readonly data: {
+      readonly __typename?: 'SectionShoeEntity';
+      readonly id: string;
+      readonly attributes: {
+        readonly __typename?: 'SectionShoe';
+        readonly updatedAt: any;
+        readonly addToBagButton: {
+          readonly __typename?: 'ComponentUiButton';
+          readonly id: string;
+          readonly label: string;
+          readonly href: string;
+        };
+        readonly favoriteButton: {
+          readonly __typename?: 'ComponentUiButton';
+          readonly id: string;
+          readonly label: string;
+          readonly href: string;
+        };
+        readonly options: {
+          readonly __typename?: 'ComponentEntityShoeOption';
+          readonly title: string;
+          readonly tag: string;
+          readonly price: string;
+          readonly description: string;
+          readonly medias: {
+            readonly __typename?: 'UploadFileRelationResponseCollection';
+            readonly data: ReadonlyArray<{
+              readonly __typename?: 'UploadFileEntity';
+              readonly attributes: {
+                readonly __typename?: 'UploadFile';
+                readonly name: string;
+                readonly alternativeText: string;
+                readonly caption: string;
+                readonly width: number;
+                readonly height: number;
+                readonly formats: any;
+                readonly hash: string;
+                readonly ext: string;
+                readonly mime: string;
+                readonly size: number;
+                readonly url: string;
+                readonly previewUrl: string;
+                readonly provider: string;
+                readonly provider_metadata: any;
+              };
+            }>;
+          };
+        };
+        readonly sizes: {
+          readonly __typename?: 'ComponentUiSizes';
+          readonly id: string;
+          readonly Sizes: ReadonlyArray<{
+            readonly __typename?: 'ComponentSettingsSize';
+            readonly id: string;
+            readonly title: string;
+            readonly inStock: boolean;
+          }>;
+        };
+      };
+    };
+  };
+};
+
 export type GetSectionTrendQueryVariables = Exact<{
   id: InputMaybe<Scalars['ID']['input']>;
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
@@ -3633,6 +5713,251 @@ export type GetSectionTrendQuery = {
   };
 };
 
+export const KidSizeFragmentDoc = gql`
+  fragment KidSize on ComponentSettingsKidSizes {
+    id
+    c105 {
+      id
+      title
+      inStock
+    }
+    c11 {
+      id
+      title
+      inStock
+    }
+    c115 {
+      id
+      title
+      inStock
+    }
+    c115 {
+      id
+      title
+      inStock
+    }
+    c12 {
+      id
+      title
+      inStock
+    }
+    c125 {
+      id
+      title
+      inStock
+    }
+    c13 {
+      id
+      title
+      inStock
+    }
+    c135 {
+      id
+      title
+      inStock
+    }
+    y1 {
+      id
+      title
+      inStock
+    }
+    y15 {
+      id
+      title
+      inStock
+    }
+    y2 {
+      id
+      title
+      inStock
+    }
+    y25 {
+      id
+      title
+      inStock
+    }
+    y3 {
+      id
+      title
+      inStock
+    }
+  }
+`;
+export const MenSizesFragmentDoc = gql`
+  fragment MenSizes on ComponentSettingsMenSizes {
+    id
+    m7 {
+      id
+      title
+      inStock
+    }
+    m75 {
+      id
+      title
+      inStock
+    }
+    m8 {
+      id
+      title
+      inStock
+    }
+    m85 {
+      id
+      title
+      inStock
+    }
+    m9 {
+      id
+      title
+      inStock
+    }
+    n95 {
+      id
+      title
+      inStock
+    }
+    m10 {
+      id
+      title
+      inStock
+    }
+    m105 {
+      id
+      title
+      inStock
+    }
+    m11 {
+      id
+      title
+      inStock
+    }
+    m115 {
+      id
+      title
+      inStock
+    }
+    m12 {
+      id
+      title
+      inStock
+    }
+    m125 {
+      id
+      title
+      inStock
+    }
+    m13 {
+      id
+      title
+      inStock
+    }
+    m14 {
+      id
+      title
+      inStock
+    }
+    m15 {
+      id
+      title
+      inStock
+    }
+    m16 {
+      id
+      title
+      inStock
+    }
+    m17 {
+      id
+      title
+      inStock
+    }
+    m18 {
+      id
+      title
+      inStock
+    }
+  }
+`;
+export const WomenSizesFragmentDoc = gql`
+  fragment WomenSizes on ComponentSettingsWomenSizes {
+    id
+    w5 {
+      id
+      title
+      inStock
+    }
+    w55 {
+      id
+      title
+      inStock
+    }
+    w6 {
+      id
+      title
+      inStock
+    }
+    w65 {
+      id
+      title
+      inStock
+    }
+    w7 {
+      id
+      title
+      inStock
+    }
+    w75 {
+      id
+      title
+      inStock
+    }
+    w8 {
+      id
+      title
+      inStock
+    }
+    w85 {
+      id
+      title
+      inStock
+    }
+    w9 {
+      id
+      title
+      inStock
+    }
+    w95 {
+      id
+      title
+      inStock
+    }
+    w10 {
+      id
+      title
+      inStock
+    }
+    w105 {
+      id
+      title
+      inStock
+    }
+    w11 {
+      id
+      title
+      inStock
+    }
+    w115 {
+      id
+      title
+      inStock
+    }
+    w12 {
+      id
+      title
+      inStock
+    }
+  }
+`;
 export const ButtonFragmentFragmentDoc = gql`
   fragment ButtonFragment on ComponentUiButton {
     id
@@ -3682,18 +6007,6 @@ export const LinkFragmentFragmentDoc = gql`
     label
     href
   }
-`;
-export const ShoeOptionFragmentFragmentDoc = gql`
-  fragment ShoeOptionFragment on ComponentEntityShoeOption {
-    medias {
-      data {
-        attributes {
-          ...FileFragment
-        }
-      }
-    }
-  }
-  ${FileFragmentFragmentDoc}
 `;
 export const CountryFragmentFragmentDoc = gql`
   fragment CountryFragment on Country {
@@ -3864,6 +6177,52 @@ export const SectionPopularFragmentFragmentDoc = gql`
   }
   ${ShoeCarouselCardFragmentDoc}
 `;
+export const ShoeOptionFragmentFragmentDoc = gql`
+  fragment ShoeOptionFragment on ComponentEntityShoeOption {
+    medias {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
+    title
+    tag
+    price
+    description
+  }
+  ${FileFragmentFragmentDoc}
+`;
+export const SizeFragmentDoc = gql`
+  fragment Size on ComponentSettingsSize {
+    id
+    title
+    inStock
+  }
+`;
+export const SectionShoeFragmentFragmentDoc = gql`
+  fragment SectionShoeFragment on SectionShoe {
+    addToBagButton {
+      ...ButtonFragment
+    }
+    favoriteButton {
+      ...ButtonFragment
+    }
+    options {
+      ...ShoeOptionFragment
+    }
+    sizes {
+      id
+      Sizes {
+        ...Size
+      }
+    }
+    updatedAt
+  }
+  ${ButtonFragmentFragmentDoc}
+  ${ShoeOptionFragmentFragmentDoc}
+  ${SizeFragmentDoc}
+`;
 export const TrendCardFragmentDoc = gql`
   fragment TrendCard on ComponentUiTrendCard {
     id
@@ -3976,6 +6335,19 @@ export const GetSectionPopularDocument = gql`
     }
   }
   ${SectionPopularFragmentFragmentDoc}
+`;
+export const GetSectionShoeDocument = gql`
+  query getSectionShoe($id: ID) {
+    sectionShoe(id: $id) {
+      data {
+        id
+        attributes {
+          ...SectionShoeFragment
+        }
+      }
+    }
+  }
+  ${SectionShoeFragmentFragmentDoc}
 `;
 export const GetSectionTrendDocument = gql`
   query getSectionTrend($id: ID, $locale: I18NLocaleCode) {
@@ -4099,6 +6471,20 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
         'query',
       );
     },
+    getSectionShoe(
+      variables?: GetSectionShoeQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetSectionShoeQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetSectionShoeQuery>(GetSectionShoeDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'getSectionShoe',
+        'query',
+      );
+    },
     getSectionTrend(
       variables?: GetSectionTrendQueryVariables,
       requestHeaders?: GraphQLClientRequestHeaders,
@@ -4116,707 +6502,3 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
-export const ButtonFragmentFragmentDoc = gql`
-  fragment ButtonFragment on ComponentUiButton {
-    id
-    label
-    href
-  }
-`;
-export const FileFragmentFragmentDoc = gql`
-  fragment FileFragment on UploadFile {
-    name
-    alternativeText
-    caption
-    width
-    height
-    formats
-    hash
-    ext
-    mime
-    size
-    url
-    previewUrl
-    provider
-    provider_metadata
-  }
-`;
-export const FigureFragmentFragmentDoc = gql`
-  fragment FigureFragment on ComponentUiFigure {
-    id
-    caption
-    LinkButton {
-      ...ButtonFragment
-    }
-    image {
-      data {
-        attributes {
-          ...FileFragment
-        }
-      }
-    }
-  }
-  ${ButtonFragmentFragmentDoc}
-  ${FileFragmentFragmentDoc}
-`;
-export const LinkFragmentFragmentDoc = gql`
-  fragment LinkFragment on ComponentUiLink {
-    id
-    label
-    href
-  }
-`;
-export const ShoeOptionFragmentFragmentDoc = gql`
-  fragment ShoeOptionFragment on ComponentEntityShoeOption {
-    medias {
-      data {
-        attributes {
-          ...FileFragment
-        }
-      }
-    }
-  }
-  ${FileFragmentFragmentDoc}
-`;
-export const CountryFragmentFragmentDoc = gql`
-  fragment CountryFragment on Country {
-    code3
-    code2
-    createdAt
-    updatedAt
-    publishedAt
-    page_home {
-      data {
-        id
-      }
-    }
-  }
-`;
-export const LanguageEntityFragmentFragmentDoc = gql`
-  fragment LanguageEntityFragment on LanguageEntity {
-    id
-    attributes {
-      name
-      code
-    }
-  }
-`;
-export const ShoeCarouselCardFragmentDoc = gql`
-  fragment ShoeCarouselCard on ComponentUiShoeCardForCarousel {
-    id
-    title
-    link
-    price
-    tag
-    media {
-      data {
-        attributes {
-          ...FileFragment
-        }
-      }
-    }
-    section_shoes {
-      data {
-        id
-      }
-    }
-  }
-  ${FileFragmentFragmentDoc}
-`;
-export const PageGoodsFragmentDoc = gql`
-  fragment PageGoods on GoodsPageEntity {
-    id
-    attributes {
-      pageTitle
-      title
-      good {
-        ...ShoeCarouselCard
-      }
-    }
-  }
-  ${ShoeCarouselCardFragmentDoc}
-`;
-export const HomePageFragmentFragmentDoc = gql`
-  fragment HomePageFragment on HomePage {
-    section_main_title {
-      data {
-        id
-      }
-    }
-    banner_section {
-      data {
-        id
-      }
-    }
-    section_trend {
-      data {
-        id
-      }
-    }
-    section_popular {
-      data {
-        id
-      }
-    }
-    section_membership {
-      data {
-        id
-      }
-    }
-  }
-`;
-export const BannerCardFragmentDoc = gql`
-  fragment BannerCard on ComponentUiBannerCard {
-    id
-    Title
-    description
-  }
-`;
-export const SectionBannerFragmentFragmentDoc = gql`
-  fragment SectionBannerFragment on BannerSection {
-    card {
-      ...BannerCard
-    }
-  }
-  ${BannerCardFragmentDoc}
-`;
-export const SectionMainTitleFragmentFragmentDoc = gql`
-  fragment SectionMainTitleFragment on SectionMainTitle {
-    MainTitle
-    SubTitle
-    Video {
-      data {
-        attributes {
-          ...FileFragment
-        }
-      }
-    }
-    ShowCollectionLinkButton {
-      ...ButtonFragment
-    }
-    WatchLinkButton {
-      ...ButtonFragment
-    }
-    Title
-    publishedAt
-  }
-  ${FileFragmentFragmentDoc}
-  ${ButtonFragmentFragmentDoc}
-`;
-export const MembershipCardFragmentDoc = gql`
-  fragment MembershipCard on ComponentUiMembershipCard {
-    id
-    title
-    subtitle
-    image {
-      data {
-        attributes {
-          ...FileFragment
-        }
-      }
-    }
-    link
-  }
-  ${FileFragmentFragmentDoc}
-`;
-export const SectionMembershipFragmentFragmentDoc = gql`
-  fragment SectionMembershipFragment on SectionMembership {
-    title
-    subtitle
-    JoinUsButton {
-      ...ButtonFragment
-    }
-    SignInButton {
-      ...ButtonFragment
-    }
-    card {
-      ...MembershipCard
-    }
-    publishedAt
-  }
-  ${ButtonFragmentFragmentDoc}
-  ${MembershipCardFragmentDoc}
-`;
-export const SectionPopularFragmentFragmentDoc = gql`
-  fragment SectionPopularFragment on SectionPopular {
-    sectionTitle
-    card {
-      ...ShoeCarouselCard
-    }
-    updatedAt
-  }
-  ${ShoeCarouselCardFragmentDoc}
-`;
-export const TrendCardFragmentDoc = gql`
-  fragment TrendCard on ComponentUiTrendCard {
-    id
-    title
-    link
-    image {
-      data {
-        attributes {
-          ...FileFragment
-        }
-      }
-    }
-  }
-  ${FileFragmentFragmentDoc}
-`;
-export const SectionTrendFragmentFragmentDoc = gql`
-  fragment SectionTrendFragment on SectionTrend {
-    SectionTitle
-    card {
-      ...TrendCard
-    }
-    updatedAt
-  }
-  ${TrendCardFragmentDoc}
-`;
-export const GetCountriesDocument = gql`
-  query getCountries {
-    countries {
-      data {
-        id
-        attributes {
-          ...CountryFragment
-        }
-      }
-    }
-  }
-  ${CountryFragmentFragmentDoc}
-`;
-
-/**
- * __useGetCountriesQuery__
- *
- * To run a query within a React component, call `useGetCountriesQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetCountriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetCountriesQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetCountriesQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetCountriesQuery, GetCountriesQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetCountriesQuery, GetCountriesQueryVariables>(
-    GetCountriesDocument,
-    options,
-  );
-}
-export function useGetCountriesLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetCountriesQuery, GetCountriesQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetCountriesQuery, GetCountriesQueryVariables>(
-    GetCountriesDocument,
-    options,
-  );
-}
-export type GetCountriesQueryHookResult = ReturnType<typeof useGetCountriesQuery>;
-export type GetCountriesLazyQueryHookResult = ReturnType<typeof useGetCountriesLazyQuery>;
-export type GetCountriesQueryResult = Apollo.QueryResult<
-  GetCountriesQuery,
-  GetCountriesQueryVariables
->;
-export const GetGoodsPageDocument = gql`
-  query getGoodsPage($pageTitle: StringFilterInput) {
-    goodsPages(filters: { pageTitle: $pageTitle }) {
-      data {
-        ...PageGoods
-      }
-    }
-  }
-  ${PageGoodsFragmentDoc}
-`;
-
-/**
- * __useGetGoodsPageQuery__
- *
- * To run a query within a React component, call `useGetGoodsPageQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetGoodsPageQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetGoodsPageQuery({
- *   variables: {
- *      pageTitle: // value for 'pageTitle'
- *   },
- * });
- */
-export function useGetGoodsPageQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetGoodsPageQuery, GetGoodsPageQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetGoodsPageQuery, GetGoodsPageQueryVariables>(
-    GetGoodsPageDocument,
-    options,
-  );
-}
-export function useGetGoodsPageLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetGoodsPageQuery, GetGoodsPageQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetGoodsPageQuery, GetGoodsPageQueryVariables>(
-    GetGoodsPageDocument,
-    options,
-  );
-}
-export type GetGoodsPageQueryHookResult = ReturnType<typeof useGetGoodsPageQuery>;
-export type GetGoodsPageLazyQueryHookResult = ReturnType<typeof useGetGoodsPageLazyQuery>;
-export type GetGoodsPageQueryResult = Apollo.QueryResult<
-  GetGoodsPageQuery,
-  GetGoodsPageQueryVariables
->;
-export const GetHomePageDocument = gql`
-  query getHomePage {
-    homePage {
-      data {
-        id
-        attributes {
-          ...HomePageFragment
-        }
-      }
-    }
-  }
-  ${HomePageFragmentFragmentDoc}
-`;
-
-/**
- * __useGetHomePageQuery__
- *
- * To run a query within a React component, call `useGetHomePageQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetHomePageQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetHomePageQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetHomePageQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetHomePageQuery, GetHomePageQueryVariables>(GetHomePageDocument, options);
-}
-export function useGetHomePageLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetHomePageQuery, GetHomePageQueryVariables>(
-    GetHomePageDocument,
-    options,
-  );
-}
-export type GetHomePageQueryHookResult = ReturnType<typeof useGetHomePageQuery>;
-export type GetHomePageLazyQueryHookResult = ReturnType<typeof useGetHomePageLazyQuery>;
-export type GetHomePageQueryResult = Apollo.QueryResult<
-  GetHomePageQuery,
-  GetHomePageQueryVariables
->;
-export const GetSectionBannerDocument = gql`
-  query getSectionBanner($id: ID, $locale: I18NLocaleCode) {
-    bannerSection(id: $id, locale: $locale) {
-      data {
-        id
-        attributes {
-          ...SectionBannerFragment
-        }
-      }
-    }
-  }
-  ${SectionBannerFragmentFragmentDoc}
-`;
-
-/**
- * __useGetSectionBannerQuery__
- *
- * To run a query within a React component, call `useGetSectionBannerQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetSectionBannerQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetSectionBannerQuery({
- *   variables: {
- *      id: // value for 'id'
- *      locale: // value for 'locale'
- *   },
- * });
- */
-export function useGetSectionBannerQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetSectionBannerQuery, GetSectionBannerQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetSectionBannerQuery, GetSectionBannerQueryVariables>(
-    GetSectionBannerDocument,
-    options,
-  );
-}
-export function useGetSectionBannerLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetSectionBannerQuery, GetSectionBannerQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetSectionBannerQuery, GetSectionBannerQueryVariables>(
-    GetSectionBannerDocument,
-    options,
-  );
-}
-export type GetSectionBannerQueryHookResult = ReturnType<typeof useGetSectionBannerQuery>;
-export type GetSectionBannerLazyQueryHookResult = ReturnType<typeof useGetSectionBannerLazyQuery>;
-export type GetSectionBannerQueryResult = Apollo.QueryResult<
-  GetSectionBannerQuery,
-  GetSectionBannerQueryVariables
->;
-export const GetSectionMainTitleDocument = gql`
-  query getSectionMainTitle($id: ID, $locale: I18NLocaleCode) {
-    sectionMainTitle(id: $id, locale: $locale) {
-      data {
-        id
-        attributes {
-          ...SectionMainTitleFragment
-        }
-      }
-    }
-  }
-  ${SectionMainTitleFragmentFragmentDoc}
-`;
-
-/**
- * __useGetSectionMainTitleQuery__
- *
- * To run a query within a React component, call `useGetSectionMainTitleQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetSectionMainTitleQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetSectionMainTitleQuery({
- *   variables: {
- *      id: // value for 'id'
- *      locale: // value for 'locale'
- *   },
- * });
- */
-export function useGetSectionMainTitleQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetSectionMainTitleQuery,
-    GetSectionMainTitleQueryVariables
-  >,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetSectionMainTitleQuery, GetSectionMainTitleQueryVariables>(
-    GetSectionMainTitleDocument,
-    options,
-  );
-}
-export function useGetSectionMainTitleLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetSectionMainTitleQuery,
-    GetSectionMainTitleQueryVariables
-  >,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetSectionMainTitleQuery, GetSectionMainTitleQueryVariables>(
-    GetSectionMainTitleDocument,
-    options,
-  );
-}
-export type GetSectionMainTitleQueryHookResult = ReturnType<typeof useGetSectionMainTitleQuery>;
-export type GetSectionMainTitleLazyQueryHookResult = ReturnType<
-  typeof useGetSectionMainTitleLazyQuery
->;
-export type GetSectionMainTitleQueryResult = Apollo.QueryResult<
-  GetSectionMainTitleQuery,
-  GetSectionMainTitleQueryVariables
->;
-export const GetSectionMembershipDocument = gql`
-  query getSectionMembership($id: ID, $locale: I18NLocaleCode) {
-    sectionMembership(id: $id, locale: $locale) {
-      data {
-        id
-        attributes {
-          ...SectionMembershipFragment
-        }
-      }
-    }
-  }
-  ${SectionMembershipFragmentFragmentDoc}
-`;
-
-/**
- * __useGetSectionMembershipQuery__
- *
- * To run a query within a React component, call `useGetSectionMembershipQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetSectionMembershipQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetSectionMembershipQuery({
- *   variables: {
- *      id: // value for 'id'
- *      locale: // value for 'locale'
- *   },
- * });
- */
-export function useGetSectionMembershipQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetSectionMembershipQuery,
-    GetSectionMembershipQueryVariables
-  >,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetSectionMembershipQuery, GetSectionMembershipQueryVariables>(
-    GetSectionMembershipDocument,
-    options,
-  );
-}
-export function useGetSectionMembershipLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetSectionMembershipQuery,
-    GetSectionMembershipQueryVariables
-  >,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetSectionMembershipQuery, GetSectionMembershipQueryVariables>(
-    GetSectionMembershipDocument,
-    options,
-  );
-}
-export type GetSectionMembershipQueryHookResult = ReturnType<typeof useGetSectionMembershipQuery>;
-export type GetSectionMembershipLazyQueryHookResult = ReturnType<
-  typeof useGetSectionMembershipLazyQuery
->;
-export type GetSectionMembershipQueryResult = Apollo.QueryResult<
-  GetSectionMembershipQuery,
-  GetSectionMembershipQueryVariables
->;
-export const GetSectionPopularDocument = gql`
-  query getSectionPopular($id: ID, $locale: I18NLocaleCode) {
-    sectionPopular(id: $id, locale: $locale) {
-      data {
-        id
-        attributes {
-          ...SectionPopularFragment
-        }
-      }
-    }
-  }
-  ${SectionPopularFragmentFragmentDoc}
-`;
-
-/**
- * __useGetSectionPopularQuery__
- *
- * To run a query within a React component, call `useGetSectionPopularQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetSectionPopularQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetSectionPopularQuery({
- *   variables: {
- *      id: // value for 'id'
- *      locale: // value for 'locale'
- *   },
- * });
- */
-export function useGetSectionPopularQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetSectionPopularQuery, GetSectionPopularQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetSectionPopularQuery, GetSectionPopularQueryVariables>(
-    GetSectionPopularDocument,
-    options,
-  );
-}
-export function useGetSectionPopularLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetSectionPopularQuery,
-    GetSectionPopularQueryVariables
-  >,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetSectionPopularQuery, GetSectionPopularQueryVariables>(
-    GetSectionPopularDocument,
-    options,
-  );
-}
-export type GetSectionPopularQueryHookResult = ReturnType<typeof useGetSectionPopularQuery>;
-export type GetSectionPopularLazyQueryHookResult = ReturnType<typeof useGetSectionPopularLazyQuery>;
-export type GetSectionPopularQueryResult = Apollo.QueryResult<
-  GetSectionPopularQuery,
-  GetSectionPopularQueryVariables
->;
-export const GetSectionTrendDocument = gql`
-  query getSectionTrend($id: ID, $locale: I18NLocaleCode) {
-    sectionTrend(id: $id, locale: $locale) {
-      data {
-        id
-        attributes {
-          ...SectionTrendFragment
-        }
-      }
-    }
-  }
-  ${SectionTrendFragmentFragmentDoc}
-`;
-
-/**
- * __useGetSectionTrendQuery__
- *
- * To run a query within a React component, call `useGetSectionTrendQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetSectionTrendQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetSectionTrendQuery({
- *   variables: {
- *      id: // value for 'id'
- *      locale: // value for 'locale'
- *   },
- * });
- */
-export function useGetSectionTrendQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetSectionTrendQuery, GetSectionTrendQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetSectionTrendQuery, GetSectionTrendQueryVariables>(
-    GetSectionTrendDocument,
-    options,
-  );
-}
-export function useGetSectionTrendLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetSectionTrendQuery, GetSectionTrendQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetSectionTrendQuery, GetSectionTrendQueryVariables>(
-    GetSectionTrendDocument,
-    options,
-  );
-}
-export type GetSectionTrendQueryHookResult = ReturnType<typeof useGetSectionTrendQuery>;
-export type GetSectionTrendLazyQueryHookResult = ReturnType<typeof useGetSectionTrendLazyQuery>;
-export type GetSectionTrendQueryResult = Apollo.QueryResult<
-  GetSectionTrendQuery,
-  GetSectionTrendQueryVariables
->;
