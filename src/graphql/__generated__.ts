@@ -1,5 +1,4 @@
 import { GraphQLClient } from 'graphql-request';
-// @ts-ignore
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
 export type Maybe<T> = T;
@@ -5294,6 +5293,8 @@ export type GetCountriesQuery = {
 
 export type GetGoodsPageQueryVariables = Exact<{
   pageTitle: InputMaybe<StringFilterInput>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  pageSize: InputMaybe<Scalars['Int']['input']>;
 }>;
 
 export type GetGoodsPageQuery = {
@@ -6059,7 +6060,7 @@ export const PageGoodsFragmentDoc = gql`
     attributes {
       pageTitle
       title
-      good {
+      good(pagination: { page: $page, pageSize: $pageSize }) {
         ...ShoeCarouselCard
       }
     }
@@ -6262,7 +6263,7 @@ export const GetCountriesDocument = gql`
   ${CountryFragmentFragmentDoc}
 `;
 export const GetGoodsPageDocument = gql`
-  query getGoodsPage($pageTitle: StringFilterInput) {
+  query getGoodsPage($pageTitle: StringFilterInput, $page: Int, $pageSize: Int) {
     goodsPages(filters: { pageTitle: $pageTitle }) {
       data {
         ...PageGoods

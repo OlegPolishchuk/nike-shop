@@ -1,4 +1,4 @@
-query getGoodsPage($pageTitle: StringFilterInput) {
+query getGoodsPage($pageTitle: StringFilterInput, $page: Int, $pageSize: Int) {
      goodsPages(filters:{pageTitle: $pageTitle}){
           data {
             ...PageGoods

@@ -58,7 +58,7 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
             </Button>
           </div>
 
-          <Typography tag={'div'} className={'mt-10'} variant={'title-3'}>
+          <Typography tag={'div'} className={'mt-10 font-normal'} variant={'title-3'}>
             {description}
           </Typography>
         </div>

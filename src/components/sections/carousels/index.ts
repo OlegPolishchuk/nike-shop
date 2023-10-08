@@ -1,1 +1,1 @@
-export { ItemCardCarousel } from './ItemCardCarousel';
+export { ItemCardCarousel } from './ui/ItemCardCarousel';

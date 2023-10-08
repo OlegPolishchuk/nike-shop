@@ -3,7 +3,7 @@ fragment PageGoods on GoodsPageEntity {
     attributes {
         pageTitle
         title
-        good {
+        good(pagination: {page: $page, pageSize: $pageSize}) {
             ...ShoeCarouselCard
         }
     }

@@ -1,1 +1,1 @@
-export const PRICE_TAG = '&#36;';
+export const Default_Page_Size = 10;

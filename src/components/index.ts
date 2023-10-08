@@ -8,6 +8,7 @@ export {
   VideoBanner,
   Membership,
   ShoeSection,
+  GoodsSection,
   Trends,
 } from './sections';
 export { SectionTitle } from './SectionTitle';
