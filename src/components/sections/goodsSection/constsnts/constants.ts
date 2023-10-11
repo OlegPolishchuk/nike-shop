@@ -46,25 +46,10 @@ export const Gender = [
   { title: 'Unisex', value: GenderValue.UNISEX },
 ];
 
-// export const SortingBy = {
-//   Newest: {
-//     title: 'Newest',
-//     value: 'createdAt',
-//   },
-//   PriceAsc: {
-//     title: 'Price: High-Low',
-//     value: 'price:asc',
-//   },
-//   PriceDesc: {
-//     title: 'Price: Low-High',
-//     value: 'price:desc',
-//   },
-// };
-
 export const SortingBy = [
   {
     title: 'Newest',
-    value: 'createdAt',
+    value: 'createdAt:asc',
   },
   {
     title: 'Price: High-Low',

@@ -2,7 +2,6 @@ fragment ShoeCarouselCard on ComponentUiShoeCardForCarousel {
   id
   title
   link
-  price
   tag
   media {
       data {
@@ -16,4 +15,5 @@ fragment ShoeCarouselCard on ComponentUiShoeCardForCarousel {
         id
     }
   }
+  price
 }

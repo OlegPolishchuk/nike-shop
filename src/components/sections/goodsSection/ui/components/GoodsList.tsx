@@ -30,8 +30,10 @@ export const GoodsList = ({ setAllGoods, setCurrentPage, currentPage, goods }: P
 
   const loadMore = async (page: number) => {
     return await getGoodsPage({
-      pageTitle: stringPageTitle,
-      page: page,
+      pagination: {
+        pageTitle: stringPageTitle,
+        page: page,
+      },
     });
   };
 
@@ -52,6 +54,9 @@ export const GoodsList = ({ setAllGoods, setCurrentPage, currentPage, goods }: P
         });
     }
   }, [inView]);
+
+  // console.log('allGoods =', goods);
+  // сделать условие если inView + count на странице  = limit
 
   return (
     <div

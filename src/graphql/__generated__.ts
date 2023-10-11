@@ -1,6 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
+
+import { FilterParams } from '@/api';
 export type Maybe<T> = T;
 export type InputMaybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -4813,8 +4815,8 @@ export type ShoeCarouselCardFragment = {
   readonly id: string;
   readonly title: string;
   readonly link: string;
-  readonly price: string;
   readonly tag: string;
+  readonly price: string;
   readonly media: {
     readonly __typename?: 'UploadFileEntityResponse';
     readonly data: {
@@ -4968,8 +4970,8 @@ export type PageGoodsFragment = {
       readonly id: string;
       readonly title: string;
       readonly link: string;
-      readonly price: string;
       readonly tag: string;
+      readonly price: string;
       readonly media: {
         readonly __typename?: 'UploadFileEntityResponse';
         readonly data: {
@@ -5139,8 +5141,8 @@ export type SectionPopularFragmentFragment = {
     readonly id: string;
     readonly title: string;
     readonly link: string;
-    readonly price: string;
     readonly tag: string;
+    readonly price: string;
     readonly media: {
       readonly __typename?: 'UploadFileEntityResponse';
       readonly data: {
@@ -5295,6 +5297,8 @@ export type GetGoodsPageQueryVariables = Exact<{
   pageTitle: InputMaybe<StringFilterInput>;
   page: InputMaybe<Scalars['Int']['input']>;
   pageSize: InputMaybe<Scalars['Int']['input']>;
+  tag: InputMaybe<StringFilterInput>;
+  price: InputMaybe<StringFilterInput>;
 }>;
 
 export type GetGoodsPageQuery = {
@@ -5313,8 +5317,8 @@ export type GetGoodsPageQuery = {
           readonly id: string;
           readonly title: string;
           readonly link: string;
-          readonly price: string;
           readonly tag: string;
+          readonly price: string;
           readonly media: {
             readonly __typename?: 'UploadFileEntityResponse';
             readonly data: {
@@ -5555,8 +5559,8 @@ export type GetSectionPopularQuery = {
           readonly id: string;
           readonly title: string;
           readonly link: string;
-          readonly price: string;
           readonly tag: string;
+          readonly price: string;
           readonly media: {
             readonly __typename?: 'UploadFileEntityResponse';
             readonly data: {
@@ -6037,7 +6041,6 @@ export const ShoeCarouselCardFragmentDoc = gql`
     id
     title
     link
-    price
     tag
     media {
       data {
@@ -6051,6 +6054,7 @@ export const ShoeCarouselCardFragmentDoc = gql`
         id
       }
     }
+    price
   }
   ${FileFragmentFragmentDoc}
 `;
@@ -6060,7 +6064,10 @@ export const PageGoodsFragmentDoc = gql`
     attributes {
       pageTitle
       title
-      good(pagination: { page: $page, pageSize: $pageSize }) {
+      good(
+        pagination: { page: $page, pageSize: $pageSize }
+        filters: { price: $price, tag: $tag }
+      ) {
         ...ShoeCarouselCard
       }
     }
@@ -6263,7 +6270,13 @@ export const GetCountriesDocument = gql`
   ${CountryFragmentFragmentDoc}
 `;
 export const GetGoodsPageDocument = gql`
-  query getGoodsPage($pageTitle: StringFilterInput, $page: Int, $pageSize: Int) {
+  query getGoodsPage(
+    $pageTitle: StringFilterInput
+    $page: Int
+    $pageSize: Int
+    $tag: StringFilterInput
+    $price: StringFilterInput
+  ) {
     goodsPages(filters: { pageTitle: $pageTitle }) {
       data {
         ...PageGoods
@@ -6389,7 +6402,13 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
       );
     },
     getGoodsPage(
-      variables?: GetGoodsPageQueryVariables,
+      variables?: {
+        pageTitle: { eq: string };
+        pageSize: number;
+        page: number | undefined;
+        filters: FilterParams | undefined;
+        sort: string | undefined;
+      },
       requestHeaders?: GraphQLClientRequestHeaders,
     ): Promise<GetGoodsPageQuery> {
       return withWrapper(

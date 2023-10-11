@@ -4,9 +4,14 @@ import clsx from 'clsx';
 
 import { SortingBy } from '../../constsnts/constants';
 
+import { SortingParams } from '@/api';
 import { ArrowIcon, Typography } from '@/common/ui';
 
-export const SortBy = () => {
+interface Props {
+  refetch: (params: Partial<SortingParams>) => void;
+}
+
+export const SortBy = ({ refetch }: Props) => {
   const [sort, setSort] = useState(SortingBy[0]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,6 +26,7 @@ export const SortBy = () => {
 
     setSort(sortedItem);
     setIsOpen(false);
+    // refetch({ sort: sortedItem.value });
   };
 
   return (

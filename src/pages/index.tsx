@@ -13,13 +13,6 @@ import { Banner, ItemCardCarousel, MainTitle, Membership, VideoBanner } from '@/
 import { getMainLayout } from '@/components/layouts';
 import { Trends } from '@/components/sections';
 import {
-  GetHomePageDocument,
-  HomePage,
-  HomePageEntity,
-  useGetHomePageQuery,
-} from '@/graphql/__generated__';
-import { createApolloClient } from '@/graphql/apollo-client';
-import {
   GetSectionBannerQuery,
   GetSectionMainTitleQuery,
   GetSectionMembershipQuery,
@@ -65,8 +58,6 @@ const Home = ({
   sectionTrend,
   sectionPopular,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { data } = useQuery(getHomePageQuery, {});
-
   return (
     <>
       {bannerSection && <Banner data={bannerSection.data.attributes} className={'mb-[48px]'} />}

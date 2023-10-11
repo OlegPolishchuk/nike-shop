@@ -23,6 +23,8 @@ export const Sizes = ({ sizes }: Props) => {
     chooseSize(size);
   };
 
+  console.log(chosenSize);
+
   return (
     <div className={'grid grid-cols-2 gap-2'}>
       {sizes.Sizes.map(({ inStock, title, id }) => (
@@ -32,7 +34,7 @@ export const Sizes = ({ sizes }: Props) => {
             'rounded-md border px-[clamp(1.75rem,2.5rem)] py-5',
             inStock ? 'border-gray-200' : 'border-gray-100 text-gray-250 hover:border-gray-100',
             'hover:border-black-100',
-            chosenSize?.id === id && 'border-black-100',
+            chosenSize?.id === id && '!border-black-100',
           )}
           disabled={!inStock}
           onClick={() => handleChoseSize({ id, inStock, title })}

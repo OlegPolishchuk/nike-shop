@@ -1,5 +1,5 @@
 import { Default_Page_Size } from '@/common/constants/constants';
-import { gql } from '@/graphql/client';
+import { BooleanFilterInput, gql, IdFilterInput, StringFilterInput } from '@/graphql/client';
 
 export interface PaginationParams {
   pageTitle: string;
@@ -9,14 +9,41 @@ export interface PaginationParams {
   limit?: number;
 }
 
-export const getGoodsPage = async ({
-  pageTitle,
-  page = 1,
-  pageSize = Default_Page_Size,
-}: PaginationParams) => {
+export interface FilterParams {
+  title?: StringFilterInput;
+  price?: StringFilterInput;
+  tag?: StringFilterInput;
+  sectionShoes?: {
+    id?: IdFilterInput;
+    sizes: {
+      Sizes: {
+        title: StringFilterInput;
+        inStock: BooleanFilterInput;
+      };
+    };
+  };
+}
+
+export interface SortingParams {
+  sort?: string;
+  filters?: FilterParams;
+  pagination: PaginationParams;
+}
+
+export const getGoodsPage = async (params: SortingParams) => {
+  const { pageTitle, page, pageSize } = params.pagination;
+
+  // return await gql.getGoodsPage({
+  //   pageTitle: { eq: pageTitle },
+  //   page,
+  //   pageSize,
+  // });
+
   return await gql.getGoodsPage({
-    pageTitle: { eq: pageTitle },
-    page,
-    pageSize,
+    pageTitle: { eq: params.pagination.pageTitle },
+    page: params.pagination.page,
+    pageSize: Default_Page_Size,
+    filters: params.filters,
+    sort: params.sort,
   });
 };

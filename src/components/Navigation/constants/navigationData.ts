@@ -10,7 +10,7 @@ export const navigationData: NavItem[] = [
           title: 'New & Featured',
           items: [
             { title: 'New Arrivals', href: '/category/NewReleases', sublist: null },
-            { title: 'Best Sellers', href: '#', sublist: null },
+            { title: 'Best Sellers', href: '/category/BestSellers', sublist: null },
             { title: 'Member Exclusive', href: '#', sublist: null },
             { title: 'New in Running', href: '#', sublist: null },
             { title: 'Members - Find Your Dunk', href: '#', sublist: null },
