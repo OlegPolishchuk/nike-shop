@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useInView } from 'react-intersection-observer';
 
-import { Good, Goods } from '../../types/types';
+import { Good } from '../../types/types';
 
 import { getGoodsPage } from '@/api';
 import { Default_Page_Size } from '@/common/constants/constants';
@@ -12,9 +12,9 @@ import { GoodsCard } from '@/common/ui';
 const Item_Index_For_Loading = 7;
 
 interface Props {
-  goods: Goods;
+  goods: Good[];
   currentPage: number;
-  setAllGoods: (goods: Good) => void;
+  setAllGoods: (goods: Good[]) => void;
   setCurrentPage: (page: number) => void;
 }
 
@@ -45,11 +45,11 @@ export const GoodsList = ({ setAllGoods, setCurrentPage, currentPage, goods }: P
 
       loadMore(nextPage)
         .then((res) => {
-          console.log(res.goodsPages);
-          return res.goodsPages.data[0].attributes;
+          console.log(res.sectionShoes.data);
+          return res.sectionShoes.data;
         })
         .then((res) => {
-          setAllGoods(res.good[0]);
+          setAllGoods(res as Good[]);
           setCurrentPage(nextPage);
         });
     }

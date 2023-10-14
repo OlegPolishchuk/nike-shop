@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Good, Goods } from '../types/types';
+import { Good } from '../types/types';
 
 import { Filters } from './components/Filters';
 import { GoodsList } from './components/GoodsList';
@@ -11,17 +11,16 @@ import { BaseSection } from '@/components/sections';
 import { SortBy } from '@/components/sections/goodsSection/ui/components/SortBy';
 
 interface Props {
-  goods: Goods;
-  title: string;
+  goods: Good[];
   pageTitle: string;
 }
 
-export const GoodsSection = ({ goods, title, pageTitle }: Props) => {
+export const GoodsSection = ({ goods, pageTitle }: Props) => {
   const [allGoods, setAllGoods] = useState(goods);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handleSetAllGoods = (newGoods: Good) => {
-    setAllGoods((prevState) => [...prevState, newGoods]);
+  const handleSetAllGoods = (newGoods: Good[]) => {
+    setAllGoods((prevState) => [...prevState, ...newGoods]);
   };
   const handleSetPage = (nextPage: number) => {
     setCurrentPage(nextPage);
@@ -41,7 +40,7 @@ export const GoodsSection = ({ goods, title, pageTitle }: Props) => {
     <BaseSection>
       <div className={'relative flex justify-between'}>
         <Typography variant={'title-2'}>
-          {title} ({goods.length})
+          {pageTitle} ({goods.length})
         </Typography>
 
         <SortBy refetch={handleRefetchGoodsWithParams} />

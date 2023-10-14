@@ -1,7 +1,10 @@
-query getGoodsPage($pageTitle: StringFilterInput, $page: Int, $pageSize: Int, $tag: StringFilterInput, $price: StringFilterInput) {
-     goodsPages(filters:{pageTitle: $pageTitle}){
+query getGoodsPage($pageTitle: String, $page: Int, $pageSize: Int) {
+     sectionShoes(filters: {pageSubtitle: {eqi: $pageTitle}}, pagination: {page: $page, pageSize: $pageSize} ){
           data {
-            ...PageGoods
-          }
+                   id
+                   attributes {
+                     ...SectionShoeFragment
+                   }
+                 }
     }
 }

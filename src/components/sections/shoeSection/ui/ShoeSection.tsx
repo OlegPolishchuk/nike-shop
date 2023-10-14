@@ -12,8 +12,21 @@ interface Props {
 }
 
 export const ShoeSection = ({ sectionShoe }: Props) => {
-  const { addToBagButton, favoriteButton, options, sizes } = sectionShoe.data.attributes;
-  const { title, tag, price, description } = options;
+  const {
+    addToBagButton,
+    favoriteButton,
+    options,
+    sizes,
+    pageTitle,
+    pageTitle3,
+    pageTitle2,
+    pageSubtitle,
+    tags,
+    gender,
+  } = sectionShoe.data.attributes;
+  const { title, tag, price, description, medias, mainImage } = options;
+
+  const allMedias = [mainImage.data, ...medias.data];
 
   console.log('sectionShoe =', sectionShoe);
 
@@ -29,7 +42,7 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
             'relative mb-[50px] h-0 min-h-[300px] overflow-y-hidden pb-[100%] md:sticky md:top-[50px] md:mb-0'
           }
         >
-          <Medias medias={options.medias.data} title={title} />
+          <Medias medias={allMedias} title={title} />
         </div>
 
         <div className={'flex flex-col gap-4'}>

@@ -12,4 +12,4 @@ export {
   Trends,
 } from './sections';
 export { SectionTitle } from './SectionTitle';
-export { ImageFromCms } from './ImageFromCMS';
+export { VideoFromCms, ImageFromCms } from './MediaFromCms';

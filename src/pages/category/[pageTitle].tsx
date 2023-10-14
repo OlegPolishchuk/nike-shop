@@ -5,28 +5,27 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { getBannerSection, getGoodsPage, getHomePage } from '@/api';
 import { getMainLayout } from '@/components/layouts';
 import { Banner, GoodsSection } from '@/components/sections';
-import { GetSectionBannerQuery, PageGoodsFragment } from '@/graphql/client';
+import { GetSectionBannerQuery, GetSectionShoeQuery } from '@/graphql/client';
 
 interface Props {
-  goodsPages: PageGoodsFragment;
+  goodsList: GetSectionShoeQuery['sectionShoe']['data'][];
   bannerSection: GetSectionBannerQuery['bannerSection'];
   pageTitle: string;
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({ params, req, locale }) => {
+export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) => {
   const { pageTitle } = params as { pageTitle: string };
 
   const { homePage } = await getHomePage();
   const { bannerSection } = await getBannerSection(
     homePage.data.attributes.banner_section?.data.id,
   );
-  const { goodsPages } = await getGoodsPage({ pagination: { pageTitle } });
-
-  console.log(goodsPages.data[0]);
+  const { sectionShoes } = await getGoodsPage({ pagination: { pageTitle } });
+  const goodsList = sectionShoes.data.map((product) => product);
 
   return {
     props: {
-      goodsPages: goodsPages.data[0],
+      goodsList,
       bannerSection,
       pageTitle,
     },
@@ -34,18 +33,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params, re
 };
 
 const GoodsPage = ({
-  goodsPages,
+  goodsList,
   bannerSection,
   pageTitle,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { title, good: goodsList } = goodsPages.attributes;
-
-  console.log('goodsList =', goodsList);
-
   return (
     <>
       {bannerSection && <Banner data={bannerSection.data.attributes} className={'mb-[48px]'} />}
-      <GoodsSection key={title} goods={goodsList} title={title} pageTitle={pageTitle} />
+      <GoodsSection key={pageTitle} goods={goodsList} pageTitle={pageTitle} />
     </>
   );
 };

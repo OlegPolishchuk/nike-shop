@@ -1,4 +1,11 @@
 fragment ShoeOptionFragment on ComponentEntityShoeOption {
+  mainImage {
+    data {
+      attributes {
+        ...FileFragment
+      }
+    }
+  }
   medias {
     data {
       attributes {

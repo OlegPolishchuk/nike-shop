@@ -1,8 +1,6 @@
 import { GraphQLClient } from 'graphql-request';
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
-
-import { FilterParams } from '@/api';
 export type Maybe<T> = T;
 export type InputMaybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -122,6 +120,7 @@ export type ComponentEntityShoeOption = {
   readonly __typename?: 'ComponentEntityShoeOption';
   readonly description: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
+  readonly mainImage: UploadFileEntityResponse;
   readonly medias: Maybe<UploadFileRelationResponseCollection>;
   readonly price: Scalars['String']['output'];
   readonly tag: Scalars['String']['output'];
@@ -147,6 +146,7 @@ export type ComponentEntityShoeOptionFiltersInput = {
 export type ComponentEntityShoeOptionInput = {
   readonly description: InputMaybe<Scalars['String']['input']>;
   readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly mainImage: InputMaybe<Scalars['ID']['input']>;
   readonly medias: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
   readonly price: InputMaybe<Scalars['String']['input']>;
   readonly tag: InputMaybe<Scalars['String']['input']>;
@@ -1606,6 +1606,141 @@ export type DateTimeFilterInput = {
   readonly or: InputMaybe<ReadonlyArray<InputMaybe<Scalars['DateTime']['input']>>>;
   readonly startsWith: InputMaybe<Scalars['DateTime']['input']>;
 };
+
+export enum Enum_Sectionshoe_Gender {
+  Men = 'men',
+  Unisex = 'unisex',
+  Women = 'women',
+}
+
+export enum Enum_Sectionshoe_Pagesubtitle {
+  AirForce = 'AirForce',
+  AirJordan = 'AirJordan',
+  AirMax = 'AirMax',
+  AllGifts = 'AllGifts',
+  Baseball = 'Baseball',
+  Basketball = 'Basketball',
+  BasketballAndLifestyle = 'Basketball_and_Lifestyle',
+  BestSellers = 'BestSellers',
+  BitAndRall = 'Bit_and_Rall',
+  Blazer = 'Blazer',
+  Boots = 'Boots',
+  Clothing = 'Clothing',
+  CrossCountry = 'CrossCountry',
+  Drops101 = 'Drops101',
+  Dunks = 'Dunks',
+  FitnessShorts = 'FitnessShorts',
+  Fleece = 'Fleece',
+  Football = 'Football',
+  Gifts_30AndUnder = 'Gifts_30_and_Under',
+  GoftsCards = 'GoftsCards',
+  Golf = 'Golf',
+  Hoodies = 'Hoodies',
+  JordanHeatCheck = 'JordanHeatCheck',
+  LeBron = 'LeBron',
+  MemberProduct = 'MemberProduct',
+  Metcon = 'Metcon',
+  New = 'New',
+  NewArrivals = 'NewArrivals',
+  NewAndUpcomingDrops = 'New_and_UpcomingDrops',
+  NikeLab = 'NikeLab',
+  NikeSb = 'NikeSB',
+  Pants = 'Pants',
+  Pegasus = 'Pegasus',
+  Running = 'Running',
+  SnkrLaunchCalendar = 'SNKRLaunchCalendar',
+  Shoes = 'Shoes',
+  Shoes_100AndUnder = 'Shoes_100_and_Under',
+  Soccer = 'Soccer',
+  Socks = 'Socks',
+  TrainingAndGym = 'Training_and_Gym',
+  UltimateSalgeUpTo60Off = 'UltimateSalgeUpTo60_Off',
+  Underwear = 'Underwear',
+  Valeyball = 'Valeyball',
+  Yoga = 'Yoga',
+}
+
+export enum Enum_Sectionshoe_Pagesubtitle2 {
+  AirForce = 'AirForce',
+  AirJordan = 'AirJordan',
+  AirMax = 'AirMax',
+  AllGifts = 'AllGifts',
+  Baseball = 'Baseball',
+  Basketball = 'Basketball',
+  BasketballAndLifestyle = 'Basketball_and_Lifestyle',
+  BestSellers = 'BestSellers',
+  BitAndRall = 'Bit_and_Rall',
+  Blazer = 'Blazer',
+  Boots = 'Boots',
+  Clothing = 'Clothing',
+  CrossCountry = 'CrossCountry',
+  Drops101 = 'Drops101',
+  Dunks = 'Dunks',
+  FitnessShorts = 'FitnessShorts',
+  Fleece = 'Fleece',
+  Football = 'Football',
+  Gifts_30AndUnder = 'Gifts_30_and_Under',
+  GoftsCards = 'GoftsCards',
+  Golf = 'Golf',
+  Hoodies = 'Hoodies',
+  JordanHeatCheck = 'JordanHeatCheck',
+  LeBron = 'LeBron',
+  MemberProduct = 'MemberProduct',
+  Metcon = 'Metcon',
+  New = 'New',
+  NewArrivals = 'NewArrivals',
+  NewAndUpcomingDrops = 'New_and_UpcomingDrops',
+  NikeLab = 'NikeLab',
+  NikeSb = 'NikeSB',
+  Pants = 'Pants',
+  Pegasus = 'Pegasus',
+  Running = 'Running',
+  SnkrLaunchCalendar = 'SNKRLaunchCalendar',
+  Shoes = 'Shoes',
+  Shoes_100AndUnder = 'Shoes_100_and_Under',
+  Soccer = 'Soccer',
+  Socks = 'Socks',
+  TrainingAndGym = 'Training_and_Gym',
+  UltimateSalgeUpTo60Off = 'UltimateSalgeUpTo60_Off',
+  Underwear = 'Underwear',
+  Valeyball = 'Valeyball',
+  Yoga = 'Yoga',
+}
+
+export enum Enum_Sectionshoe_Pagetitle {
+  Accessories = 'Accessories',
+  Kids = 'Kids',
+  Men = 'Men',
+  NewAndFutured = 'New_and_Futured',
+  Sale = 'Sale',
+  Women = 'Women',
+}
+
+export enum Enum_Sectionshoe_Pagetitle2 {
+  Accessories = 'Accessories',
+  Kids = 'Kids',
+  Men = 'Men',
+  NewAndFutured = 'New_and_Futured',
+  Sale = 'Sale',
+  Women = 'Women',
+}
+
+export enum Enum_Sectionshoe_Pagetitle3 {
+  Accessories = 'Accessories',
+  Kids = 'Kids',
+  Men = 'Men',
+  NewAndFutured = 'New_and_Futured',
+  Sale = 'Sale',
+  Women = 'Women',
+}
+
+export enum Enum_Sectionshoe_Tags {
+  Basketball = 'basketball',
+  Kids = 'kids',
+  Men = 'men',
+  Shoes = 'shoes',
+  Women = 'women',
+}
 
 export enum Enum_Type_Name {
   BasketballShoes = 'Basketball_Shoes',
@@ -3600,11 +3735,18 @@ export type SectionShoe = {
   readonly createdAt: Maybe<Scalars['DateTime']['output']>;
   readonly detailsButton: Maybe<ReadonlyArray<Maybe<ComponentUiButton>>>;
   readonly favoriteButton: Maybe<ComponentUiButton>;
+  readonly gender: Enum_Sectionshoe_Gender;
   readonly locale: Maybe<Scalars['String']['output']>;
   readonly localizations: Maybe<SectionShoeRelationResponseCollection>;
   readonly options: ComponentEntityShoeOption;
+  readonly pageSubtitle: Enum_Sectionshoe_Pagesubtitle;
+  readonly pageSubtitle2: Maybe<Enum_Sectionshoe_Pagesubtitle2>;
+  readonly pageTitle: Enum_Sectionshoe_Pagetitle;
+  readonly pageTitle2: Maybe<Enum_Sectionshoe_Pagetitle2>;
+  readonly pageTitle3: Maybe<Enum_Sectionshoe_Pagetitle3>;
   readonly publishedAt: Maybe<Scalars['DateTime']['output']>;
   readonly sizes: ComponentUiSizes;
+  readonly tags: Enum_Sectionshoe_Tags;
   readonly updatedAt: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -3647,14 +3789,21 @@ export type SectionShoeFiltersInput = {
   readonly createdAt: InputMaybe<DateTimeFilterInput>;
   readonly detailsButton: InputMaybe<ComponentUiButtonFiltersInput>;
   readonly favoriteButton: InputMaybe<ComponentUiButtonFiltersInput>;
+  readonly gender: InputMaybe<StringFilterInput>;
   readonly id: InputMaybe<IdFilterInput>;
   readonly locale: InputMaybe<StringFilterInput>;
   readonly localizations: InputMaybe<SectionShoeFiltersInput>;
   readonly not: InputMaybe<SectionShoeFiltersInput>;
   readonly options: InputMaybe<ComponentEntityShoeOptionFiltersInput>;
   readonly or: InputMaybe<ReadonlyArray<InputMaybe<SectionShoeFiltersInput>>>;
+  readonly pageSubtitle: InputMaybe<StringFilterInput>;
+  readonly pageSubtitle2: InputMaybe<StringFilterInput>;
+  readonly pageTitle: InputMaybe<StringFilterInput>;
+  readonly pageTitle2: InputMaybe<StringFilterInput>;
+  readonly pageTitle3: InputMaybe<StringFilterInput>;
   readonly publishedAt: InputMaybe<DateTimeFilterInput>;
   readonly sizes: InputMaybe<ComponentUiSizesFiltersInput>;
+  readonly tags: InputMaybe<StringFilterInput>;
   readonly updatedAt: InputMaybe<DateTimeFilterInput>;
 };
 
@@ -3665,9 +3814,16 @@ export type SectionShoeInput = {
   readonly addToBagButton: InputMaybe<ComponentUiButtonInput>;
   readonly detailsButton: InputMaybe<ReadonlyArray<InputMaybe<ComponentUiButtonInput>>>;
   readonly favoriteButton: InputMaybe<ComponentUiButtonInput>;
+  readonly gender: InputMaybe<Enum_Sectionshoe_Gender>;
   readonly options: InputMaybe<ComponentEntityShoeOptionInput>;
+  readonly pageSubtitle: InputMaybe<Enum_Sectionshoe_Pagesubtitle>;
+  readonly pageSubtitle2: InputMaybe<Enum_Sectionshoe_Pagesubtitle2>;
+  readonly pageTitle: InputMaybe<Enum_Sectionshoe_Pagetitle>;
+  readonly pageTitle2: InputMaybe<Enum_Sectionshoe_Pagetitle2>;
+  readonly pageTitle3: InputMaybe<Enum_Sectionshoe_Pagetitle3>;
   readonly publishedAt: InputMaybe<Scalars['DateTime']['input']>;
   readonly sizes: InputMaybe<ComponentUiSizesInput>;
+  readonly tags: InputMaybe<Enum_Sectionshoe_Tags>;
 };
 
 export type SectionShoeRelationResponseCollection = {
@@ -4855,6 +5011,29 @@ export type ShoeOptionFragmentFragment = {
   readonly tag: string;
   readonly price: string;
   readonly description: string;
+  readonly mainImage: {
+    readonly __typename?: 'UploadFileEntityResponse';
+    readonly data: {
+      readonly __typename?: 'UploadFileEntity';
+      readonly attributes: {
+        readonly __typename?: 'UploadFile';
+        readonly name: string;
+        readonly alternativeText: string;
+        readonly caption: string;
+        readonly width: number;
+        readonly height: number;
+        readonly formats: any;
+        readonly hash: string;
+        readonly ext: string;
+        readonly mime: string;
+        readonly size: number;
+        readonly url: string;
+        readonly previewUrl: string;
+        readonly provider: string;
+        readonly provider_metadata: any;
+      };
+    };
+  };
   readonly medias: {
     readonly __typename?: 'UploadFileRelationResponseCollection';
     readonly data: ReadonlyArray<{
@@ -5178,6 +5357,12 @@ export type SectionPopularFragmentFragment = {
 
 export type SectionShoeFragmentFragment = {
   readonly __typename?: 'SectionShoe';
+  readonly tags: Enum_Sectionshoe_Tags;
+  readonly gender: Enum_Sectionshoe_Gender;
+  readonly pageTitle: Enum_Sectionshoe_Pagetitle;
+  readonly pageSubtitle: Enum_Sectionshoe_Pagesubtitle;
+  readonly pageTitle2: Enum_Sectionshoe_Pagetitle2;
+  readonly pageTitle3: Enum_Sectionshoe_Pagetitle3;
   readonly updatedAt: any;
   readonly addToBagButton: {
     readonly __typename?: 'ComponentUiButton';
@@ -5197,6 +5382,29 @@ export type SectionShoeFragmentFragment = {
     readonly tag: string;
     readonly price: string;
     readonly description: string;
+    readonly mainImage: {
+      readonly __typename?: 'UploadFileEntityResponse';
+      readonly data: {
+        readonly __typename?: 'UploadFileEntity';
+        readonly attributes: {
+          readonly __typename?: 'UploadFile';
+          readonly name: string;
+          readonly alternativeText: string;
+          readonly caption: string;
+          readonly width: number;
+          readonly height: number;
+          readonly formats: any;
+          readonly hash: string;
+          readonly ext: string;
+          readonly mime: string;
+          readonly size: number;
+          readonly url: string;
+          readonly previewUrl: string;
+          readonly provider: string;
+          readonly provider_metadata: any;
+        };
+      };
+    };
     readonly medias: {
       readonly __typename?: 'UploadFileRelationResponseCollection';
       readonly data: ReadonlyArray<{
@@ -5294,32 +5502,46 @@ export type GetCountriesQuery = {
 };
 
 export type GetGoodsPageQueryVariables = Exact<{
-  pageTitle: InputMaybe<StringFilterInput>;
+  pageTitle: InputMaybe<Scalars['String']['input']>;
   page: InputMaybe<Scalars['Int']['input']>;
   pageSize: InputMaybe<Scalars['Int']['input']>;
-  tag: InputMaybe<StringFilterInput>;
-  price: InputMaybe<StringFilterInput>;
 }>;
 
 export type GetGoodsPageQuery = {
   readonly __typename?: 'Query';
-  readonly goodsPages: {
-    readonly __typename?: 'GoodsPageEntityResponseCollection';
+  readonly sectionShoes: {
+    readonly __typename?: 'SectionShoeEntityResponseCollection';
     readonly data: ReadonlyArray<{
-      readonly __typename?: 'GoodsPageEntity';
+      readonly __typename?: 'SectionShoeEntity';
       readonly id: string;
       readonly attributes: {
-        readonly __typename?: 'GoodsPage';
-        readonly pageTitle: string;
-        readonly title: string;
-        readonly good: ReadonlyArray<{
-          readonly __typename?: 'ComponentUiShoeCardForCarousel';
+        readonly __typename?: 'SectionShoe';
+        readonly tags: Enum_Sectionshoe_Tags;
+        readonly gender: Enum_Sectionshoe_Gender;
+        readonly pageTitle: Enum_Sectionshoe_Pagetitle;
+        readonly pageSubtitle: Enum_Sectionshoe_Pagesubtitle;
+        readonly pageTitle2: Enum_Sectionshoe_Pagetitle2;
+        readonly pageTitle3: Enum_Sectionshoe_Pagetitle3;
+        readonly updatedAt: any;
+        readonly addToBagButton: {
+          readonly __typename?: 'ComponentUiButton';
           readonly id: string;
+          readonly label: string;
+          readonly href: string;
+        };
+        readonly favoriteButton: {
+          readonly __typename?: 'ComponentUiButton';
+          readonly id: string;
+          readonly label: string;
+          readonly href: string;
+        };
+        readonly options: {
+          readonly __typename?: 'ComponentEntityShoeOption';
           readonly title: string;
-          readonly link: string;
           readonly tag: string;
           readonly price: string;
-          readonly media: {
+          readonly description: string;
+          readonly mainImage: {
             readonly __typename?: 'UploadFileEntityResponse';
             readonly data: {
               readonly __typename?: 'UploadFileEntity';
@@ -5342,14 +5564,40 @@ export type GetGoodsPageQuery = {
               };
             };
           };
-          readonly section_shoes: {
-            readonly __typename?: 'SectionShoeRelationResponseCollection';
+          readonly medias: {
+            readonly __typename?: 'UploadFileRelationResponseCollection';
             readonly data: ReadonlyArray<{
-              readonly __typename?: 'SectionShoeEntity';
-              readonly id: string;
+              readonly __typename?: 'UploadFileEntity';
+              readonly attributes: {
+                readonly __typename?: 'UploadFile';
+                readonly name: string;
+                readonly alternativeText: string;
+                readonly caption: string;
+                readonly width: number;
+                readonly height: number;
+                readonly formats: any;
+                readonly hash: string;
+                readonly ext: string;
+                readonly mime: string;
+                readonly size: number;
+                readonly url: string;
+                readonly previewUrl: string;
+                readonly provider: string;
+                readonly provider_metadata: any;
+              };
             }>;
           };
-        }>;
+        };
+        readonly sizes: {
+          readonly __typename?: 'ComponentUiSizes';
+          readonly id: string;
+          readonly Sizes: ReadonlyArray<{
+            readonly __typename?: 'ComponentSettingsSize';
+            readonly id: string;
+            readonly title: string;
+            readonly inStock: boolean;
+          }>;
+        };
       };
     }>;
   };
@@ -5610,6 +5858,12 @@ export type GetSectionShoeQuery = {
       readonly id: string;
       readonly attributes: {
         readonly __typename?: 'SectionShoe';
+        readonly tags: Enum_Sectionshoe_Tags;
+        readonly gender: Enum_Sectionshoe_Gender;
+        readonly pageTitle: Enum_Sectionshoe_Pagetitle;
+        readonly pageSubtitle: Enum_Sectionshoe_Pagesubtitle;
+        readonly pageTitle2: Enum_Sectionshoe_Pagetitle2;
+        readonly pageTitle3: Enum_Sectionshoe_Pagetitle3;
         readonly updatedAt: any;
         readonly addToBagButton: {
           readonly __typename?: 'ComponentUiButton';
@@ -5629,6 +5883,29 @@ export type GetSectionShoeQuery = {
           readonly tag: string;
           readonly price: string;
           readonly description: string;
+          readonly mainImage: {
+            readonly __typename?: 'UploadFileEntityResponse';
+            readonly data: {
+              readonly __typename?: 'UploadFileEntity';
+              readonly attributes: {
+                readonly __typename?: 'UploadFile';
+                readonly name: string;
+                readonly alternativeText: string;
+                readonly caption: string;
+                readonly width: number;
+                readonly height: number;
+                readonly formats: any;
+                readonly hash: string;
+                readonly ext: string;
+                readonly mime: string;
+                readonly size: number;
+                readonly url: string;
+                readonly previewUrl: string;
+                readonly provider: string;
+                readonly provider_metadata: any;
+              };
+            };
+          };
           readonly medias: {
             readonly __typename?: 'UploadFileRelationResponseCollection';
             readonly data: ReadonlyArray<{
@@ -6187,6 +6464,13 @@ export const SectionPopularFragmentFragmentDoc = gql`
 `;
 export const ShoeOptionFragmentFragmentDoc = gql`
   fragment ShoeOptionFragment on ComponentEntityShoeOption {
+    mainImage {
+      data {
+        attributes {
+          ...FileFragment
+        }
+      }
+    }
     medias {
       data {
         attributes {
@@ -6225,6 +6509,12 @@ export const SectionShoeFragmentFragmentDoc = gql`
         ...Size
       }
     }
+    tags
+    gender
+    pageTitle
+    pageSubtitle
+    pageTitle2
+    pageTitle3
     updatedAt
   }
   ${ButtonFragmentFragmentDoc}
@@ -6270,20 +6560,20 @@ export const GetCountriesDocument = gql`
   ${CountryFragmentFragmentDoc}
 `;
 export const GetGoodsPageDocument = gql`
-  query getGoodsPage(
-    $pageTitle: StringFilterInput
-    $page: Int
-    $pageSize: Int
-    $tag: StringFilterInput
-    $price: StringFilterInput
-  ) {
-    goodsPages(filters: { pageTitle: $pageTitle }) {
+  query getGoodsPage($pageTitle: String, $page: Int, $pageSize: Int) {
+    sectionShoes(
+      filters: { pageSubtitle: { eqi: $pageTitle } }
+      pagination: { page: $page, pageSize: $pageSize }
+    ) {
       data {
-        ...PageGoods
+        id
+        attributes {
+          ...SectionShoeFragment
+        }
       }
     }
   }
-  ${PageGoodsFragmentDoc}
+  ${SectionShoeFragmentFragmentDoc}
 `;
 export const GetHomePageDocument = gql`
   query getHomePage {
@@ -6402,13 +6692,7 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
       );
     },
     getGoodsPage(
-      variables?: {
-        pageTitle: { eq: string };
-        pageSize: number;
-        page: number | undefined;
-        filters: FilterParams | undefined;
-        sort: string | undefined;
-      },
+      variables?: GetGoodsPageQueryVariables,
       requestHeaders?: GraphQLClientRequestHeaders,
     ): Promise<GetGoodsPageQuery> {
       return withWrapper(

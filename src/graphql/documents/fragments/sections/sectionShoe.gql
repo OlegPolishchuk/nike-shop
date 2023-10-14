@@ -14,5 +14,11 @@ fragment SectionShoeFragment on SectionShoe {
             ...Size
         }
    }
+   tags
+   gender
+   pageTitle
+   pageSubtitle
+   pageTitle2
+   pageTitle3
    updatedAt
 }

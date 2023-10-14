@@ -31,7 +31,7 @@ export interface SortingParams {
 }
 
 export const getGoodsPage = async (params: SortingParams) => {
-  const { pageTitle, page, pageSize } = params.pagination;
+  const { pageTitle, page = 1, pageSize = Default_Page_Size } = params.pagination;
 
   // return await gql.getGoodsPage({
   //   pageTitle: { eq: pageTitle },
@@ -40,10 +40,10 @@ export const getGoodsPage = async (params: SortingParams) => {
   // });
 
   return await gql.getGoodsPage({
-    pageTitle: { eq: params.pagination.pageTitle },
-    page: params.pagination.page,
-    pageSize: Default_Page_Size,
-    filters: params.filters,
-    sort: params.sort,
+    pageTitle,
+    page,
+    pageSize,
+    // filters: params.filters,
+    // sort: params.sort,
   });
 };
