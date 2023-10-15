@@ -20,7 +20,7 @@ export const SubItemNav = ({ sublist, isShowSibList, setShowSubList }: Props) =>
   return (
     <div
       className={clsx(
-        'z-100 absolute left-0 right-0 top-[60px] flex max-h-[800px] origin-top justify-center bg-light p-[40px] pt-[16px]  [transition:opacity_.2s,visibility_.2s,transform_.2s]',
+        'absolute left-0 right-0 top-[60px] z-50 flex max-h-[800px] origin-top justify-center bg-light p-[40px] pt-[16px]  [transition:opacity_.2s,visibility_.2s,transform_.2s]',
         isShowSibList
           ? 'group-hover/subNav:visible group-hover/subNav:scale-y-100 group-hover/subNav:opacity-100'
           : 'invisible  scale-y-0  opacity-0  ',

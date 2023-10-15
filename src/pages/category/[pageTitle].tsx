@@ -39,7 +39,7 @@ const GoodsPage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <>
-      {bannerSection && <Banner data={bannerSection.data.attributes} className={'mb-[48px]'} />}
+      {bannerSection && <Banner data={bannerSection.data.attributes} />}
       <GoodsSection key={pageTitle} goods={goodsList} pageTitle={pageTitle} />
     </>
   );

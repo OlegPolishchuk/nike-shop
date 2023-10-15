@@ -33,7 +33,7 @@ export const ItemNav = ({ navItem, className }: Props) => {
     >
       <Link
         href={href}
-        className={'flex h-[58px] items-center  p-[12px] font-medium transition-all'}
+        className={'flex h-[58px] items-center p-[12px] font-medium transition-all'}
       >
         <Typography tag={'span'} variant={'body-1'}>
           {title}

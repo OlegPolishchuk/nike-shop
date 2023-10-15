@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 
-import { useRouter } from 'next/router';
 import { useInView } from 'react-intersection-observer';
 
 import { Good } from '../../types/types';
 
-import { getGoodsPage } from '@/api';
+import { getGoodsPage, SortingParams } from '@/api';
 import { Default_Page_Size } from '@/common/constants/constants';
 import { GoodsCard } from '@/common/ui';
 
@@ -13,28 +12,20 @@ const Item_Index_For_Loading = 7;
 
 interface Props {
   goods: Good[];
-  currentPage: number;
+  params: SortingParams;
   setAllGoods: (goods: Good[]) => void;
-  setCurrentPage: (page: number) => void;
+  setParams: (params: Partial<SortingParams>) => void;
 }
 
-export const GoodsList = ({ setAllGoods, setCurrentPage, currentPage, goods }: Props) => {
-  const router = useRouter();
-
+export const GoodsList = ({ setAllGoods, setParams, goods, params }: Props) => {
   const { ref: lastItemRef, inView } = useInView({
     threshold: 1,
   });
 
-  const pageTitle = router.query.pageTitle;
-  const stringPageTitle = pageTitle as string;
+  const currentPage = params.pagination.page || 1;
 
-  const loadMore = async (page: number) => {
-    return await getGoodsPage({
-      pagination: {
-        pageTitle: stringPageTitle,
-        page: page,
-      },
-    });
+  const loadMore = async (params: SortingParams) => {
+    return await getGoodsPage({ ...params });
   };
 
   useEffect(() => {
@@ -42,21 +33,20 @@ export const GoodsList = ({ setAllGoods, setCurrentPage, currentPage, goods }: P
       if (goods.length < currentPage * Default_Page_Size) return;
 
       const nextPage = currentPage + 1;
+      const newParams = { ...params, pagination: { ...params.pagination, page: nextPage } };
 
-      loadMore(nextPage)
-        .then((res) => {
-          console.log(res.sectionShoes.data);
-          return res.sectionShoes.data;
-        })
-        .then((res) => {
-          setAllGoods(res as Good[]);
-          setCurrentPage(nextPage);
-        });
+      setParams(newParams);
+
+      // loadMore(newParams)
+      //   .then((res) => {
+      //     return res.sectionShoes.data;
+      //   })
+      //   .then((res) => {
+      //     setAllGoods(res as Good[]);
+      //     setParams(newParams);
+      //   });
     }
   }, [inView]);
-
-  // console.log('allGoods =', goods);
-  // сделать условие если inView + count на странице  = limit
 
   return (
     <div

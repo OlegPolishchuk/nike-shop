@@ -1,5 +1,6 @@
 import { Default_Page_Size } from '@/common/constants/constants';
-import { BooleanFilterInput, gql, IdFilterInput, StringFilterInput } from '@/graphql/client';
+import { GenderValue } from '@/components/sections/goodsSection/constsnts/constants';
+import { BooleanFilterInput, gql, StringFilterInput } from '@/graphql/client';
 
 export interface PaginationParams {
   pageTitle: string;
@@ -10,40 +11,40 @@ export interface PaginationParams {
 }
 
 export interface FilterParams {
-  title?: StringFilterInput;
   price?: StringFilterInput;
   tag?: StringFilterInput;
-  sectionShoes?: {
-    id?: IdFilterInput;
-    sizes: {
-      Sizes: {
-        title: StringFilterInput;
-        inStock: BooleanFilterInput;
-      };
-    };
+  sizes?: {
+    title: string;
+    inStock?: BooleanFilterInput;
   };
+  gender?: string[];
 }
 
 export interface SortingParams {
-  sort?: string;
+  sort?: string[];
   filters?: FilterParams;
   pagination: PaginationParams;
 }
 
 export const getGoodsPage = async (params: SortingParams) => {
   const { pageTitle, page = 1, pageSize = Default_Page_Size } = params.pagination;
+  const size = params.filters?.sizes?.title || '';
+  const gender = params.filters?.gender;
+  const sort = params.sort || [''];
 
-  // return await gql.getGoodsPage({
-  //   pageTitle: { eq: pageTitle },
-  //   page,
-  //   pageSize,
-  // });
-
-  return await gql.getGoodsPage({
+  let newParams: any = {
     pageTitle,
     page,
     pageSize,
-    // filters: params.filters,
-    // sort: params.sort,
-  });
+    sort,
+    size,
+    gender,
+  };
+
+  if (newParams.size === '') {
+    const { size, ...rest } = newParams;
+    newParams = rest;
+  }
+
+  return await gql.getGoodsPage({ ...newParams });
 };

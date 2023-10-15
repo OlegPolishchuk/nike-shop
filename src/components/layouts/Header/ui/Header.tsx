@@ -10,7 +10,7 @@ export const Header = () => {
 
   return (
     <header
-      className={'relative z-20 flex h-[60px] items-center justify-between px-[14px] sm:px-[36px]'}
+      className={'relative z-30 flex h-[60px] items-center justify-between px-[14px] sm:px-[36px]'}
     >
       {isLargeScreen ? (
         <>

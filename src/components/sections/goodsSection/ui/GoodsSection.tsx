@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { flushSync } from 'react-dom';
+import { set } from 'zod';
 
 import { Good } from '../types/types';
 
 import { Filters } from './components/Filters';
 import { GoodsList } from './components/GoodsList';
+import { SortBy } from './components/SortBy';
 
 import { getGoodsPage, SortingParams } from '@/api';
+import { Default_Page_Size } from '@/common/constants/constants';
 import { Typography } from '@/common/ui';
-import { BaseSection } from '@/components/sections';
-import { SortBy } from '@/components/sections/goodsSection/ui/components/SortBy';
 
 interface Props {
   goods: Good[];
@@ -17,45 +20,56 @@ interface Props {
 
 export const GoodsSection = ({ goods, pageTitle }: Props) => {
   const [allGoods, setAllGoods] = useState(goods);
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const [params, setParams] = useState<SortingParams>({
+    pagination: {
+      pageTitle,
+      page: 1,
+    },
+    sort: [''],
+  });
 
   const handleSetAllGoods = (newGoods: Good[]) => {
     setAllGoods((prevState) => [...prevState, ...newGoods]);
   };
-  const handleSetPage = (nextPage: number) => {
-    setCurrentPage(nextPage);
-  };
 
   const handleRefetchGoodsWithParams = async (params: Partial<SortingParams>) => {
-    const sortParams = {
-      pagination: { pageTitle },
-      ...params,
-    };
-
-    console.log('sortParams =', sortParams);
     const res = await getGoodsPage({ pagination: { pageTitle }, ...params });
+    const goods = res.sectionShoes.data || [];
+
+    if (params.pagination?.page !== 1) {
+      return setAllGoods([...allGoods, ...goods]);
+    }
+
+    setAllGoods(goods as Good[]);
+  };
+
+  const handleSetParams = (params: Partial<SortingParams>) => {
+    setParams((prevState) => ({ ...prevState, ...params }));
+
+    handleRefetchGoodsWithParams(params);
   };
 
   return (
-    <BaseSection>
-      <div className={'relative flex justify-between'}>
+    <section className={'flex flex-col gap-[24px] px-[14px] pb-[20px] sm:px-[36px]'}>
+      <div className={'relative flex items-end justify-between bg-light'}>
         <Typography variant={'title-2'}>
           {pageTitle} ({goods.length})
         </Typography>
 
-        <SortBy refetch={handleRefetchGoodsWithParams} />
+        <SortBy params={params} setParams={handleSetParams} />
       </div>
 
       <div className={'mb-[70px] flex gap-10'}>
-        <Filters />
+        <Filters params={params} setParams={handleSetParams} />
 
         <GoodsList
           goods={allGoods}
-          currentPage={currentPage}
+          params={params}
           setAllGoods={handleSetAllGoods}
-          setCurrentPage={handleSetPage}
+          setParams={handleSetParams}
         />
       </div>
-    </BaseSection>
+    </section>
   );
 };

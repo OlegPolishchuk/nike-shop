@@ -53,10 +53,10 @@ export const SortingBy = [
   },
   {
     title: 'Price: High-Low',
-    value: 'price:asc',
+    value: 'options.price:desc',
   },
   {
     title: 'Price: Low-High',
-    value: 'price:desc',
+    value: 'options.price:asc',
   },
 ];

@@ -6,10 +6,17 @@ import { ExistingSizes, Gender, GenderValue } from '../../constsnts/constants';
 
 import { Filter } from './Filter';
 
+import { SortingParams } from '@/api';
 import { Button, Typography } from '@/common/ui';
+import { FiltersState } from '@/components/sections/goodsSection/types/types';
 
-export const Filters = () => {
-  const [filters, setFilters] = useState({
+interface Props {
+  setParams: (params: Partial<SortingParams>) => void;
+  params: SortingParams;
+}
+
+export const Filters = ({ params, setParams }: Props) => {
+  const [filters, setFilters] = useState<FiltersState>({
     genders: {
       [GenderValue.MEN]: false,
       [GenderValue.WOMEN]: false,
@@ -58,6 +65,22 @@ export const Filters = () => {
         checked: interval.value === currentInterval.value ? !interval.checked : interval.checked,
       })),
     }));
+  };
+
+  const handleApplyFilters = () => {
+    let genders = (Object.keys(filters.genders) as GenderValue[]).filter(
+      (key) => filters.genders[key],
+    );
+
+    setParams({
+      ...params,
+      filters: {
+        ...params.filters,
+        sizes: { title: filters.size },
+        gender: genders,
+      },
+      pagination: { ...params.pagination, page: 1 },
+    });
   };
 
   return (
@@ -120,7 +143,9 @@ export const Filters = () => {
         </div>
       </Filter>
 
-      <Button className={'mt-10'}>Apply Filters</Button>
+      <Button className={'mt-10'} onClick={handleApplyFilters}>
+        Apply Filters
+      </Button>
     </div>
   );
 };

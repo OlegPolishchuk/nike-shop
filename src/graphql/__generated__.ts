@@ -1,6 +1,9 @@
 import { GraphQLClient } from 'graphql-request';
+// @ts-ignore
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
+
+import { FilterParams, PaginationParams } from '@/api';
 export type Maybe<T> = T;
 export type InputMaybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -122,7 +125,8 @@ export type ComponentEntityShoeOption = {
   readonly id: Scalars['ID']['output'];
   readonly mainImage: UploadFileEntityResponse;
   readonly medias: Maybe<UploadFileRelationResponseCollection>;
-  readonly price: Scalars['String']['output'];
+  readonly price: Scalars['Int']['output'];
+  readonly priceSt: Maybe<Scalars['String']['output']>;
   readonly tag: Scalars['String']['output'];
   readonly title: Scalars['String']['output'];
 };
@@ -138,7 +142,8 @@ export type ComponentEntityShoeOptionFiltersInput = {
   readonly description: InputMaybe<StringFilterInput>;
   readonly not: InputMaybe<ComponentEntityShoeOptionFiltersInput>;
   readonly or: InputMaybe<ReadonlyArray<InputMaybe<ComponentEntityShoeOptionFiltersInput>>>;
-  readonly price: InputMaybe<StringFilterInput>;
+  readonly price: InputMaybe<IntFilterInput>;
+  readonly priceSt: InputMaybe<StringFilterInput>;
   readonly tag: InputMaybe<StringFilterInput>;
   readonly title: InputMaybe<StringFilterInput>;
 };
@@ -148,7 +153,8 @@ export type ComponentEntityShoeOptionInput = {
   readonly id: InputMaybe<Scalars['ID']['input']>;
   readonly mainImage: InputMaybe<Scalars['ID']['input']>;
   readonly medias: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']['input']>>>;
-  readonly price: InputMaybe<Scalars['String']['input']>;
+  readonly price: InputMaybe<Scalars['Int']['input']>;
+  readonly priceSt: InputMaybe<Scalars['String']['input']>;
   readonly tag: InputMaybe<Scalars['String']['input']>;
   readonly title: InputMaybe<Scalars['String']['input']>;
 };
@@ -5009,7 +5015,7 @@ export type ShoeOptionFragmentFragment = {
   readonly __typename?: 'ComponentEntityShoeOption';
   readonly title: string;
   readonly tag: string;
-  readonly price: string;
+  readonly price: number;
   readonly description: string;
   readonly mainImage: {
     readonly __typename?: 'UploadFileEntityResponse';
@@ -5380,7 +5386,7 @@ export type SectionShoeFragmentFragment = {
     readonly __typename?: 'ComponentEntityShoeOption';
     readonly title: string;
     readonly tag: string;
-    readonly price: string;
+    readonly price: number;
     readonly description: string;
     readonly mainImage: {
       readonly __typename?: 'UploadFileEntityResponse';
@@ -5505,6 +5511,13 @@ export type GetGoodsPageQueryVariables = Exact<{
   pageTitle: InputMaybe<Scalars['String']['input']>;
   page: InputMaybe<Scalars['Int']['input']>;
   pageSize: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<
+    ReadonlyArray<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>
+  >;
+  gender: InputMaybe<
+    ReadonlyArray<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>
+  >;
+  size: InputMaybe<Scalars['String']['input']>;
 }>;
 
 export type GetGoodsPageQuery = {
@@ -5539,7 +5552,7 @@ export type GetGoodsPageQuery = {
           readonly __typename?: 'ComponentEntityShoeOption';
           readonly title: string;
           readonly tag: string;
-          readonly price: string;
+          readonly price: number;
           readonly description: string;
           readonly mainImage: {
             readonly __typename?: 'UploadFileEntityResponse';
@@ -5881,7 +5894,7 @@ export type GetSectionShoeQuery = {
           readonly __typename?: 'ComponentEntityShoeOption';
           readonly title: string;
           readonly tag: string;
-          readonly price: string;
+          readonly price: number;
           readonly description: string;
           readonly mainImage: {
             readonly __typename?: 'UploadFileEntityResponse';
@@ -6560,10 +6573,22 @@ export const GetCountriesDocument = gql`
   ${CountryFragmentFragmentDoc}
 `;
 export const GetGoodsPageDocument = gql`
-  query getGoodsPage($pageTitle: String, $page: Int, $pageSize: Int) {
+  query getGoodsPage(
+    $pageTitle: String
+    $page: Int
+    $pageSize: Int
+    $sort: [String]
+    $gender: [String]
+    $size: String
+  ) {
     sectionShoes(
-      filters: { pageSubtitle: { eqi: $pageTitle } }
+      filters: {
+        pageSubtitle: { eqi: $pageTitle }
+        gender: { in: $gender }
+        sizes: { Sizes: { title: { containsi: $size }, inStock: { eq: true } } }
+      }
       pagination: { page: $page, pageSize: $pageSize }
+      sort: $sort
     ) {
       data {
         id
@@ -6692,7 +6717,14 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
       );
     },
     getGoodsPage(
-      variables?: GetGoodsPageQueryVariables,
+      variables?: {
+        size: string;
+        gender: string[] | undefined;
+        pageTitle: string;
+        pageSize: number;
+        page: number;
+        sort: string[];
+      },
       requestHeaders?: GraphQLClientRequestHeaders,
     ): Promise<GetGoodsPageQuery> {
       return withWrapper(

@@ -23,7 +23,7 @@ export const Banner = ({ className, data }: Props) => {
   return (
     <div
       className={clsx(
-        'relative z-10 h-[58px] overflow-hidden whitespace-nowrap  bg-gray-100 pt-[10px] shadow-[inset_0_-1px_0_0_#e5e5e5]',
+        'relative z-20 h-[58px] overflow-hidden whitespace-nowrap  bg-gray-100 pt-[10px] shadow-[inset_0_-1px_0_0_#e5e5e5]',
         className,
       )}
     >
