@@ -13,9 +13,10 @@ interface Props {
   sublist: SubNavItem[][];
   className?: string;
   onHide: () => void;
+  closeMenu: () => void;
 }
 
-export const SubItemMobile = ({ sublist, className, onHide }: Props) => {
+export const SubItemMobile = ({ sublist, className, onHide, closeMenu }: Props) => {
   return (
     <div
       className={clsx(
@@ -45,6 +46,7 @@ export const SubItemMobile = ({ sublist, className, onHide }: Props) => {
                   href={subItem.href}
                   key={index}
                   className={'mb-[8px] text-gray-300 hover:text-black-100'}
+                  onClick={closeMenu}
                 >
                   <Typography tag={'span'} variant={'body-2'}>
                     {subItem.title}

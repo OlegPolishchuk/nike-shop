@@ -8,5 +8,5 @@ export type FiltersState = {
     [key in GenderValue]: boolean;
   };
   size: string;
-  priceInterval: { checked: boolean; value: { from: number; to: number } }[];
+  priceInterval: { from: number; to: number };
 };

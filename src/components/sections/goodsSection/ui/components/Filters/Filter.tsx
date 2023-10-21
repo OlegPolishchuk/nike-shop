@@ -1,17 +1,17 @@
-import React, { ReactNode, useRef, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
 import clsx from 'clsx';
 
 import { ArrowIcon, Typography } from '@/common/ui';
-import { Gender } from '@/components/sections/goodsSection/constsnts/constants';
 
 interface Props {
   children: ReactNode;
   title: string;
+  isFilterOpen?: boolean;
 }
 
-export const Filter = ({ children, title }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Filter = ({ children, title, isFilterOpen = false }: Props) => {
+  const [isOpen, setIsOpen] = useState(isFilterOpen);
 
   const handleOpen = () => {
     setIsOpen(!isOpen);

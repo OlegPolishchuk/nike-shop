@@ -6,3 +6,5 @@ export { UserButton } from './UserButton/UserButton';
 export { CloseButton } from './CloseButton/CloseButton';
 export { NavArrowButton } from './NavArrowButton/NavArrowButton';
 export { SliderLeftButton, SliderRightButton } from './CarouselButtons';
+export { ShowFiltersButton } from './ShowFiltersButton/ShowFiltersButton';
+export { TrashButton } from './TrashButton/TrashButton';

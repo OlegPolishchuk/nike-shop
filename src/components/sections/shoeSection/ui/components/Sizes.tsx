@@ -23,8 +23,6 @@ export const Sizes = ({ sizes }: Props) => {
     chooseSize(size);
   };
 
-  console.log(chosenSize);
-
   return (
     <div className={'grid grid-cols-2 gap-2'}>
       {sizes.Sizes.map(({ inStock, title, id }) => (

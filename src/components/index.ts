@@ -10,6 +10,7 @@ export {
   ShoeSection,
   GoodsSection,
   Trends,
+  CartSection,
 } from './sections';
 export { SectionTitle } from './SectionTitle';
 export { VideoFromCms, ImageFromCms } from './MediaFromCms';

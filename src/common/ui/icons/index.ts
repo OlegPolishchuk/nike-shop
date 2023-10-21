@@ -14,3 +14,5 @@ export * from './CloseIcon';
 export * from './UserIcon';
 export * from './NavArrowIcon';
 export * from './PointIcon';
+export * from './FiltersIcon';
+export * from './TrashIcon';

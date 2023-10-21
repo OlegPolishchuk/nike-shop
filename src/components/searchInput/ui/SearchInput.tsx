@@ -1,19 +1,51 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
 
 import clsx from 'clsx';
+import { useRouter } from 'next/router';
 
+import { getGoodsPage, SortingParams } from '@/api';
 import { Logo, Typography } from '@/common/ui';
 import { SearchButton } from '@/components/buttons';
+import { useGetGoods, useSetGoods, useSetQueryContext } from '@/providers';
 
 interface Props {
   className?: string;
 }
 
 export const SearchInput = ({ className }: Props) => {
+  const router = useRouter();
+
   const [fullInput, setFullInput] = useState(false);
+
+  const setAllGoods = useSetGoods();
+  const setQuery = useSetQueryContext();
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  const timerId = useRef<number>();
+
+  const { pageTitle } = router.query as { pageTitle: string };
 
   const handleToggleFullInput = () => {
     setFullInput((prevState) => !prevState);
+  };
+
+  const handleInputChange = () => {
+    window.clearTimeout(timerId.current);
+
+    timerId.current = window.setTimeout(async () => {
+      const query = inputRef.current?.value;
+      const params: SortingParams = {
+        pagination: { pageTitle },
+        filters: { query },
+      };
+
+      const { sectionShoes } = await getGoodsPage(params);
+      const goods = sectionShoes.data.map((good) => good);
+      const total = sectionShoes.meta.pagination.total;
+
+      setQuery(`${query}`);
+      setAllGoods({ goods, total });
+    }, 500);
   };
 
   return (
@@ -43,11 +75,13 @@ export const SearchInput = ({ className }: Props) => {
           />
 
           <input
+            ref={inputRef}
             className={clsx(
               'h-full w-full  rounded-[20px] bg-transparent py-[8px] pl-[48px] pr-[20px] [transition:visibility_.1s_.1s] hover:bg-gray-200 focus:outline-none',
               fullInput ? 'max-[768px]:visible' : 'max-[768px]:invisible',
             )}
             placeholder={'Search'}
+            onChange={handleInputChange}
           />
         </div>
       </div>

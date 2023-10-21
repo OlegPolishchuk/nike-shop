@@ -8,12 +8,13 @@ import { NavItem } from '@/components/Navigation/types/types';
 interface Props {
   className?: string;
   navItem: NavItem;
+  closeMenu: () => void;
 }
 
 const showClassName = 'translate-x-0';
 const hideClassName = 'translate-x-[100%]';
 
-export const NavItemMobile = ({ navItem, className }: Props) => {
+export const NavItemMobile = ({ navItem, className, closeMenu }: Props) => {
   const { sublist, href, title } = navItem;
 
   const [subItemClassName, setSubItemClassName] = useState(hideClassName);
@@ -24,6 +25,11 @@ export const NavItemMobile = ({ navItem, className }: Props) => {
 
   const handleHideSubItem = () => {
     setSubItemClassName(hideClassName);
+  };
+
+  const handleCloseMenu = () => {
+    handleHideSubItem();
+    closeMenu();
   };
 
   return (
@@ -40,7 +46,12 @@ export const NavItemMobile = ({ navItem, className }: Props) => {
       </button>
 
       {sublist && (
-        <SubItemMobile sublist={sublist} className={subItemClassName} onHide={handleHideSubItem} />
+        <SubItemMobile
+          sublist={sublist}
+          className={subItemClassName}
+          onHide={handleHideSubItem}
+          closeMenu={handleCloseMenu}
+        />
       )}
     </li>
   );

@@ -2,8 +2,6 @@ import { GraphQLClient } from 'graphql-request';
 // @ts-ignore
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
-
-import { FilterParams, PaginationParams } from '@/api';
 export type Maybe<T> = T;
 export type InputMaybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -5518,12 +5516,19 @@ export type GetGoodsPageQueryVariables = Exact<{
     ReadonlyArray<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>
   >;
   size: InputMaybe<Scalars['String']['input']>;
+  priceFrom: InputMaybe<Scalars['Int']['input']>;
+  priceTo: InputMaybe<Scalars['Int']['input']>;
+  query: InputMaybe<Scalars['String']['input']>;
 }>;
 
 export type GetGoodsPageQuery = {
   readonly __typename?: 'Query';
   readonly sectionShoes: {
     readonly __typename?: 'SectionShoeEntityResponseCollection';
+    readonly meta: {
+      readonly __typename?: 'ResponseCollectionMeta';
+      readonly pagination: { readonly __typename?: 'Pagination'; readonly total: number };
+    };
     readonly data: ReadonlyArray<{
       readonly __typename?: 'SectionShoeEntity';
       readonly id: string;
@@ -6580,16 +6585,25 @@ export const GetGoodsPageDocument = gql`
     $sort: [String]
     $gender: [String]
     $size: String
+    $priceFrom: Int
+    $priceTo: Int
+    $query: String
   ) {
     sectionShoes(
       filters: {
         pageSubtitle: { eqi: $pageTitle }
         gender: { in: $gender }
         sizes: { Sizes: { title: { containsi: $size }, inStock: { eq: true } } }
+        options: { price: { between: [$priceFrom, $priceTo] }, title: { containsi: $query } }
       }
       pagination: { page: $page, pageSize: $pageSize }
       sort: $sort
     ) {
+      meta {
+        pagination {
+          total
+        }
+      }
       data {
         id
         attributes {
@@ -6717,14 +6731,7 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
       );
     },
     getGoodsPage(
-      variables?: {
-        size: string;
-        gender: string[] | undefined;
-        pageTitle: string;
-        pageSize: number;
-        page: number;
-        sort: string[];
-      },
+      variables?: GetGoodsPageQueryVariables,
       requestHeaders?: GraphQLClientRequestHeaders,
     ): Promise<GetGoodsPageQuery> {
       return withWrapper(

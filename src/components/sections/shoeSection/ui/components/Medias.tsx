@@ -36,10 +36,8 @@ export const Medias = ({ medias, title }: Props) => {
     return slide.mime === 'video/mp4';
   };
 
-  console.log(activeSlide);
-
   return (
-    <div className={'flex w-full gap-4'}>
+    <div className={'flex w-full gap-0 sm:gap-4'}>
       <div>
         <div className={'hidden h-full flex-col justify-between md:flex'}>
           {medias.map((mediaItem, index) => (

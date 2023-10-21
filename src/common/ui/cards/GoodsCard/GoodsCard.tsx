@@ -5,11 +5,6 @@ import Link from 'next/link';
 import { Typography } from '@/common/ui';
 import { ImageFromCms } from '@/components';
 import { Good } from '@/components/sections/goodsSection/types/types';
-import {
-  SectionShoeEntity,
-  SectionShoeFragmentFragment,
-  ShoeCarouselCardFragment,
-} from '@/graphql/__generated__';
 
 interface Props {
   card: Good;
@@ -17,25 +12,14 @@ interface Props {
 
 export const GoodsCard = forwardRef<HTMLDivElement, Props>(({ card }, ref) => {
   const { attributes, id } = card;
-  const {
-    favoriteButton,
-    addToBagButton,
-    sizes,
-    options,
-    pageTitle,
-    pageTitle2,
-    pageTitle3,
-    pageSubtitle,
-    tags,
-    gender,
-  } = attributes;
-  const { title, tag, price, medias, description, mainImage } = options;
+  const { options } = attributes;
+  const { title, tag, price, mainImage } = options;
   const { url, alternativeText } = mainImage.data.attributes;
 
   return (
     <div ref={ref}>
       <Link href={`/goods/${id}`}>
-        <div className='relative h-0 min-h-[300px] w-full pb-[100%]'>
+        <div className='relative h-0 min-h-[180px] w-full pb-[100%]'>
           <ImageFromCms src={url} alt={alternativeText ?? title} fill className='h-full w-full' />
         </div>
 

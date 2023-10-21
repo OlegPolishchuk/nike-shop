@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 
+import clsx from 'clsx';
 import { useInView } from 'react-intersection-observer';
 
 import { Good } from '../../types/types';
@@ -13,20 +14,16 @@ const Item_Index_For_Loading = 7;
 interface Props {
   goods: Good[];
   params: SortingParams;
-  setAllGoods: (goods: Good[]) => void;
   setParams: (params: Partial<SortingParams>) => void;
+  className?: string;
 }
 
-export const GoodsList = ({ setAllGoods, setParams, goods, params }: Props) => {
+const ListOfGoods = ({ setParams, goods, params, className }: Props) => {
   const { ref: lastItemRef, inView } = useInView({
     threshold: 1,
   });
 
   const currentPage = params.pagination.page || 1;
-
-  const loadMore = async (params: SortingParams) => {
-    return await getGoodsPage({ ...params });
-  };
 
   useEffect(() => {
     if (inView) {
@@ -36,23 +33,15 @@ export const GoodsList = ({ setAllGoods, setParams, goods, params }: Props) => {
       const newParams = { ...params, pagination: { ...params.pagination, page: nextPage } };
 
       setParams(newParams);
-
-      // loadMore(newParams)
-      //   .then((res) => {
-      //     return res.sectionShoes.data;
-      //   })
-      //   .then((res) => {
-      //     setAllGoods(res as Good[]);
-      //     setParams(newParams);
-      //   });
     }
   }, [inView]);
 
   return (
     <div
-      className={
-        'flex w-full flex-col justify-between gap-5 gap-y-10 md:grid md:grid-cols-2 lg:grid-cols-3'
-      }
+      className={clsx(
+        'flex w-full flex-col justify-between gap-5 gap-y-10 md:grid md:grid-cols-2 lg:grid-cols-3',
+        className && className,
+      )}
     >
       {goods.map((product, index) => (
         <GoodsCard
@@ -64,3 +53,5 @@ export const GoodsList = ({ setAllGoods, setParams, goods, params }: Props) => {
     </div>
   );
 };
+
+export const GoodsList = memo(ListOfGoods);

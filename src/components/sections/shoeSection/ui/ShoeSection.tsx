@@ -6,29 +6,21 @@ import { Sizes } from './components/Sizes';
 import { Button, LikeIcon, Typography } from '@/common/ui';
 import { BaseSection } from '@/components/sections';
 import { GetSectionShoeQuery } from '@/graphql/__generated__';
+import { addProductToLocalStorage } from '@/services';
 
 interface Props {
   sectionShoe: GetSectionShoeQuery['sectionShoe'];
 }
 
 export const ShoeSection = ({ sectionShoe }: Props) => {
-  const {
-    addToBagButton,
-    favoriteButton,
-    options,
-    sizes,
-    pageTitle,
-    pageTitle3,
-    pageTitle2,
-    pageSubtitle,
-    tags,
-    gender,
-  } = sectionShoe.data.attributes;
+  const { options, sizes } = sectionShoe.data.attributes;
   const { title, tag, price, description, medias, mainImage } = options;
 
   const allMedias = [mainImage.data, ...medias.data];
 
-  console.log('sectionShoe =', sectionShoe);
+  const handleAddProductToBag = () => {
+    addProductToLocalStorage(sectionShoe.data);
+  };
 
   return (
     <BaseSection className={'mb-[70px]'}>
@@ -64,10 +56,12 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
           </div>
 
           <div className={'flex w-[300px] flex-col gap-2 self-center'}>
-            <Button size={'md'}>{addToBagButton.label}</Button>
+            <Button size={'md'} onClick={handleAddProductToBag}>
+              Add to Bag
+            </Button>
 
             <Button size={'md'} variant={'outlined'} endIcon={<LikeIcon />}>
-              {favoriteButton.label}
+              Favorite
             </Button>
           </div>
 

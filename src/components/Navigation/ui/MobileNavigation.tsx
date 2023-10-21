@@ -45,7 +45,7 @@ export const MobileNavigation = () => {
           <div>
             <nav>
               {navigationData.map((navItem) => (
-                <NavItemMobile key={navItem.title} navItem={navItem} />
+                <NavItemMobile key={navItem.title} navItem={navItem} closeMenu={handleCloseMenu} />
               ))}
             </nav>
           </div>

@@ -19,7 +19,7 @@ export const SortBy = ({ setParams, params }: Props) => {
   const handleOpen = () => {
     setIsOpen(!isOpen);
   };
-  console.log('params =', params);
+
   const handleChangeSorting = (event: ChangeEvent<HTMLInputElement>) => {
     const sortedItem = SortingBy.find((item) => item.value === event.target.value);
 

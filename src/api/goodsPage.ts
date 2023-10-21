@@ -1,5 +1,8 @@
 import { Default_Page_Size } from '@/common/constants/constants';
-import { GenderValue } from '@/components/sections/goodsSection/constsnts/constants';
+import {
+  GenderValue,
+  Max_Product_Cost,
+} from '@/components/sections/goodsSection/constsnts/constants';
 import { BooleanFilterInput, gql, StringFilterInput } from '@/graphql/client';
 
 export interface PaginationParams {
@@ -18,6 +21,9 @@ export interface FilterParams {
     inStock?: BooleanFilterInput;
   };
   gender?: string[];
+  priceFrom?: number;
+  priceTo?: number;
+  query?: string;
 }
 
 export interface SortingParams {
@@ -31,6 +37,9 @@ export const getGoodsPage = async (params: SortingParams) => {
   const size = params.filters?.sizes?.title || '';
   const gender = params.filters?.gender;
   const sort = params.sort || [''];
+  const priceFrom = params.filters?.priceFrom || 0;
+  const priceTo = params.filters?.priceTo || Max_Product_Cost;
+  const query = params.filters?.query || '';
 
   let newParams: any = {
     pageTitle,
@@ -39,7 +48,20 @@ export const getGoodsPage = async (params: SortingParams) => {
     sort,
     size,
     gender,
+    priceFrom,
+    priceTo,
+    query,
   };
+
+  if (!gender?.length) {
+    const { gender, ...rest } = newParams;
+    newParams = rest;
+  }
+
+  if (!priceTo) {
+    const { priceTo, ...rest } = newParams;
+    newParams = rest;
+  }
 
   if (newParams.size === '') {
     const { size, ...rest } = newParams;

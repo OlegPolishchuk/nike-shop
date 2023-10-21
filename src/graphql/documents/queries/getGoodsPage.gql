@@ -1,14 +1,20 @@
-query getGoodsPage($pageTitle: String, $page: Int, $pageSize: Int, $sort: [String], $gender: [String], $size: String) {
+query getGoodsPage($pageTitle: String, $page: Int, $pageSize: Int, $sort: [String], $gender: [String], $size: String, $priceFrom: Int, $priceTo: Int, $query: String) {
      sectionShoes(
-        filters: {
-            pageSubtitle: {eqi: $pageTitle},
-            gender: {in: $gender},
-            sizes: {Sizes: {title: {containsi: $size}, inStock: {eq: true}}}
+            filters: {
+                pageSubtitle: {eqi: $pageTitle},
+                gender: {in: $gender},
+                sizes: {Sizes: {title: {containsi: $size}, inStock: {eq: true}}},
+                options: {price: {between: [$priceFrom, $priceTo]}, title: {containsi: $query}}
             },
-        pagination: {page: $page, pageSize: $pageSize},
-        sort: $sort
-         ){
-          data {
+            pagination: {page: $page, pageSize: $pageSize},
+            sort: $sort
+        ){
+          meta {
+              pagination {
+                        total
+              }
+            }
+          data {n dev
                    id
                    attributes {
                      ...SectionShoeFragment
