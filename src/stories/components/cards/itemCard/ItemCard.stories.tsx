@@ -3,7 +3,6 @@ import { Meta, StoryObj } from '@storybook/react';
 import ItemCardImg from '../../../assets/images/card_item_img.webp';
 
 import { ItemCard } from '@/common/ui';
-// import ItemCardImg from '@/public/images/card_item_img.webp';
 
 const meta = {
   title: 'Components/cards',
@@ -14,6 +13,7 @@ const meta = {
     title: 'Air Jordan 1 Low OG',
     imgSrc: ItemCardImg,
     price: '140',
+    link: '/',
   },
 } satisfies Meta<typeof ItemCard>;
 
