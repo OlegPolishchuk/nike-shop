@@ -31,7 +31,7 @@ export const Sizes = ({ sizes, setSize, chosenSize, isValid }: Props) => {
           className={clsx(
             'rounded-md border px-[clamp(1.75rem,2.5rem)] py-5',
             'hover:border-black-100',
-            inStock ? 'border-gray-200' : 'text-gray-250 border-gray-100 hover:border-gray-100  ',
+            inStock ? 'border-gray-200' : '!text-gray-250 border-gray-100 hover:border-gray-100  ',
             chosenSize?.id === id && '!border-black-100',
           )}
           disabled={!inStock}
