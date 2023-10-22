@@ -6,7 +6,7 @@ import { BagIcon, IconButton } from '@/common/ui';
 
 export const CartButton = () => {
   return (
-    <Link href={'cart'}>
+    <Link href={`${window.location.origin}/cart`}>
       <IconButton icon={<BagIcon />} />
     </Link>
   );

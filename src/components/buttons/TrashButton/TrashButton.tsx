@@ -2,6 +2,10 @@ import React from 'react';
 
 import { IconButton, TrashIcon } from '@/common/ui';
 
-export const TrashButton = () => {
-  return <IconButton icon={<TrashIcon />} />;
+interface Props {
+  onClick: () => void;
+}
+
+export const TrashButton = ({ onClick }: Props) => {
+  return <IconButton onClick={onClick} icon={<TrashIcon />} />;
 };

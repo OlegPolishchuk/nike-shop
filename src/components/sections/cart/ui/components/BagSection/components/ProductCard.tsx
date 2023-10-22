@@ -1,19 +1,22 @@
 import React from 'react';
 
-import Image from 'next/image';
-
 import { Typography } from '@/common/ui';
 import { ImageFromCms } from '@/components';
 import { LikeButton, TrashButton } from '@/components/buttons';
-import { Good } from '@/components/sections/goodsSection/types/types';
+import { CartProduct } from '@/components/sections/cart/types/types';
 
 interface Props {
-  good: Good;
+  good: CartProduct;
+  removeFromCart: (product: CartProduct) => void;
 }
 
-export const ProductCard = ({ good }: Props) => {
+export const ProductCard = ({ good, removeFromCart }: Props) => {
   const { options } = good.attributes;
   const { title, tag, mainImage, price } = options;
+
+  const handleDeleteProduct = () => {
+    removeFromCart(good);
+  };
 
   return (
     <div className={'border-t border-gray-200 py-[24px]'}>
@@ -40,7 +43,7 @@ export const ProductCard = ({ good }: Props) => {
 
           <div className={'gap34 flex'}>
             <LikeButton />
-            <TrashButton />
+            <TrashButton onClick={handleDeleteProduct} />
           </div>
         </div>
 

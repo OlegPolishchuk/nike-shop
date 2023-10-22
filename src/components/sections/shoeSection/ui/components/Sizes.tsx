@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import clsx from 'clsx';
 
 import { Typography } from '@/common/ui';
-import {
-  GetSectionShoeQuery,
-  KidSizeFragment,
-  MenSizesFragment,
-  SizeFragment,
-  WomenSizesFragment,
-} from '@/graphql/__generated__';
+import { GetSectionShoeQuery, SizeFragment } from '@/graphql/__generated__';
 import { Nullable } from '@/types/types';
 
 interface Props {
   sizes: GetSectionShoeQuery['sectionShoe']['data']['attributes']['sizes'];
+  chosenSize: Nullable<SizeFragment>;
+  setSize: React.Dispatch<React.SetStateAction<Nullable<SizeFragment>>>;
+  isWarn?: boolean;
 }
 
-export const Sizes = ({ sizes }: Props) => {
-  const [chosenSize, chooseSize] = useState<Nullable<SizeFragment>>(null);
-
+export const Sizes = ({ sizes, setSize, chosenSize, isWarn }: Props) => {
   const handleChoseSize = (size: SizeFragment) => {
-    chooseSize(size);
+    setSize(size);
   };
 
   return (
-    <div className={'grid grid-cols-2 gap-2'}>
+    <div
+      className={clsx(
+        'grid grid-cols-2 gap-2 border p-1',
+        isWarn ? 'border-red' : 'border-transparent',
+      )}
+    >
       {sizes.Sizes.map(({ inStock, title, id }) => (
         <button
           key={id}
           className={clsx(
             'rounded-md border px-[clamp(1.75rem,2.5rem)] py-5',
-            inStock ? 'border-gray-200' : 'border-gray-100 text-gray-250 hover:border-gray-100',
+            inStock ? 'border-gray-200' : 'text-gray-250 border-gray-100 hover:border-gray-100',
             'hover:border-black-100',
             chosenSize?.id === id && '!border-black-100',
           )}

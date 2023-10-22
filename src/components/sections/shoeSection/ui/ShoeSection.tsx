@@ -1,25 +1,41 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 import { Medias } from './components/Medias';
 import { Sizes } from './components/Sizes';
 
 import { Button, LikeIcon, Typography } from '@/common/ui';
 import { BaseSection } from '@/components/sections';
-import { GetSectionShoeQuery } from '@/graphql/__generated__';
-import { addProductToLocalStorage } from '@/services';
+import { CartProduct } from '@/components/sections/cart/types/types';
+import { GetSectionShoeQuery, SizeFragment } from '@/graphql/__generated__';
+import { useLocalStorageState } from '@/hooks/useStorage';
+import { Nullable } from '@/types/types';
 
 interface Props {
   sectionShoe: GetSectionShoeQuery['sectionShoe'];
 }
 
 export const ShoeSection = ({ sectionShoe }: Props) => {
+  const [chosenSize, chooseSize] = useState<Nullable<SizeFragment>>(null);
+
+  const [cartProducts, setProductToCart] = useLocalStorageState<CartProduct[]>('goods', []);
+
+  const isSizeChosen = useRef(false);
+
   const { options, sizes } = sectionShoe.data.attributes;
   const { title, tag, price, description, medias, mainImage } = options;
 
   const allMedias = [mainImage.data, ...medias.data];
 
   const handleAddProductToBag = () => {
-    addProductToLocalStorage(sectionShoe.data);
+    if (!chosenSize) return;
+
+    const productToCart: CartProduct = {
+      ...sectionShoe.data,
+      size: chosenSize.title,
+      count: 1,
+    };
+
+    setProductToCart([productToCart, ...cartProducts]);
   };
 
   return (
@@ -52,7 +68,7 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
           </Typography>
 
           <div className={'my-6'}>
-            <Sizes sizes={sizes} />
+            <Sizes sizes={sizes} chosenSize={chosenSize} setSize={chooseSize} />
           </div>
 
           <div className={'flex w-[300px] flex-col gap-2 self-center'}>
