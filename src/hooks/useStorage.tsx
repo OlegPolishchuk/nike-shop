@@ -1,7 +1,7 @@
 import React, { SetStateAction, useCallback, useState } from 'react';
 
 import { useLatest } from '@/hooks/useLatest';
-import { localStorageWrapper, sessionStorageWrapper } from '@/services/storage/storage';
+import { localStorageWrapper, sessionStorageWrapper } from '@/services';
 
 export function useLocalStorageState<T>(key: string, initialValue: T | (() => T)) {
   const [value, setValue] = useState(() => {

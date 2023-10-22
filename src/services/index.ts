@@ -1,1 +1,1 @@
-export * from './localStorage/product';
+export * from './storage/storage';
