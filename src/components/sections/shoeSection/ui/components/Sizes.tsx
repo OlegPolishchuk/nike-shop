@@ -9,11 +9,11 @@ import { Nullable } from '@/types/types';
 interface Props {
   sizes: GetSectionShoeQuery['sectionShoe']['data']['attributes']['sizes'];
   chosenSize: Nullable<SizeFragment>;
-  setSize: React.Dispatch<React.SetStateAction<Nullable<SizeFragment>>>;
-  isWarn?: boolean;
+  setSize: (size: SizeFragment) => void;
+  isValid?: boolean;
 }
 
-export const Sizes = ({ sizes, setSize, chosenSize, isWarn }: Props) => {
+export const Sizes = ({ sizes, setSize, chosenSize, isValid }: Props) => {
   const handleChoseSize = (size: SizeFragment) => {
     setSize(size);
   };
@@ -22,7 +22,7 @@ export const Sizes = ({ sizes, setSize, chosenSize, isWarn }: Props) => {
     <div
       className={clsx(
         'grid grid-cols-2 gap-2 border p-1',
-        isWarn ? 'border-red' : 'border-transparent',
+        isValid ? 'border-transparent' : 'border-red-500',
       )}
     >
       {sizes.Sizes.map(({ inStock, title, id }) => (

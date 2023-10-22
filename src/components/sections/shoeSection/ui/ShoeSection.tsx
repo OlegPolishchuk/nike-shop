@@ -19,15 +19,22 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
 
   const [cartProducts, setProductToCart] = useLocalStorageState<CartProduct[]>('goods', []);
 
-  const isSizeChosen = useRef(false);
+  const [isValidSizes, setIsValidSized] = useState(true);
 
   const { options, sizes } = sectionShoe.data.attributes;
   const { title, tag, price, description, medias, mainImage } = options;
 
   const allMedias = [mainImage.data, ...medias.data];
 
+  const handleSetSize = (size: SizeFragment) => {
+    chooseSize(size);
+    setIsValidSized(true);
+  };
+
   const handleAddProductToBag = () => {
-    if (!chosenSize) return;
+    if (!chosenSize) {
+      return setIsValidSized(false);
+    }
 
     const productToCart: CartProduct = {
       ...sectionShoe.data,
@@ -36,6 +43,7 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
     };
 
     setProductToCart([productToCart, ...cartProducts]);
+    setIsValidSized(true);
   };
 
   return (
@@ -68,7 +76,12 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
           </Typography>
 
           <div className={'my-6'}>
-            <Sizes sizes={sizes} chosenSize={chosenSize} setSize={chooseSize} />
+            <Sizes
+              sizes={sizes}
+              chosenSize={chosenSize}
+              setSize={handleSetSize}
+              isValid={isValidSizes}
+            />
           </div>
 
           <div className={'flex w-[300px] flex-col gap-2 self-center'}>
