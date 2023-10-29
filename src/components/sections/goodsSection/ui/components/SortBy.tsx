@@ -1,10 +1,11 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
 
 import clsx from 'clsx';
 
 import { SortingBy } from '../../constsnts/constants';
 
-import { PaginationParams, SortingParams } from '@/api';
+import { SortingParams } from '@/api';
+import { useClickOutside } from '@/common/hooks/useClickOutside';
 import { ArrowIcon, Typography } from '@/common/ui';
 
 interface Props {
@@ -15,6 +16,8 @@ interface Props {
 export const SortBy = ({ setParams, params }: Props) => {
   const [sort, setSort] = useState(SortingBy[0]);
   const [isOpen, setIsOpen] = useState(false);
+
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
@@ -35,8 +38,14 @@ export const SortBy = ({ setParams, params }: Props) => {
     });
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  useClickOutside(wrapperRef, handleClose);
+
   return (
-    <div className={'align-right min-w-[150px] bg-light'}>
+    <div className={'align-right min-w-[150px] bg-light'} ref={wrapperRef}>
       <div className={'relative z-20 flex h-[72px] w-full items-end justify-end bg-light'}>
         <button className={'flex items-center gap-3 '} onClick={handleOpen}>
           <p className={'flex items-center gap-2'}>
