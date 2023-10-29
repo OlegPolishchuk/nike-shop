@@ -1,6 +1,6 @@
 import React, { SetStateAction, useCallback, useState } from 'react';
 
-import { useLatest } from '@/hooks/useLatest';
+import { useLatest } from '@/common/hooks/useLatest';
 import { localStorageWrapper, sessionStorageWrapper } from '@/services';
 
 export function useLocalStorageState<T>(key: string, initialValue: T | (() => T)) {
@@ -30,7 +30,7 @@ export function useLocalStorageState<T>(key: string, initialValue: T | (() => T)
   return [value, updateValue] as const;
 }
 
-export function useSessionStorageState<_, T>(key: string, initialValue: T | (() => T)) {
+export function useSessionStorageState<T>(key: string, initialValue: T | (() => T)) {
   const [value, setValue] = useState(() => {
     const savedValue = sessionStorageWrapper.get<T>(key);
     if (typeof savedValue !== 'undefined') {

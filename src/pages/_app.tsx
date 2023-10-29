@@ -5,7 +5,7 @@ import { ReactElement } from 'react';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 
-import { ProductProvider } from '@/providers';
+import { PrevRouteProvider, ProductProvider } from '@/providers';
 
 export type NextPageWithLayout<P = object> = NextPage<P> & {
   getLayout?: (page: ReactElement) => ReactElement;
@@ -20,7 +20,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <>
-      <ProductProvider>{getLayout(<Component {...pageProps} />)}</ProductProvider>
+      <PrevRouteProvider>
+        <ProductProvider>{getLayout(<Component {...pageProps} />)}</ProductProvider>
+      </PrevRouteProvider>
     </>
   );
 }

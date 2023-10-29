@@ -10,13 +10,28 @@ interface Props {
 }
 export const ProductList = ({ goods, updateGoods }: Props) => {
   const handleRemoveProductFromCart = (product: CartProduct) => {
-    updateGoods(goods.filter((item) => item.id !== product.id));
+    const currentProduct = goods.find((cartProduct) => cartProduct === product);
+
+    updateGoods(goods.filter((item) => item !== currentProduct));
+  };
+
+  const handleUpdateProductCount = (product: CartProduct) => {
+    updateGoods(
+      goods.map((goods) =>
+        product.id === goods.id && product.size === goods.size ? product : goods,
+      ),
+    );
   };
 
   return (
     <div>
       {goods.map((item) => (
-        <ProductCard key={item.id} good={item} removeFromCart={handleRemoveProductFromCart} />
+        <ProductCard
+          key={item.id + item.size}
+          good={item}
+          removeFromCart={handleRemoveProductFromCart}
+          updateCount={handleUpdateProductCount}
+        />
       ))}
     </div>
   );

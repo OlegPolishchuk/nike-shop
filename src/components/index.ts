@@ -14,3 +14,4 @@ export {
 } from './sections';
 export { SectionTitle } from './SectionTitle';
 export { VideoFromCms, ImageFromCms } from './MediaFromCms';
+export { Breadcrumbs } from './breadcrumbs';

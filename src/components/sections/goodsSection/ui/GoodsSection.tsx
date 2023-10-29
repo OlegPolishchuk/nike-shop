@@ -9,6 +9,7 @@ import { GoodsList } from './components/GoodsList';
 import { SortBy } from './components/SortBy';
 
 import { getGoodsPage, SortingParams } from '@/api';
+import { splitSolidText } from '@/common/helpers/splitSolidText';
 import { Typography } from '@/common/ui';
 import { ShowFiltersButton } from '@/components/buttons';
 import { useGetGoods, useQueryContext, useSetGoods } from '@/providers';
@@ -67,7 +68,7 @@ export const GoodsSection = ({ pageTitle }: Props) => {
     <section className={'flex flex-col gap-[24px] px-[14px] pb-[20px] sm:px-[36px]'}>
       <div className={'relative flex items-end justify-between bg-light'}>
         <Typography variant={'title-2'}>
-          {pageTitle} ({total})
+          {splitSolidText(pageTitle)} ({total})
         </Typography>
 
         <div className={'flex items-end gap-8'}>

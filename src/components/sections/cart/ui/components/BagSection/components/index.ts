@@ -7,3 +7,10 @@ export const ProductList = dynamic(() => import('./ProductList').then((mode) => 
 export const ProductCard = dynamic(() => import('./ProductCard').then((mode) => mode.ProductCard), {
   ssr: false,
 });
+
+export const DescriptionMobile = dynamic(
+  () => import('./DescriptionMobile').then((mode) => mode.DescriptionMobile),
+  {
+    ssr: false,
+  },
+);

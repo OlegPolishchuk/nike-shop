@@ -1,13 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
-import { Medias } from './components/Medias';
-import { Sizes } from './components/Sizes';
+import { Buttons, Medias, Sizes } from './components';
 
-import { Button, LikeIcon, Typography } from '@/common/ui';
+import { useSessionStorageState } from '@/common/hooks/useStorage';
+import { Typography } from '@/common/ui';
+import { Breadcrumbs } from '@/components';
 import { BaseSection } from '@/components/sections';
 import { CartProduct } from '@/components/sections/cart/types/types';
 import { GetSectionShoeQuery, SizeFragment } from '@/graphql/__generated__';
-import { useLocalStorageState } from '@/hooks/useStorage';
 import { Nullable } from '@/types/types';
 
 interface Props {
@@ -17,9 +17,12 @@ interface Props {
 export const ShoeSection = ({ sectionShoe }: Props) => {
   const [chosenSize, chooseSize] = useState<Nullable<SizeFragment>>(null);
 
-  const [cartProducts, setProductToCart] = useLocalStorageState<CartProduct[]>('goods', []);
+  const [cartProducts, setProductToCart] = useSessionStorageState<CartProduct[]>('goods', []);
 
   const [isValidSizes, setIsValidSized] = useState(true);
+
+  const thisProductFromCart = cartProducts.find((product) => product.id === sectionShoe.data.id);
+  const cartProductSize = thisProductFromCart?.size;
 
   const { options, sizes } = sectionShoe.data.attributes;
   const { title, tag, price, description, medias, mainImage } = options;
@@ -48,6 +51,10 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
 
   return (
     <BaseSection className={'mb-[70px]'}>
+      <div>
+        <Breadcrumbs />
+      </div>
+
       <div
         className={
           'relative mx-auto gap-[30px] md:grid md:grid-cols-[minmax(300px,650px),minmax(200px,500px)]'
@@ -85,13 +92,10 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
           </div>
 
           <div className={'flex w-[300px] flex-col gap-2 self-center'}>
-            <Button size={'md'} onClick={handleAddProductToBag}>
-              Add to Bag
-            </Button>
-
-            <Button size={'md'} variant={'outlined'} endIcon={<LikeIcon />}>
-              Favorite
-            </Button>
+            <Buttons
+              isInCart={cartProductSize === chosenSize?.title && !!chosenSize}
+              handleAddProductToBag={handleAddProductToBag}
+            />
           </div>
 
           <Typography tag={'div'} className={'mt-10 font-normal'} variant={'title-3'}>

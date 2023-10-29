@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ProductList } from './components';
+import { DescriptionMobile, ProductList } from './components';
 
 import { Typography } from '@/common/ui';
 import { CartProduct } from '@/components/sections/cart/types/types';
@@ -16,17 +16,7 @@ export const BagSection = ({ goods, updateGoods }: Props) => {
       <div className={'py-6 text-center md:text-left'}>
         <Typography variant={'title-2'}>Bag</Typography>
 
-        <div className={'mt-4 flex w-full justify-center gap-3 md:hidden'}>
-          <Typography tag={'span'} variant={'body-1'}>
-            4 Items
-          </Typography>
-          <Typography tag={'span'} variant={'body-1'}>
-            |
-          </Typography>
-          <Typography tag={'span'} variant={'body-1'}>
-            &#x24; 557
-          </Typography>
-        </div>
+        <DescriptionMobile />
       </div>
 
       <ProductList goods={goods} updateGoods={updateGoods} />

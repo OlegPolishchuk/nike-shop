@@ -21,8 +21,8 @@ export const Sizes = ({ sizes, setSize, chosenSize, isValid }: Props) => {
   return (
     <div
       className={clsx(
-        'grid grid-cols-2 gap-2 border p-1',
-        isValid ? 'border-transparent' : 'border-red-500',
+        'grid grid-cols-2 gap-2 rounded-md border p-1',
+        isValid ? 'border-transparent' : 'border-red-400',
       )}
     >
       {sizes.Sizes.map(({ inStock, title, id }) => (
