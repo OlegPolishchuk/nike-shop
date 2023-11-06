@@ -57,7 +57,10 @@ export const ProductCard = ({ good, removeFromCart, updateCount }: Props) => {
 
             <div className={'flex items-center gap-5'}>
               <Typography variant={'body-1'} className={'text-gray-300'}>
-                Quantity: {good.count}
+                Quantity:
+                <Typography tag={'span'} variant={'body-1'} className={'ml-1 text-black-100'}>
+                  {good.count}
+                </Typography>
               </Typography>
 
               <button

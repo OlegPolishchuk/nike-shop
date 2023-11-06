@@ -30,7 +30,7 @@ export const SubItemNav = ({ sublist, isShowSibList, setShowSubList }: Props) =>
         <div
           key={index}
           className={clsx(
-            'flex min-w-[16%]  flex-col px-[6px] pt-[16px]  [transition:opacity_.2s_.2s,transform_.5s]  ',
+            'flex min-w-[16%]  flex-col px-[6px] pt-[16px]  [transition:opacity_.2s_.2s,transform_.5s]',
             isShowSibList
               ? 'group-hover/subNav:translate-y-0 group-hover/subNav:opacity-100'
               : 'translate-y-[-10px] opacity-0',

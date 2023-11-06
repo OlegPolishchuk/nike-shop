@@ -60,7 +60,7 @@ export const Filters = ({ params, setParams, className }: Props) => {
   return (
     <div
       className={clsx(
-        'flex w-[300px] flex-col transition-[height] duration-300',
+        'flex w-full flex-col bg-light transition-[height] duration-300 md:w-[300px]',
         className && className,
       )}
     >
@@ -69,7 +69,7 @@ export const Filters = ({ params, setParams, className }: Props) => {
       <PriceFilter filters={filters} setFilters={setFilters} />
 
       <Button
-        className={'mt-10'}
+        className={'mt-10 max-w-[300px] self-center'}
         variant={'outlined'}
         endIcon={<CloseIcon />}
         onClick={handleResetFilters}
@@ -77,7 +77,7 @@ export const Filters = ({ params, setParams, className }: Props) => {
         Reset filters
       </Button>
 
-      <Button className={'mt-5'} onClick={handleApplyFilters}>
+      <Button className={'mt-5 max-w-[300px] self-center'} onClick={handleApplyFilters}>
         Apply Filters
       </Button>
     </div>

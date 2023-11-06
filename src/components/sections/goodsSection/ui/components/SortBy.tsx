@@ -11,9 +11,10 @@ import { ArrowIcon, Typography } from '@/common/ui';
 interface Props {
   setParams: (params: Partial<SortingParams>) => void;
   params: SortingParams;
+  className?: string;
 }
 
-export const SortBy = ({ setParams, params }: Props) => {
+export const SortBy = ({ setParams, params, className }: Props) => {
   const [sort, setSort] = useState(SortingBy[0]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,7 +46,10 @@ export const SortBy = ({ setParams, params }: Props) => {
   useClickOutside(wrapperRef, handleClose);
 
   return (
-    <div className={'align-right min-w-[150px] bg-light'} ref={wrapperRef}>
+    <div
+      className={clsx('align-right relative min-w-[150px] bg-light', className && className)}
+      ref={wrapperRef}
+    >
       <div className={'relative z-20 flex h-[72px] w-full items-end justify-end bg-light'}>
         <button className={'flex items-center gap-3 '} onClick={handleOpen}>
           <p className={'flex items-center gap-2'}>

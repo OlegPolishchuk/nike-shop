@@ -21,13 +21,13 @@ export const Typography = <T extends TypographyTag>({
     <>
       {dangerousHTML ? (
         <Tag
-          className={`${variant} ${className}`}
+          className={`${variant} ${className ? className : ''}`}
           dangerouslySetInnerHTML={{ __html: dangerousHTML }}
         >
           {children}
         </Tag>
       ) : (
-        <Tag className={`${variant} ${className}`}>{children}</Tag>
+        <Tag className={`${variant} ${className ? className : ''}`}>{children}</Tag>
       )}
     </>
   );

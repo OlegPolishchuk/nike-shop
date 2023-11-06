@@ -16,7 +16,7 @@ export const ShowFiltersButton = ({ className, setShowFilter, isShowFilter }: Pr
       className={clsx('flex gap-3', className && className)}
       onClick={() => setShowFilter((prevState) => !prevState)}
     >
-      <Typography tag={'span'} variant={'title-3'}>
+      <Typography tag={'span'} variant={'title-3'} className={'hidden md:block'}>
         {isShowFilter ? 'Hide' : 'Show'} Filters
       </Typography>
 

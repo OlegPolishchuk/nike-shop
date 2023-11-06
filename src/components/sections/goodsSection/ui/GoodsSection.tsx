@@ -65,28 +65,42 @@ export const GoodsSection = ({ pageTitle }: Props) => {
   );
 
   return (
-    <section className={'flex flex-col gap-[24px] px-[14px] pb-[20px] sm:px-[36px]'}>
-      <div className={'relative flex items-end justify-between bg-light'}>
-        <Typography variant={'title-2'}>
+    <section className={'md:align-end flex flex-col gap-[24px] px-[14px] pb-[20px] sm:px-[36px]'}>
+      <div
+        className={'relative flex flex-col justify-between bg-light md:flex-row md:items-center'}
+      >
+        <Typography variant={'title-2'} className={'relative z-20 mt-5 bg-light'}>
           {splitSolidText(pageTitle)} ({total})
         </Typography>
 
-        <div className={'flex items-end gap-8'}>
-          <ShowFiltersButton isShowFilter={isShowFilter} setShowFilter={setShowFilter} />
+        <div className={'flex items-end justify-between gap-8'}>
+          <ShowFiltersButton
+            isShowFilter={isShowFilter}
+            setShowFilter={setShowFilter}
+            className={'order-1'}
+          />
 
-          <SortBy params={params} setParams={handleSetParams} />
+          <SortBy params={params} setParams={handleSetParams} className={'md:order-2'} />
         </div>
       </div>
 
-      <div className={'mb-[70px] flex gap-10 '}>
+      <div className={'relative mb-[70px] flex flex-col transition-all md:flex-row md:gap-10'}>
         <Filters
           params={params}
           setParams={handleSetParams}
-          className={clsx('transition-all', isShowFilter ? 'ml-0' : 'ml-[-350px]')}
+          className={clsx(
+            'z-10 [transition:height_.2s_.1s,margin_.1s_.1s]',
+            isShowFilter
+              ? 'absolute ml-0 max-h-full md:static'
+              : 'ml-[-110%]  max-h-0 md:ml-[-350px]',
+          )}
         />
 
         <GoodsList
-          className={clsx('w-full transition-all')}
+          className={clsx(
+            'w-full [transition:margin_.2s_.1s] md:mt-0',
+            isShowFilter ? 'mt-[350px]' : 'mt-0',
+          )}
           goods={allGoods}
           params={params}
           // setAllGoods={handleSetAllGoods}
