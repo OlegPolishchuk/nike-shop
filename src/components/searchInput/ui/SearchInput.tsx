@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
@@ -6,7 +6,8 @@ import { useRouter } from 'next/router';
 import { getGoodsPage, SortingParams } from '@/api';
 import { Logo, Typography } from '@/common/ui';
 import { SearchButton } from '@/components/buttons';
-import { useGetGoods, useSetGoods, useSetQueryContext } from '@/providers';
+import { Good } from '@/components/sections/goodsSection/types/types';
+import { useSetGoods, useSetQueryContext } from '@/providers';
 
 interface Props {
   className?: string;
@@ -40,7 +41,7 @@ export const SearchInput = ({ className }: Props) => {
       };
 
       const { sectionShoes } = await getGoodsPage(params);
-      const goods = sectionShoes.data.map((good) => good);
+      const goods = sectionShoes.data.map((good) => good) as Good[];
       const total = sectionShoes.meta.pagination.total;
 
       setQuery(`${query}`);
