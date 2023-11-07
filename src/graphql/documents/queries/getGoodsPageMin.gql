@@ -1,4 +1,4 @@
-query getGoodsPage($pageTitle: String, $page: Int, $pageSize: Int, $sort: [String], $gender: [String], $size: String, $priceFrom: Int, $priceTo: Int, $query: String) {
+query getGoodsPageMin($pageTitle: String, $page: Int, $pageSize: Int, $sort: [String], $gender: [String], $size: String, $priceFrom: Int, $priceTo: Int, $query: String) {
      sectionShoes(
             filters: {
                 pageSubtitle: {eqi: $pageTitle},
@@ -17,7 +17,7 @@ query getGoodsPage($pageTitle: String, $page: Int, $pageSize: Int, $sort: [Strin
           data {
                    id
                    attributes {
-                     ...SectionShoeFragment
+                     ...SectionShoeForCardFragment
                    }
                  }
     }

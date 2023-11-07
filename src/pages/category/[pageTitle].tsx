@@ -3,13 +3,15 @@ import React, { useEffect } from 'react';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
 import { getBannerSection, getGoodsPage, getHomePage } from '@/api';
+import { Typography } from '@/common/ui';
 import { getMainLayout } from '@/components/layouts';
-import { Banner, GoodsSection } from '@/components/sections';
+import { Banner, GoodsSection, NothingToShow } from '@/components/sections';
+import { Good } from '@/components/sections/goodsSection/types/types';
 import { GetSectionBannerQuery, GetSectionShoeQuery } from '@/graphql/client';
 import { useSetGoods } from '@/providers';
 
 interface Props {
-  goodsList: GetSectionShoeQuery['sectionShoe']['data'][];
+  goodsList: Good[];
   bannerSection: GetSectionBannerQuery['bannerSection'];
   pageTitle: string;
   total: number;
@@ -23,7 +25,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
     homePage.data.attributes.banner_section?.data.id,
   );
   const { sectionShoes } = await getGoodsPage({ pagination: { pageTitle } });
-  const goodsList = sectionShoes.data.map((product) => product);
+  const goodsList = sectionShoes.data.map(
+    (product) => product,
+  ) as GetSectionShoeQuery['sectionShoe']['data'][];
   const total = sectionShoes.meta.pagination.total;
 
   return {
@@ -47,6 +51,10 @@ const GoodsPage = ({
   useEffect(() => {
     setAllGoods({ goods: goodsList, total });
   }, [goodsList]);
+
+  if (!goodsList.length) {
+    return <NothingToShow />;
+  }
 
   return (
     <>

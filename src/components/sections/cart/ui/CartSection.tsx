@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import { BagSection, CheckoutMobile, CheckoutSection, SummarySection } from './components';
 
 import { useSessionStorageState } from '@/common/hooks/useStorage';
+import { Typography } from '@/common/ui';
 import { BaseSection } from '@/components/sections';
 import { CartProduct } from '@/components/sections/cart/types/types';
 
@@ -44,7 +45,7 @@ export const CartSection = () => {
 
       <div className={'flex flex-col gap-10 md:flex-row md:justify-center'}>
         <div className={'md:w-[60%] md:max-w-[700px]'}>
-          <BagSection goods={goods} updateGoods={handleUpdateGoods} />
+          <BagSection goods={goods} updateGoods={handleUpdateGoods} summary={summary} />
         </div>
 
         <div className={'md:w-[40%] md:max-w-[400px]'}>
@@ -52,7 +53,7 @@ export const CartSection = () => {
           <CheckoutSection disabled={goodsCount === 0} />
         </div>
 
-        <CheckoutMobile />
+        <CheckoutMobile disabled={goodsCount === 0} />
       </div>
     </BaseSection>
   );

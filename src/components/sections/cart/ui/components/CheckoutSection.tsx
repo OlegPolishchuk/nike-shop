@@ -8,7 +8,7 @@ interface Props {
   disabled: boolean;
 }
 
-export const CheckoutSection = ({ disabled }: Props) => {
+export const CheckoutSection = ({ disabled = false }: Props) => {
   return (
     <div className={'hidden flex-col  gap-4 md:flex'}>
       <Button size={'md'} disabled={disabled}>

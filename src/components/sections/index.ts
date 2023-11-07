@@ -8,3 +8,4 @@ export { Trends } from './trends';
 export { ShoeSection } from './shoeSection';
 export { GoodsSection } from './goodsSection';
 export { CartSection } from './cart';
+export { NothingToShow } from './nothingToShow';

@@ -43,7 +43,7 @@ export const GoodsSection = ({ pageTitle }: Props) => {
           query: queryParam,
         },
       });
-      const goods = res.sectionShoes.data || [];
+      const goods = (res.sectionShoes.data || []) as Good[];
       const total = res.sectionShoes.meta.pagination.total;
 
       if (params.pagination?.page !== 1) {

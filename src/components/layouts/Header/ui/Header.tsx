@@ -1,12 +1,16 @@
 import React from 'react';
 
+import { useRouter } from 'next/router';
+
 import { useMediaQuery } from '@/common/hooks';
-import { Logo } from '@/common/ui';
+import { IconButton, LikeIcon, Logo } from '@/common/ui';
 import { MobileNavigation, Navigation, SearchInput } from '@/components';
-import { CartButton, LikeButton, SearchButton, UserButton } from '@/components/buttons';
+import { CartButton, UserButton } from '@/components/buttons';
 
 export const Header = () => {
   const isLargeScreen = useMediaQuery('(min-width: 960px)');
+
+  const router = useRouter();
 
   return (
     <header
@@ -24,7 +28,7 @@ export const Header = () => {
 
           <div className={'flex items-center gap-2'}>
             <SearchInput />
-            <LikeButton />
+            <IconButton icon={<LikeIcon />} onClick={() => router.push('/favorite')} />
             <CartButton />
           </div>
         </>

@@ -5445,6 +5445,46 @@ export type SectionShoeFragmentFragment = {
   };
 };
 
+export type SectionShoeForCardFragmentFragment = {
+  readonly __typename?: 'SectionShoe';
+  readonly tags: Enum_Sectionshoe_Tags;
+  readonly gender: Enum_Sectionshoe_Gender;
+  readonly pageTitle: Enum_Sectionshoe_Pagetitle;
+  readonly pageSubtitle: Enum_Sectionshoe_Pagesubtitle;
+  readonly pageTitle2: Enum_Sectionshoe_Pagetitle2;
+  readonly pageTitle3: Enum_Sectionshoe_Pagetitle3;
+  readonly updatedAt: any;
+  readonly options: {
+    readonly __typename?: 'ComponentEntityShoeOption';
+    readonly title: string;
+    readonly tag: string;
+    readonly price: number;
+    readonly mainImage: {
+      readonly __typename?: 'UploadFileEntityResponse';
+      readonly data: {
+        readonly __typename?: 'UploadFileEntity';
+        readonly attributes: {
+          readonly __typename?: 'UploadFile';
+          readonly name: string;
+          readonly alternativeText: string;
+          readonly caption: string;
+          readonly width: number;
+          readonly height: number;
+          readonly formats: any;
+          readonly hash: string;
+          readonly ext: string;
+          readonly mime: string;
+          readonly size: number;
+          readonly url: string;
+          readonly previewUrl: string;
+          readonly provider: string;
+          readonly provider_metadata: any;
+        };
+      };
+    };
+  };
+};
+
 export type SectionTrendFragmentFragment = {
   readonly __typename?: 'SectionTrend';
   readonly SectionTitle: string;
@@ -5615,6 +5655,76 @@ export type GetGoodsPageQuery = {
             readonly title: string;
             readonly inStock: boolean;
           }>;
+        };
+      };
+    }>;
+  };
+};
+
+export type GetGoodsPageMinQueryVariables = Exact<{
+  pageTitle: InputMaybe<Scalars['String']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  pageSize: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<
+    ReadonlyArray<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>
+  >;
+  gender: InputMaybe<
+    ReadonlyArray<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>
+  >;
+  size: InputMaybe<Scalars['String']['input']>;
+  priceFrom: InputMaybe<Scalars['Int']['input']>;
+  priceTo: InputMaybe<Scalars['Int']['input']>;
+  query: InputMaybe<Scalars['String']['input']>;
+}>;
+
+export type GetGoodsPageMinQuery = {
+  readonly __typename?: 'Query';
+  readonly sectionShoes: {
+    readonly __typename?: 'SectionShoeEntityResponseCollection';
+    readonly meta: {
+      readonly __typename?: 'ResponseCollectionMeta';
+      readonly pagination: { readonly __typename?: 'Pagination'; readonly total: number };
+    };
+    readonly data: ReadonlyArray<{
+      readonly __typename?: 'SectionShoeEntity';
+      readonly id: string;
+      readonly attributes: {
+        readonly __typename?: 'SectionShoe';
+        readonly tags: Enum_Sectionshoe_Tags;
+        readonly gender: Enum_Sectionshoe_Gender;
+        readonly pageTitle: Enum_Sectionshoe_Pagetitle;
+        readonly pageSubtitle: Enum_Sectionshoe_Pagesubtitle;
+        readonly pageTitle2: Enum_Sectionshoe_Pagetitle2;
+        readonly pageTitle3: Enum_Sectionshoe_Pagetitle3;
+        readonly updatedAt: any;
+        readonly options: {
+          readonly __typename?: 'ComponentEntityShoeOption';
+          readonly title: string;
+          readonly tag: string;
+          readonly price: number;
+          readonly mainImage: {
+            readonly __typename?: 'UploadFileEntityResponse';
+            readonly data: {
+              readonly __typename?: 'UploadFileEntity';
+              readonly attributes: {
+                readonly __typename?: 'UploadFile';
+                readonly name: string;
+                readonly alternativeText: string;
+                readonly caption: string;
+                readonly width: number;
+                readonly height: number;
+                readonly formats: any;
+                readonly hash: string;
+                readonly ext: string;
+                readonly mime: string;
+                readonly size: number;
+                readonly url: string;
+                readonly previewUrl: string;
+                readonly provider: string;
+                readonly provider_metadata: any;
+              };
+            };
+          };
         };
       };
     }>;
@@ -6539,6 +6649,30 @@ export const SectionShoeFragmentFragmentDoc = gql`
   ${ShoeOptionFragmentFragmentDoc}
   ${SizeFragmentDoc}
 `;
+export const SectionShoeForCardFragmentFragmentDoc = gql`
+  fragment SectionShoeForCardFragment on SectionShoe {
+    options {
+      mainImage {
+        data {
+          attributes {
+            ...FileFragment
+          }
+        }
+      }
+      title
+      tag
+      price
+    }
+    tags
+    gender
+    pageTitle
+    pageSubtitle
+    pageTitle2
+    pageTitle3
+    updatedAt
+  }
+  ${FileFragmentFragmentDoc}
+`;
 export const TrendCardFragmentDoc = gql`
   fragment TrendCard on ComponentUiTrendCard {
     id
@@ -6613,6 +6747,43 @@ export const GetGoodsPageDocument = gql`
     }
   }
   ${SectionShoeFragmentFragmentDoc}
+`;
+export const GetGoodsPageMinDocument = gql`
+  query getGoodsPageMin(
+    $pageTitle: String
+    $page: Int
+    $pageSize: Int
+    $sort: [String]
+    $gender: [String]
+    $size: String
+    $priceFrom: Int
+    $priceTo: Int
+    $query: String
+  ) {
+    sectionShoes(
+      filters: {
+        pageSubtitle: { eqi: $pageTitle }
+        gender: { in: $gender }
+        sizes: { Sizes: { title: { containsi: $size }, inStock: { eq: true } } }
+        options: { price: { between: [$priceFrom, $priceTo] }, title: { containsi: $query } }
+      }
+      pagination: { page: $page, pageSize: $pageSize }
+      sort: $sort
+    ) {
+      meta {
+        pagination {
+          total
+        }
+      }
+      data {
+        id
+        attributes {
+          ...SectionShoeForCardFragment
+        }
+      }
+    }
+  }
+  ${SectionShoeForCardFragmentFragmentDoc}
 `;
 export const GetHomePageDocument = gql`
   query getHomePage {
@@ -6741,6 +6912,20 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
             ...wrappedRequestHeaders,
           }),
         'getGoodsPage',
+        'query',
+      );
+    },
+    getGoodsPageMin(
+      variables?: GetGoodsPageMinQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetGoodsPageMinQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetGoodsPageMinQuery>(GetGoodsPageMinDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'getGoodsPageMin',
         'query',
       );
     },

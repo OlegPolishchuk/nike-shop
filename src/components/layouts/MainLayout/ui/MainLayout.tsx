@@ -12,12 +12,14 @@ interface Props {
 
 const MainLayout = ({ children }: Props) => {
   return (
-    <>
-      <PreHeader />
-      <Header />
+    <section className={'flex min-h-screen flex-col justify-between'}>
+      <div>
+        <PreHeader />
+        <Header />
+      </div>
       {children}
       <Footer />
-    </>
+    </section>
   );
 };
 

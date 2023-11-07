@@ -1,8 +1,5 @@
 import { Default_Page_Size } from '@/common/constants/constants';
-import {
-  GenderValue,
-  Max_Product_Cost,
-} from '@/components/sections/goodsSection/constsnts/constants';
+import { Max_Product_Cost } from '@/components/sections/goodsSection/constsnts/constants';
 import { BooleanFilterInput, gql, StringFilterInput } from '@/graphql/client';
 
 export interface PaginationParams {
@@ -68,5 +65,6 @@ export const getGoodsPage = async (params: SortingParams) => {
     newParams = rest;
   }
 
-  return await gql.getGoodsPage({ ...newParams });
+  // return await gql.getGoodsPage({ ...newParams });
+  return await gql.getGoodsPageMin({ ...newParams });
 };

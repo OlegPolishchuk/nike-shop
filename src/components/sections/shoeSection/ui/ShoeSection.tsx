@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 
 import { Buttons, Medias, Sizes } from './components';
 
-import { useSessionStorageState } from '@/common/hooks/useStorage';
+import { useLocalStorageState, useSessionStorageState } from '@/common/hooks/useStorage';
 import { Typography } from '@/common/ui';
 import { Breadcrumbs } from '@/components';
 import { BaseSection } from '@/components/sections';
 import { CartProduct } from '@/components/sections/cart/types/types';
+import { Good } from '@/components/sections/goodsSection/types/types';
 import { GetSectionShoeQuery, SizeFragment } from '@/graphql/__generated__';
 import { Nullable } from '@/types/types';
 
@@ -18,11 +19,15 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
   const [chosenSize, chooseSize] = useState<Nullable<SizeFragment>>(null);
 
   const [cartProducts, setProductToCart] = useSessionStorageState<CartProduct[]>('goods', []);
+  const [favoriteProducts, setFavoriteProducts] = useLocalStorageState<Good[]>('goods', []);
 
   const [isValidSizes, setIsValidSized] = useState(true);
 
   const thisProductFromCart = cartProducts.find((product) => product.id === sectionShoe.data.id);
   const cartProductSize = thisProductFromCart?.size;
+  const isThisProductFavorite = favoriteProducts.find(
+    (product) => product.id === sectionShoe.data.id,
+  );
 
   const { options, sizes } = sectionShoe.data.attributes;
   const { title, tag, price, description, medias, mainImage } = options;
@@ -47,6 +52,20 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
 
     setProductToCart([productToCart, ...cartProducts]);
     setIsValidSized(true);
+  };
+
+  const handleToggleFavoriteProduct = () => {
+    const productToFavorite: Good = {
+      ...sectionShoe.data,
+    };
+
+    if (isThisProductFavorite) {
+      return setFavoriteProducts((prevState) =>
+        prevState.filter((product) => product.id !== productToFavorite.id),
+      );
+    }
+
+    setFavoriteProducts([productToFavorite, ...favoriteProducts]);
   };
 
   return (
@@ -94,7 +113,9 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
           <div className={'flex w-[300px] flex-col gap-2 self-center'}>
             <Buttons
               isInCart={cartProductSize === chosenSize?.title && !!chosenSize}
+              isFavorite={!!isThisProductFavorite}
               handleAddProductToBag={handleAddProductToBag}
+              handleToggleFavoriteProduct={handleToggleFavoriteProduct}
             />
           </div>
 

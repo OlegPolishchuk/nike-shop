@@ -6,10 +6,17 @@ import { Button, LikeIcon, Typography } from '@/common/ui';
 
 interface Props {
   handleAddProductToBag: () => void;
+  handleToggleFavoriteProduct: () => void;
   isInCart: boolean;
+  isFavorite: boolean;
 }
 
-export const Buttons = ({ isInCart, handleAddProductToBag }: Props) => {
+export const Buttons = ({
+  isInCart,
+  handleAddProductToBag,
+  handleToggleFavoriteProduct,
+  isFavorite,
+}: Props) => {
   return (
     <>
       {isInCart ? (
@@ -31,7 +38,12 @@ export const Buttons = ({ isInCart, handleAddProductToBag }: Props) => {
         </Button>
       )}
 
-      <Button size={'md'} variant={'outlined'} endIcon={<LikeIcon />}>
+      <Button
+        size={'md'}
+        variant={'outlined'}
+        onClick={handleToggleFavoriteProduct}
+        endIcon={<LikeIcon fill={isFavorite ? '#f87171' : '#fff'} />}
+      >
         Favorite
       </Button>
     </>

@@ -1,0 +1,21 @@
+fragment SectionShoeForCardFragment on SectionShoe {
+     options {
+          mainImage {
+             data {
+               attributes {
+                 ...FileFragment
+               }
+             }
+           }
+            title
+             tag
+             price
+     }
+     tags
+     gender
+     pageTitle
+     pageSubtitle
+     pageTitle2
+     pageTitle3
+     updatedAt
+}
