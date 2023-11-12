@@ -12,7 +12,7 @@ export const ImageFromCms = ({ src, alt, className, ...restProps }: ImageProps) 
     <Image
       src={imgSrc}
       alt={alt}
-      onError={() => setSrc('../../../../public/images/product-placeholder-wp.jpg')}
+      onError={() => setSrc('/images/product-placeholder-wp.jpg')}
       {...restProps}
       priority
       sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
