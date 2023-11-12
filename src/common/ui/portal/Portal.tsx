@@ -1,6 +1,4 @@
-'use client';
-
-import { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
@@ -8,11 +6,17 @@ interface Props {
   children: ReactNode;
   tag?: string;
   tagClassnames?: string;
+  id?: string;
 }
-export const Portal = ({ children, tagClassnames, tag }: Props) => {
-  const [container] = useState(() => document.createElement(tag ? tag : 'div'));
+export const Portal = ({ children, tagClassnames, tag, id }: Props): ReactNode => {
+  const [container, setContainer] = useState(() => createElement(tag));
 
   useEffect(() => {
+    if (id) {
+      const targetElement = document.getElementById(id);
+
+      setContainer(targetElement || createElement(tag));
+    }
     if (tagClassnames) {
       container.className = tagClassnames;
     }
@@ -25,5 +29,9 @@ export const Portal = ({ children, tagClassnames, tag }: Props) => {
   }, []);
 
   // @ts-ignore
-  return createPortal(children, container as Element);
+  return createPortal(children, container);
 };
+
+function createElement(tag?: string) {
+  return document.createElement(tag ? tag : 'div');
+}

@@ -19,6 +19,11 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
   const [chosenSize, chooseSize] = useState<Nullable<SizeFragment>>(null);
 
   const [cartProducts, setProductToCart] = useSessionStorageState<CartProduct[]>('goods', []);
+
+  // const favoriteProducts = useGetFavoriteGoods();
+  // const setFavoriteProducts = useSetFavoriteGoods();
+  // const isThisProductFavorite = useIsThisProductFavorite();
+
   const [favoriteProducts, setFavoriteProducts] = useLocalStorageState<Good[]>('goods', []);
 
   const [isValidSizes, setIsValidSized] = useState(true);

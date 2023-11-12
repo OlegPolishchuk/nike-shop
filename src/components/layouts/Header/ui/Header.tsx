@@ -6,6 +6,7 @@ import { useMediaQuery } from '@/common/hooks';
 import { IconButton, LikeIcon, Logo } from '@/common/ui';
 import { MobileNavigation, Navigation, SearchInput } from '@/components';
 import { CartButton, UserButton } from '@/components/buttons';
+import { Tooltip } from '@/components/tooltip';
 
 export const Header = () => {
   const isLargeScreen = useMediaQuery('(min-width: 960px)');
@@ -28,8 +29,14 @@ export const Header = () => {
 
           <div className={'flex items-center gap-2'}>
             <SearchInput />
-            <IconButton icon={<LikeIcon />} onClick={() => router.push('/favorite')} />
-            <CartButton />
+
+            <Tooltip title={'go to favorite'}>
+              <IconButton icon={<LikeIcon />} onClick={() => router.push('/favorite')}></IconButton>
+            </Tooltip>
+
+            <Tooltip title={'go to bag'}>
+              <CartButton />
+            </Tooltip>
           </div>
         </>
       ) : (

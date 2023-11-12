@@ -2,28 +2,18 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import { useLocalStorageState } from '@/common/hooks/useStorage';
 import { Typography } from '@/common/ui';
 import { ImageFromCms } from '@/components';
 import { LikeButton, TrashButton } from '@/components/buttons';
 import { CartProduct } from '@/components/sections/cart/types/types';
-import { Good } from '@/components/sections/goodsSection/types/types';
 
 interface Props {
   good: CartProduct;
   removeFromCart: (product: CartProduct) => void;
   updateCount: (product: CartProduct) => void;
-  isFavorite: boolean;
-  handleToggleFavoriteProduct: (product: Good) => void;
 }
 
-export const ProductCard = ({
-  good,
-  removeFromCart,
-  updateCount,
-  isFavorite,
-  handleToggleFavoriteProduct,
-}: Props) => {
+export const ProductCard = ({ good, removeFromCart, updateCount }: Props) => {
   const { options } = good.attributes;
   const { title, tag, mainImage, price } = options;
 
@@ -39,10 +29,6 @@ export const ProductCard = ({
 
   const handleDeleteProduct = () => {
     removeFromCart(good);
-  };
-
-  const handleToggleFavorite = () => {
-    handleToggleFavoriteProduct(good);
   };
 
   return (
@@ -99,10 +85,7 @@ export const ProductCard = ({
           </div>
 
           <div className={'gap34 flex'}>
-            <LikeButton
-              isFavorite={isFavorite}
-              handleToggleFavoriteProduct={handleToggleFavorite}
-            />
+            <LikeButton good={good} />
             <TrashButton onClick={handleDeleteProduct} />
           </div>
         </div>

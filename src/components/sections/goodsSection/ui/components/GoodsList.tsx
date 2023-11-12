@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { Good } from '../../types/types';
 
-import { getGoodsPage, SortingParams } from '@/api';
+import { SortingParams } from '@/api';
 import { Default_Page_Size } from '@/common/constants/constants';
 import { GoodsCard } from '@/common/ui';
 

@@ -11,6 +11,8 @@ export {
   GoodsSection,
   Trends,
   CartSection,
+  CheckoutSection,
+  FavoriteSection,
 } from './sections';
 export { SectionTitle } from './SectionTitle';
 export { VideoFromCms, ImageFromCms } from './MediaFromCms';

@@ -4,7 +4,10 @@ import Link from 'next/link';
 
 import { Typography } from '@/common/ui';
 import { ImageFromCms } from '@/components';
+import { LikeButton } from '@/components/buttons';
 import { Good } from '@/components/sections/goodsSection/types/types';
+import { Tooltip } from '@/components/tooltip';
+import { useIsFavorite } from '@/providers/favoriteProductProvider/FavoriteProductProvider';
 
 interface Props {
   card: Good;
@@ -16,8 +19,16 @@ export const GoodsCard = forwardRef<HTMLDivElement, Props>(({ card }, ref) => {
   const { title, tag, price, mainImage } = options;
   const { url, alternativeText } = mainImage.data.attributes;
 
+  const isThisProductFavorite = useIsFavorite();
+
   return (
-    <div ref={ref}>
+    <div ref={ref} className={'relative'}>
+      <div className={'absolute right-2 top-2 z-20'}>
+        <Tooltip title={isThisProductFavorite(card.id) ? 'dislike' : 'like'}>
+          <LikeButton good={card} />
+        </Tooltip>
+      </div>
+
       <Link href={`/goods/${id}`}>
         <div className='relative h-0 min-h-[180px] w-full pb-[100%]'>
           <ImageFromCms src={url} alt={alternativeText ?? title} fill className='h-full w-full' />
