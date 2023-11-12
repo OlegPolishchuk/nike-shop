@@ -9,3 +9,5 @@ export { ShoeSection } from './shoeSection';
 export { GoodsSection } from './goodsSection';
 export { CartSection } from './cart';
 export { NothingToShow } from './nothingToShow';
+export { FavoriteSection } from './favorite';
+export { CheckoutSection } from './checkout';

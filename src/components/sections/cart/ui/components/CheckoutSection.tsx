@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { Button } from '@/common/ui';
 
@@ -9,9 +10,15 @@ interface Props {
 }
 
 export const CheckoutSection = ({ disabled = false }: Props) => {
+  const router = useRouter();
+
+  const handleRedirectToCheckout = () => {
+    router.push('/checkout');
+  };
+
   return (
     <div className={'hidden flex-col  gap-4 md:flex'}>
-      <Button size={'md'} disabled={disabled}>
+      <Button size={'md'} disabled={disabled} onClick={handleRedirectToCheckout}>
         Checkout
       </Button>
       <Button size={'md'} disabled={disabled} variant={'outlined'}>

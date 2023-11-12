@@ -1,4 +1,4 @@
-import React, { SetStateAction, useCallback, useState } from 'react';
+import { SetStateAction, useCallback, useState } from 'react';
 
 import { useLatest } from '@/common/hooks/useLatest';
 import { localStorageWrapper, sessionStorageWrapper } from '@/services';

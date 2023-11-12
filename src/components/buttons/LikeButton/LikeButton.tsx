@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useId } from 'react';
 
-import { useLocalStorageState } from '@/common/hooks/useStorage';
 import { IconButton, LikeIcon } from '@/common/ui';
 import { Good } from '@/components/sections/goodsSection/types/types';
+import { Tooltip } from '@/components/tooltip';
+import {
+  useIsFavorite,
+  useToggleFavorite,
+} from '@/providers/favoriteProductProvider/FavoriteProductProvider';
 
 interface Props {
-  isFavorite: boolean;
-  handleToggleFavoriteProduct: () => void;
+  className?: string;
+  good: Good;
 }
 
-export const LikeButton = ({ isFavorite, handleToggleFavoriteProduct }: Props) => {
+export const LikeButton = ({ good, className }: Props) => {
+  const toggleFavorite = useToggleFavorite();
+  const checkIsFavorite = useIsFavorite();
+
+  const isThisProductFavorite = checkIsFavorite(good.id);
+
   return (
     <IconButton
-      icon={<LikeIcon fill={isFavorite ? '#f87171' : '#fff'} />}
-      onClick={handleToggleFavoriteProduct}
+      className={className ? className : ''}
+      icon={<LikeIcon fill={isThisProductFavorite ? '#f87171' : '#fff'} />}
+      onClick={() => toggleFavorite(good)}
     />
   );
 };
