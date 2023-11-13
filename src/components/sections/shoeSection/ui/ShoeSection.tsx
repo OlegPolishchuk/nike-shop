@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { Buttons, Medias, Sizes } from './components';
 
-import { useLocalStorageState, useSessionStorageState } from '@/common/hooks/useStorage';
 import { Typography } from '@/common/ui';
 import { Breadcrumbs } from '@/components';
 import { BaseSection } from '@/components/sections';
 import { CartProduct } from '@/components/sections/cart/types/types';
 import { Good } from '@/components/sections/goodsSection/types/types';
 import { GetSectionShoeQuery, SizeFragment } from '@/graphql/__generated__';
+import { useGetCartGoods, useSetCartGoods } from '@/providers';
+import {
+  useGetFavoriteGoods,
+  useSetFavoriteGoods,
+} from '@/providers/favoriteProductProvider/FavoriteProductProvider';
 import { Nullable } from '@/types/types';
 
 interface Props {
@@ -18,13 +22,10 @@ interface Props {
 export const ShoeSection = ({ sectionShoe }: Props) => {
   const [chosenSize, chooseSize] = useState<Nullable<SizeFragment>>(null);
 
-  const [cartProducts, setProductToCart] = useSessionStorageState<CartProduct[]>('goods', []);
-
-  // const favoriteProducts = useGetFavoriteGoods();
-  // const setFavoriteProducts = useSetFavoriteGoods();
-  // const isThisProductFavorite = useIsThisProductFavorite();
-
-  const [favoriteProducts, setFavoriteProducts] = useLocalStorageState<Good[]>('goods', []);
+  const cartProducts = useGetCartGoods();
+  const setProductToCart = useSetCartGoods();
+  const favoriteProducts = useGetFavoriteGoods();
+  const setFavoriteProducts = useSetFavoriteGoods();
 
   const [isValidSizes, setIsValidSized] = useState(true);
 
@@ -37,7 +38,7 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
   const { options, sizes } = sectionShoe.data.attributes;
   const { title, tag, price, description, medias, mainImage } = options;
 
-  const allMedias = [mainImage.data, ...medias.data];
+  const allMedias = useMemo(() => [mainImage.data, ...medias.data], [medias, mainImage]);
 
   const handleSetSize = (size: SizeFragment) => {
     chooseSize(size);
@@ -65,8 +66,8 @@ export const ShoeSection = ({ sectionShoe }: Props) => {
     };
 
     if (isThisProductFavorite) {
-      return setFavoriteProducts((prevState) =>
-        prevState.filter((product) => product.id !== productToFavorite.id),
+      return setFavoriteProducts(
+        favoriteProducts.filter((product) => product.id !== productToFavorite.id),
       );
     }
 

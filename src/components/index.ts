@@ -17,3 +17,4 @@ export {
 export { SectionTitle } from './SectionTitle';
 export { VideoFromCms, ImageFromCms } from './MediaFromCms';
 export { Breadcrumbs } from './breadcrumbs';
+export { LikeWidget, CartWidget } from './widgets';

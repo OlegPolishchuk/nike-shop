@@ -82,6 +82,9 @@ const MapContainer = ({ center, stores }: Props) => {
 
       map.panTo(center, { flying: true });
     }
+    if (center) {
+      handleRemoveBalloon();
+    }
   }, [map, center]);
 
   useEffect(() => {

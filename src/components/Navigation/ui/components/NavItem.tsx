@@ -26,15 +26,11 @@ export const ItemNav = ({ navItem, className }: Props) => {
 
   return (
     <li
-      // className={`group/subNav flex items-center ${className} border-b-2 border-transparent hover:border-black-100`}
       className={`flex items-center ${className} border-b-2 border-transparent hover:border-black-100`}
       onMouseEnter={handleMouseEnterMenuItem}
       onMouseLeave={handleMouseLeaveMenuItem}
     >
-      <Link
-        href={href}
-        className={'flex h-[58px] items-center p-[12px] font-medium transition-all'}
-      >
+      <Link href={'#'} className={'flex h-[58px] items-center p-[12px] font-medium transition-all'}>
         <Typography tag={'span'} variant={'body-1'}>
           {title}
         </Typography>

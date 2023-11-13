@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -11,7 +11,7 @@ interface Props {
   medias: GetSectionShoeQuery['sectionShoe']['data']['attributes']['options']['medias']['data'];
 }
 
-export const Medias = ({ medias, title }: Props) => {
+export const Medias = memo(({ medias, title }: Props) => {
   const [activeSlide, setActiveSlide] = useState(medias[0].attributes);
 
   const handleChangeActiveSlide = (slide: UploadFile) => {
@@ -77,7 +77,14 @@ export const Medias = ({ medias, title }: Props) => {
             className={'absolute bottom-0 left-0 right-0 top-0'}
           />
         ) : (
-          <ImageFromCms src={activeSlide.url} alt={title} priority fill className={'rounded-md'} />
+          <ImageFromCms
+            key={activeSlide.url}
+            src={activeSlide.url}
+            alt={title}
+            priority
+            fill
+            className={'rounded-md'}
+          />
         )}
 
         <SliderLeftButton
@@ -91,4 +98,4 @@ export const Medias = ({ medias, title }: Props) => {
       </div>
     </div>
   );
-};
+});

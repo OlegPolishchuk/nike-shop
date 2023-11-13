@@ -6,11 +6,14 @@ import { useSessionStorageState } from '@/common/hooks/useStorage';
 import { Typography } from '@/common/ui';
 import { BaseSection } from '@/components/sections';
 import { CartProduct } from '@/components/sections/cart/types/types';
+import { Good } from '@/components/sections/goodsSection/types/types';
+import { useGetCartGoods, useSetCartGoods } from '@/providers';
 
 const ESTIMATES = 15;
 
 export const CartSection = () => {
-  const [goods, setGoods] = useSessionStorageState<CartProduct[]>('goods', []);
+  const goods = useGetCartGoods();
+  const updateGoods = useSetCartGoods();
 
   const goodsCount = goods.length;
 
@@ -23,7 +26,7 @@ export const CartSection = () => {
   );
 
   const handleUpdateGoods = (goods: CartProduct[]) => {
-    setGoods(goods);
+    updateGoods(goods);
   };
 
   const estimates = goodsCount > 0 ? ESTIMATES : 0;

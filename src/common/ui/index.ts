@@ -8,3 +8,4 @@ export * from './portal/Portal';
 export * from './socialLink/SocialLink';
 export * from './input/Input';
 export * from './textField/TextField';
+export * from './badge/badge';
