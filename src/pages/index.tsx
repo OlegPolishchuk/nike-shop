@@ -1,4 +1,3 @@
-import { useQuery } from '@apollo/client';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
 import {
@@ -19,7 +18,6 @@ import {
   GetSectionPopularQuery,
   GetSectionTrendQuery,
 } from '@/graphql/client';
-import { getHomePageQuery } from '@/graphql/documents/queries/getHomePage';
 
 interface Props {
   sectionMainTitle: GetSectionMainTitleQuery['sectionMainTitle'];
