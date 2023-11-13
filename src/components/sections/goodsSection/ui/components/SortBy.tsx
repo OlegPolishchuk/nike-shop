@@ -72,7 +72,7 @@ export const SortBy = ({ setParams, params, className }: Props) => {
 
       <div
         className={clsx(
-          'absolute right-0 z-[99] flex min-w-[150px] flex-col gap-3 rounded-b-md bg-light px-4 py-4 text-right transition-all duration-[.2s]',
+          'absolute right-0 z-10 flex min-w-[150px] flex-col gap-3 rounded-b-md bg-light px-4 py-4 text-right transition-all duration-[.2s]',
           isOpen ? 'transform-x-[150%] flex max-h-[500px]' : 'translate-y-[-100%]',
         )}
       >

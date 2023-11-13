@@ -24,7 +24,7 @@ export const GoodsCard = memo(
 
     return (
       <div ref={ref} className={'relative'}>
-        <div className={'absolute right-2 top-2 z-20'}>
+        <div className={'absolute right-2 top-2 z-[9]'}>
           <Tooltip title={isThisProductFavorite(card.id) ? 'dislike' : 'like'}>
             <LikeButton good={card} />
           </Tooltip>
