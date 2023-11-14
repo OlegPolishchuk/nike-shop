@@ -5,6 +5,7 @@ import { ReactElement } from 'react';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 
+import { useLoader } from '@/common/hooks/useLoader';
 import { CartProvider, PrevRouteProvider, ProductProvider } from '@/providers';
 import { FavoriteProductsProvider } from '@/providers/favoriteProductProvider/FavoriteProductProvider';
 
@@ -17,6 +18,8 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  useLoader();
+
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (

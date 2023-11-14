@@ -68,3 +68,19 @@ h1,h2,h3,h4,h5,p,ul {
 ul, li {
   list-style: none;
 }
+
+@keyframes pulse {
+  0% {
+    opacity: .5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .5;
+  }
+}
+
+.pulse {
+  animation: pulse 1s infinite;
+}
