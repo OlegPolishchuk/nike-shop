@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 
+import Link from 'next/link';
 import { flushSync } from 'react-dom';
 import { useInView } from 'react-intersection-observer';
 
@@ -83,13 +84,15 @@ export const ItemCardCarousel = ({ data }: Props) => {
         <ul className={'flex gap-4 overflow-hidden'}>
           {cards.map((card, index) => (
             <li key={card.id} ref={getRef(index)}>
-              <ItemCard
-                category={card.tag}
-                title={card.title}
-                imgSrc={card.media.data.attributes.url}
-                price={card.price}
-                link={card.link}
-              />
+              <Link href={`/goods/${card.section_shoes.data[0].id}`}>
+                <ItemCard
+                  category={card.tag}
+                  title={card.title}
+                  imgSrc={card.media.data.attributes.url}
+                  price={card.price}
+                  link={card.link}
+                />
+              </Link>
             </li>
           ))}
         </ul>
