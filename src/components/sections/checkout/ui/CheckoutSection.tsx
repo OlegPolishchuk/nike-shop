@@ -12,16 +12,23 @@ import { useSessionStorageState } from '@/common/hooks/useStorage';
 import { Typography } from '@/common/ui';
 import { BaseSection } from '@/components/sections';
 import { CartProduct } from '@/components/sections/cart/types/types';
+import { useGetCartGoods, useSetCartGoods } from '@/providers';
 import { Store } from '@/types/types';
 
 export const CheckoutSection = () => {
-  const [goods] = useSessionStorageState<CartProduct[]>('goods', []);
+  // const [goods, setGoods] = useSessionStorageState<CartProduct[]>('goods', []);
+  const goods = useGetCartGoods();
+  const setGoods = useSetCartGoods();
 
   const [stores, setStores] = useState<Store[]>([]);
   const [cityCoordinates, setCityCoordinates] = useState(defaultCityCoordinates);
   const [mapCenter, setMapCenter] = useState<LatLon>(defaultCenter);
 
   const [userData, setUserData] = useState<FormData>();
+
+  const handleResetCart = () => {
+    setGoods([]);
+  };
 
   useEffect(() => {
     getStores({ lat: cityCoordinates.lat, lon: cityCoordinates.lon }).then((res) => setStores(res));
@@ -50,6 +57,7 @@ export const CheckoutSection = () => {
               setCity={setCityCoordinates}
               setCenter={setMapCenter}
               setUserData={setUserData}
+              resetCart={handleResetCart}
             />
 
             <div className={'w-full lg:w-[50%] lg:max-w-[600px]'}>

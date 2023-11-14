@@ -21,9 +21,10 @@ interface Props {
   setCity: React.Dispatch<React.SetStateAction<{ lat: number; lon: number }>>;
   setCenter: React.Dispatch<React.SetStateAction<LatLon>>;
   setUserData: React.Dispatch<React.SetStateAction<FormData | undefined>>;
+  resetCart: () => void;
 }
 
-export const CheckoutForm = ({ className, setCity, setCenter, setUserData }: Props) => {
+export const CheckoutForm = ({ className, setCity, setCenter, setUserData, resetCart }: Props) => {
   const {
     register,
     formState: { errors },
@@ -59,6 +60,7 @@ export const CheckoutForm = ({ className, setCity, setCenter, setUserData }: Pro
   const submit = (data: FormData) => {
     setUserData(data);
     sessionStorageWrapper.remove('goods');
+    resetCart();
   };
 
   return (

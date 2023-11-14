@@ -71,16 +71,16 @@ ul, li {
 
 @keyframes pulse {
   0% {
-    opacity: .5;
+    opacity: .4;
   }
   50% {
     opacity: 1;
   }
   100% {
-    opacity: .5;
+    opacity: .4;
   }
 }
 
 .pulse {
-  animation: pulse 1s infinite;
+  animation: pulse 1.5s infinite;
 }
